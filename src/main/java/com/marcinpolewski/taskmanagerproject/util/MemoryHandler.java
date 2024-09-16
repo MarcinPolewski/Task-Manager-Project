@@ -1,4 +1,5 @@
 package com.marcinpolewski.taskmanagerproject.util;
 
-public class MemoryHander {
+public class MemoryHandler {
 }
+
