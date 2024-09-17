@@ -4,19 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54600131-cb9d-4176-a570-c31928a1299f" name="Changes" comment="Created packages and empty classes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/exceptions/SubTaskNotFinishedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/model/TaskDirectory.java" afterDir="false" />
+    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/Events/StartUpInitializationCompletedEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/JavaFXApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/JavaFXConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/ViewHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/start-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/model/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/model/TaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/model/TaskManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/model/TaskPriority.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/model/TaskPriority.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/model/TaskState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/model/TaskState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/util/MemoryHander.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/util/MemoryHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/exceptions/SubTaskNotFinishedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/model/NotificationHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/model/Task.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/model/TaskDirectory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/model/TaskManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/model/TaskPriority.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/model/TaskState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/util/AssetLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/util/MemoryHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcinpolewski/taskmanagerproject/view/CustomBubububton.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/marcinpolewski/taskmanagerproject/view/log-in-screen.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +43,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="FxmlFile" />
         <option value="Class" />
       </list>
@@ -34,6 +50,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -43,21 +62,25 @@
     </option>
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
+  &quot;associatedIndex&quot;: 5
 }</component>
-  <component name="ProjectId" id="2m7IRBh8439sGla0cuHykK6Q8hJ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2mBaBfWwTxlTsuKL17kOO9QhzeK" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.Main.executor": "Debug",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/marcinpolewski/Documents/Task-Manager-Project/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/util",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -66,45 +89,54 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/util" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.marcin.jacek.polewski.Task_Manager_Project.exceptions" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Task-Manager-Project" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.marcin.jacek.polewski.Task_Manager_Project.Main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="54600131-cb9d-4176-a570-c31928a1299f" name="Changes" comment="" />
-      <created>1726421176833</created>
+      <changelist id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="" />
+      <created>1726552289703</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1726421176833</updated>
-      <workItem from="1726421178035" duration="1910000" />
-      <workItem from="1726486260172" duration="32000" />
-      <workItem from="1726486293686" duration="4032000" />
-      <workItem from="1726490436153" duration="975000" />
-      <workItem from="1726491414636" duration="859000" />
+      <updated>1726552289703</updated>
+      <workItem from="1726552291860" duration="361000" />
+      <workItem from="1726552660861" duration="397000" />
+      <workItem from="1726553063313" duration="130000" />
+      <workItem from="1726553197294" duration="10536000" />
     </task>
-    <task id="LOCAL-00001" summary="initial commit">
-      <option name="closed" value="true" />
-      <created>1726421239060</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1726421239060</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Created packages and empty classes">
-      <option name="closed" value="true" />
-      <created>1726487674218</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1726487674218</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial commit" />
-    <MESSAGE value="Created packages and empty classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created packages and empty classes" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/ViewHandler.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
