@@ -1,4 +1,8 @@
 .root /* changing root nodes  */
 {
-    -fx-background-color: #111111;
+    -fx-background-color: #fc0000;
+}
+
+.label{
+    -fx-font-size: 50;
 }

@@ -39,7 +39,6 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
             System.out.println("Error has occurred during loading fxml file," +
                     "according to path provided in application.properties");
         }
-
         mainStage.show();
     }
 }

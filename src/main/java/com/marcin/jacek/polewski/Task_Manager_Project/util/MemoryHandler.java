@@ -39,6 +39,8 @@ public class MemoryHandler {
         SceneWrapper.setDefaultCSSResource(defaultCSSResource);
     }
 
+
+
     public SceneWrapper getSceneWrapper(SceneId sceneId) throws IndexOutOfBoundsException, IOException
     {
         SceneWrapper wrapper =  scenes.get(sceneId);
@@ -58,13 +60,15 @@ public class MemoryHandler {
             wrapper.setScene(scene);
 
             // load css file
-            String defaultCss = Files.readString(SceneWrapper.getDefaultCSSResource().getFile().toPath());
-            String scenesCss = Files.readString(wrapper.getSceneCSSResource().getFile().toPath());
+            String defaultCss = SceneWrapper.getDefaultCSSResource().getURL().toExternalForm();
+            String scenesCss = wrapper.getSceneCSSResource().getURL().toExternalForm();
+            // @TODO add caching defaultCSS
 
             scene.getStylesheets().add(defaultCss);
             scene.getStylesheets().add(scenesCss);
         }
+
         return wrapper;
     }
 }
-
+// /Users/marcinpolewski/Documents/Task-Manager-Project/target/classes/styles/default_style.css
