@@ -1,19 +1,19 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.util;
 
+import com.marcin.jacek.polewski.Task_Manager_Project.view.ImageId;
+import com.marcin.jacek.polewski.Task_Manager_Project.view.ImageWrapper;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.SceneId;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.SceneWrapper;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Map;
 import java.net.URL;
@@ -23,23 +23,46 @@ import java.net.URL;
 public class MemoryHandler {
 
     private final Map<SceneId, SceneWrapper> scenes = new HashMap<>(); // maps scene id with object containing everything about this scene
+    private final Map<ImageId, ImageWrapper> images = new HashMap<>();
 
     public MemoryHandler(
             @Value("${scene.startScene.name}") String startSceneName,
+
+            @Value("classpath:${images.app_logo.path}") Resource mainIconResource,
+
             @Value("classpath:${scene.startScene.path}") Resource startSceneResource,
             @Value("classpath:${scene.startScene.css.path}") Resource startSceneCSSResource,
+
             @Value("classpath:${scene.default.css.path}") Resource defaultCSSResource
     )
     {
 
-        // adding scenes to scenes map @set
+        // adding scenes to scenes map @TODO add all other scenes
         scenes.put(SceneId.START_SCENE, new SceneWrapper(SceneId.START_SCENE, startSceneName, startSceneResource, startSceneCSSResource));
-        // @TODO add all other scenes
+        //
+
+        // adding craeting images wrappers
+        images.put(ImageId.APP_LOGO, new ImageWrapper(ImageId.APP_LOGO, mainIconResource));
 
         SceneWrapper.setDefaultCSSResource(defaultCSSResource);
     }
 
+    public Image getImage(ImageId imageId) throws IOException
+    {
+        ImageWrapper wrapper = images.get(imageId);
+        if(wrapper == null)
+            throw new IndexOutOfBoundsException("images does not have a mapping for this imageId:" + imageId);
 
+        if (wrapper.getImage() == null)
+        {
+            // @TODO fix this line, causes an error
+            Resource resource = wrapper.getImageResource();
+            InputStream inputStream = resource.getInputStream();
+            wrapper.setImage(new Image(inputStream));
+        }
+
+        return wrapper.getImage();
+    }
 
     public SceneWrapper getSceneWrapper(SceneId sceneId) throws IndexOutOfBoundsException, IOException
     {
@@ -71,4 +94,3 @@ public class MemoryHandler {
         return wrapper;
     }
 }
-// /Users/marcinpolewski/Documents/Task-Manager-Project/target/classes/styles/default_style.css
