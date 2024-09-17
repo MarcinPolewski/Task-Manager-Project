@@ -1,44 +1,45 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.view;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.Events.StartUpInitializationCompletedEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
 import javafx.stage.Stage;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.net.URL;
 
 /* class responsible for switching scenes*/
 @Component
 public class ViewHandler implements ApplicationListener<StartUpInitializationCompletedEvent> {
     private Stage mainStage;
-    private final Resource startFxml;
+    private SceneWrapper currentStage;
+    private SceneWrapper startScene;
+    private MemoryHandler memoryHandler;
 
-    ViewHandler(
-            @Value("classpath:/view/start-view.fxml") Resource resource
-    )
+    @Autowired
+    ViewHandler(MemoryHandler memoryHandler)
     {
-        startFxml = resource;
+        this.memoryHandler = memoryHandler;
     }
 
     @Override
     public void onApplicationEvent(StartUpInitializationCompletedEvent event) {
         // initialization of spring has finished, now load start scene to application
+        mainStage = event.getStage();
         try{
-            mainStage = event.getStage();
-            URL url = startFxml.getURL();
-            FXMLLoader loader = new FXMLLoader(url);
-            Parent root = loader.load();
-            Scene scene = new Scene(root, 500, 500);
-            mainStage.setScene(scene);
-            mainStage.show();
-        } catch(Exception e){
-            e.printStackTrace();
+            currentStage = memoryHandler.getSceneWrapper(SceneId.START_SCENE);
+            startScene = currentStage;
+
+            mainStage.setScene(currentStage.getScene());
+        } catch (IndexOutOfBoundsException e){
+            System.out.println("No scene with particular id found");
+        } catch (IOException e)
+        {
+            System.out.println("Error has occurred during loading fxml file," +
+                    "according to path provided in application.properties");
         }
+
+        mainStage.show();
     }
 }
