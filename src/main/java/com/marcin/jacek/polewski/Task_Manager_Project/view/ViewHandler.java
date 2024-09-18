@@ -31,9 +31,6 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
         mainStage.getIcons().add(icon);
 
         // @TODO fix, app icon is not set
-//        ImageView iv = new ImageView(icon);
-//        startScene.getController().
-////        mainStage.getScene().getRoot().
     }
 
     @Override
@@ -55,6 +52,7 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
         }
         try{
             setWindowIcon();
+            System.out.println("Icon is set");
         } catch(IOException e)
         {
             System.out.println("unable to get icon");

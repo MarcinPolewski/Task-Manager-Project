@@ -63,7 +63,6 @@ public class MemoryHandler {
 
         if (wrapper.getImage() == null)
         {
-            // @TODO fix this line, causes an error
             Resource resource = wrapper.getImageResource();
             InputStream inputStream = resource.getInputStream();
             wrapper.setImage(new Image(inputStream));
@@ -82,10 +81,11 @@ public class MemoryHandler {
         if(!wrapper.isFXMLLoaded())
         {
             // load fxml file
-            URL url = wrapper.getFxmlResource().getURL(); // thows IOExc
+            URL url = wrapper.getFxmlResource().getURL(); // throws IOExc
             FXMLLoader loader = new FXMLLoader(url);
 
-            // @TODO do better
+            // Set the controller factory to retrieve the controller from Spring
+            // thanks to that dependency injection to FX controllers is now possible
             loader.setControllerFactory(context::getBean);
 
             Parent root = loader.load();        // throws IOException

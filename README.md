@@ -28,6 +28,8 @@
              scene.getStylesheets().add(defaultCss);
              scene.getStylesheets().add(scenesCss); 
      ```
+ -  aplication icon would not change. Using standard scene.getIcon.add(icon) did not work
+    - still not fixed 
 
 ### Attributions
 - "list.png" <- <a href="https://www.flaticon.com/free-icons/to-do-list" title="to do list icons">To do list icons created by Freepik - Flaticon</a>
