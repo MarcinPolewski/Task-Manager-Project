@@ -15,7 +15,6 @@ public class JavaFXApplication extends Application {
 
     // The Spring context that will be used to manage beans and application lifecycle
     private ConfigurableApplicationContext context;
-
     /**
      * The init() method is called before the JavaFX application starts.
      * It initializes the Spring context and registers JavaFX-specific beans.

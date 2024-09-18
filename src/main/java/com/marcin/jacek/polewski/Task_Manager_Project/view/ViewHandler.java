@@ -3,6 +3,7 @@ package com.marcin.jacek.polewski.Task_Manager_Project.view;
 import com.marcin.jacek.polewski.Task_Manager_Project.Events.StartUpInitializationCompletedEvent;
 import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -24,16 +25,21 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
         this.memoryHandler = memoryHandler;
     }
 
-    void setWindowIcon() throws IOException
+    private void setWindowIcon() throws IOException
     {
         Image icon = memoryHandler.getImage(ImageId.APP_LOGO);
         mainStage.getIcons().add(icon);
+
         // @TODO fix, app icon is not set
+//        ImageView iv = new ImageView(icon);
+//        startScene.getController().
+////        mainStage.getScene().getRoot().
     }
 
     @Override
     public void onApplicationEvent(StartUpInitializationCompletedEvent event) {
         // initialization of spring has finished, now load start scene to application
+        // and configure the main window
         mainStage = event.getStage();
         try{
             currentStage = memoryHandler.getSceneWrapper(SceneId.START_SCENE);

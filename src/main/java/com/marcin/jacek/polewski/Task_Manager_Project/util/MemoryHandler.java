@@ -1,5 +1,6 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.util;
 
+import com.marcin.jacek.polewski.Task_Manager_Project.JavaFXApplication;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.ImageId;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.ImageWrapper;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.SceneId;
@@ -8,7 +9,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
@@ -24,7 +27,9 @@ public class MemoryHandler {
 
     private final Map<SceneId, SceneWrapper> scenes = new HashMap<>(); // maps scene id with object containing everything about this scene
     private final Map<ImageId, ImageWrapper> images = new HashMap<>();
+    private final ConfigurableApplicationContext context;
 
+    @Autowired
     public MemoryHandler(
             @Value("${scene.startScene.name}") String startSceneName,
 
@@ -33,10 +38,13 @@ public class MemoryHandler {
             @Value("classpath:${scene.startScene.path}") Resource startSceneResource,
             @Value("classpath:${scene.startScene.css.path}") Resource startSceneCSSResource,
 
-            @Value("classpath:${scene.default.css.path}") Resource defaultCSSResource
+            @Value("classpath:${scene.default.css.path}") Resource defaultCSSResource,
+
+            ConfigurableApplicationContext context
     )
     {
 
+        this.context = context;
         // adding scenes to scenes map @TODO add all other scenes
         scenes.put(SceneId.START_SCENE, new SceneWrapper(SceneId.START_SCENE, startSceneName, startSceneResource, startSceneCSSResource));
         //
@@ -76,6 +84,10 @@ public class MemoryHandler {
             // load fxml file
             URL url = wrapper.getFxmlResource().getURL(); // thows IOExc
             FXMLLoader loader = new FXMLLoader(url);
+
+            // @TODO do better
+            loader.setControllerFactory(context::getBean);
+
             Parent root = loader.load();        // throws IOException
             Scene scene = new Scene(root);
 
