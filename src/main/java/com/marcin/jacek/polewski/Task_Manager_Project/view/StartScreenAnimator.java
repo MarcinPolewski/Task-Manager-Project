@@ -36,13 +36,14 @@ public class StartScreenAnimator {
 
     public void start(ArrayList<Node> nodes, Window window, Runnable onFinish)
     {
+        Duration startDelay = Duration.millis(0);
         Node node;
         for(int i=0; i<nodes.size(); ++i)
         {
             node = nodes.get(i);
             double componentWidth = node.getLayoutBounds().getWidth();
-            double middleTransitionX = 2*componentWidth;
-            double sideTransitionX = (window.getWidth() - middleTransitionX)/2.0;
+            double middleTransitionX = componentWidth;
+            double sideTransitionX = ((window.getWidth() - (2*componentWidth))/2.0) + componentWidth;
 
             TranslateTransition left = new TranslateTransition();
             left.setNode(node);
@@ -61,8 +62,9 @@ public class StartScreenAnimator {
 
             SequentialTransition oneNodeTransition = new SequentialTransition(left, middle, right);
             oneNodeTransition.setNode(node);
-            if(i!=0)
-                oneNodeTransition.setDelay(pauseBetweenElements);
+            oneNodeTransition.setDelay(startDelay);
+
+            startDelay = startDelay.add(pauseBetweenElements);
             parallelTransition.getChildren().add(oneNodeTransition);
         }
         parallelTransition.setOnFinished(event->{

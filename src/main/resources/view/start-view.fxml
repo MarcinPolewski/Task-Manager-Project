@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marcin.jacek.polewski.Task_Manager_Project.controller.StartViewController">
    <children>
-      <ImageView fx:id="iconView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="mottoLabel" layoutY="130.0" prefHeight="96.0" prefWidth="301.0" text="Label" />
-      <Label fx:id="greetingLabel" layoutX="27.0" layoutY="251.0" prefHeight="80.0" prefWidth="319.0" text="Label" />
+      <ImageView fx:id="iconView" fitHeight="150.0" fitWidth="200.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="mottoLabel" layoutY="240.0" prefHeight="96.0" prefWidth="301.0" text="Label" />
+      <Label fx:id="greetingLabel" layoutY="160.0" prefHeight="80.0" prefWidth="319.0" text="Label" />
    </children>
 </AnchorPane>

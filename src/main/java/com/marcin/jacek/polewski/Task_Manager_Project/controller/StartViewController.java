@@ -60,15 +60,23 @@ public class StartViewController implements Initializable{
         animator.start(nodes, window, viewHandler::switchToLogInScene);
     }
 
+    public void positionObjectsForAnimation()
+    {
+        iconView.setX(-iconView.getBoundsInLocal().getWidth());
+        mottoLabel.setLayoutX(-mottoLabel.getBoundsInLocal().getWidth());
+        greetingLabel.setLayoutX(-greetingLabel.getBoundsInLocal().getWidth());
+    }
 
     public void windowStartedBeingShown()
     {
+        positionObjectsForAnimation();
         runAnnimations();
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         // adding logo
         try{
             iconView.setImage(memoryHandler.getImage(ImageId.APP_LOGO));
