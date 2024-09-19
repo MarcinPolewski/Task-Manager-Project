@@ -16,7 +16,8 @@ import java.io.IOException;
 public class ViewHandler implements ApplicationListener<StartUpInitializationCompletedEvent> {
     private Stage mainStage;
     private SceneWrapper currentStage;
-    private SceneWrapper startScene;
+
+
     private MemoryHandler memoryHandler;
 
     @Autowired
@@ -40,7 +41,6 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
         mainStage = event.getStage();
         try{
             currentStage = memoryHandler.getSceneWrapper(SceneId.START_SCENE);
-            startScene = currentStage;
 
             mainStage.setScene(currentStage.getScene());
         } catch (IndexOutOfBoundsException e){
@@ -58,5 +58,19 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
             System.out.println("unable to get icon");
         }
         mainStage.show();
+    }
+
+    public void switchToLogInScene()
+    {
+        if(!currentStage.getId().equals(SceneId.LOG_IN_SCENE))
+        {
+            try{
+                currentStage = memoryHandler.getSceneWrapper(SceneId.LOG_IN_SCENE);
+                mainStage.setScene(currentStage.getScene());
+            } catch (IOException e)
+            {
+                System.out.println("Error has occured during loading fxml file of log in scene");
+            }
+        }
     }
 }

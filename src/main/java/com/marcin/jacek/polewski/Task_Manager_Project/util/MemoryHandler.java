@@ -31,12 +31,17 @@ public class MemoryHandler {
 
     @Autowired
     public MemoryHandler(
-            @Value("${scene.startScene.name}") String startSceneName,
 
             @Value("classpath:${images.app_logo.path}") Resource mainIconResource,
 
+            @Value("${scene.startScene.name}") String startSceneName,
             @Value("classpath:${scene.startScene.path}") Resource startSceneResource,
             @Value("classpath:${scene.startScene.css.path}") Resource startSceneCSSResource,
+
+            @Value("${scene.logInScene.name}") String logInSceneName,
+            @Value("classpath:${scene.logInScene.path}") Resource logInSceneResource,
+            @Value("classpath:${scene.logInScene.css.path}") Resource logInSceneCSSResource,
+
 
             @Value("classpath:${scene.default.css.path}") Resource defaultCSSResource,
 
@@ -47,7 +52,8 @@ public class MemoryHandler {
         this.context = context;
         // adding scenes to scenes map @TODO add all other scenes
         scenes.put(SceneId.START_SCENE, new SceneWrapper(SceneId.START_SCENE, startSceneName, startSceneResource, startSceneCSSResource));
-        //
+        scenes.put(SceneId.LOG_IN_SCENE, new SceneWrapper(SceneId.LOG_IN_SCENE, logInSceneName, logInSceneResource, logInSceneCSSResource));
+
 
         // adding craeting images wrappers
         images.put(ImageId.APP_LOGO, new ImageWrapper(ImageId.APP_LOGO, mainIconResource));
