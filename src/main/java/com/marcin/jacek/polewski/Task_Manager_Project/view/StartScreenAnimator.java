@@ -43,7 +43,7 @@ public class StartScreenAnimator {
             node = nodes.get(i);
             double componentWidth = node.getLayoutBounds().getWidth();
             double middleTransitionX = componentWidth;
-            double sideTransitionX = ((window.getWidth() - (2*componentWidth))/2.0) + componentWidth;
+            double sideTransitionX = ((window.getWidth() - (2.0*componentWidth))/2.0) + componentWidth;
 
             TranslateTransition left = new TranslateTransition();
             left.setNode(node);

@@ -15,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -38,17 +39,20 @@ public class StartViewController implements Initializable{
     private MessageSource messageSource;
     private StartScreenAnimator animator;
     private ViewHandler viewHandler;
+    private Double elementPadding;
 
     @Autowired
     StartViewController(MemoryHandler memoryHandler,
                         MessageSource messageSource,
                         StartScreenAnimator animator,
-                        ViewHandler viewHandler)
+                        ViewHandler viewHandler,
+                        @Value("${scene.startScene.elementPadding}") Double padding)
     {
         this.memoryHandler = memoryHandler;
         this.messageSource = messageSource;
         this.animator = animator;
         this.viewHandler = viewHandler;
+        this.elementPadding = padding;
     }
 
     private void runAnnimations() {
@@ -62,9 +66,24 @@ public class StartViewController implements Initializable{
 
     public void positionObjectsForAnimation()
     {
+        // Position X
         iconView.setX(-iconView.getBoundsInLocal().getWidth());
         mottoLabel.setLayoutX(-mottoLabel.getBoundsInLocal().getWidth());
         greetingLabel.setLayoutX(-greetingLabel.getBoundsInLocal().getWidth());
+
+        // Position Y
+        double windowHeight = iconView.getScene().getWindow().getHeight();
+        double totalComponentHeight = 2.0*elementPadding + mottoLabel.getHeight()
+                + greetingLabel.getHeight()
+                + iconView.getFitHeight();
+        double iconViewY = (windowHeight-totalComponentHeight)/2.0;
+        double greetingLabelY = iconViewY + iconView.getFitHeight() + elementPadding;
+        double mottoLabelY = greetingLabelY + greetingLabel.getHeight() + elementPadding;
+
+        iconView.setY(iconViewY);
+        greetingLabel.setLayoutY(greetingLabelY);
+        mottoLabel.setLayoutY(mottoLabelY);
+
     }
 
     public void windowStartedBeingShown()
