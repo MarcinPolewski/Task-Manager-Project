@@ -6,11 +6,13 @@ import javafx.application.Platform;
 import javafx.stage.Stage;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.stereotype.Component;
 
 /**
  * JavaFxApplication extends the JavaFX Application class and manages the
  * initialization of both Spring and JavaFX contexts.
  */
+@Component  // should this @TODO ???????
 public class JavaFXApplication extends Application {
 
     // The Spring context that will be used to manage beans and application lifecycle

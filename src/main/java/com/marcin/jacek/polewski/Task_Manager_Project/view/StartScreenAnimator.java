@@ -1,51 +1,77 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.view;
 
+import javafx.animation.ParallelTransition;
+import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.stage.Window;
 import javafx.util.Duration;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+
 
 @Component
 public class StartScreenAnimator {
-    private Node node;
-    private Window window;
-    private TranslateTransition translateTransition;
     private Duration sideTranslationDuration;
     private Duration middleTranslationDuration;
+    private Duration pauseBetweenElements;
+
+    private ParallelTransition parallelTransition;
+
 
     public StartScreenAnimator(
             @Value("${animation.startScreen.translation.side.duration}") double sideTranslationDuration,
-            @Value("${animation.startScreen.translation.middle.duration}") double middleTranslationDuration)
+            @Value("${animation.startScreen.translation.middle.duration}") double middleTranslationDuration,
+            @Value("${animation.startScreen.pauseBetweenElements}") double pauseBetweenElements)
     {
         this.sideTranslationDuration = Duration.millis(sideTranslationDuration);
         this.middleTranslationDuration = Duration.millis(middleTranslationDuration);
+        this.pauseBetweenElements = Duration.millis(pauseBetweenElements);
 
-        this.translateTransition = new TranslateTransition();
+        this.parallelTransition = new ParallelTransition();
     }
 
-    public void start(Node node, Window window)
+    public void start(ArrayList<Node> nodes, Window window, Runnable onFinish)
     {
-        double componentWidth = node.getLayoutBounds().getWidth();
-        double middleTransitionX = 2*componentWidth;
-        double sideTransitionX = (window.getWidth() - middleTransitionX)/2.0;
+        Node node;
+        for(int i=0; i<nodes.size(); ++i)
+        {
+            node = nodes.get(i);
+            double componentWidth = node.getLayoutBounds().getWidth();
+            double middleTransitionX = 2*componentWidth;
+            double sideTransitionX = (window.getWidth() - middleTransitionX)/2.0;
 
-        // first side transition
-        translateTransition.setByX(sideTransitionX);
-        translateTransition.setDuration(sideTranslationDuration);
-        translateTransition.play();
+            TranslateTransition left = new TranslateTransition();
+            left.setNode(node);
+            left.setByX(sideTransitionX);
+            left.setDuration(sideTranslationDuration);
 
-        // middle transition
-        translateTransition.setByX(middleTransitionX);
-        translateTransition.setDuration(middleTranslationDuration);
-        translateTransition.play();
+            TranslateTransition middle = new TranslateTransition();
+            middle.setNode(node);
+            middle.setByX(middleTransitionX);
+            middle.setDuration(middleTranslationDuration);
 
-        // last side transition
-        translateTransition.setByX(sideTransitionX);
-        translateTransition.setDuration(sideTranslationDuration);
-        translateTransition.play();
+            TranslateTransition right = new TranslateTransition();
+            right.setNode(node);
+            right.setByX(sideTransitionX);
+            right.setDuration(sideTranslationDuration);
+
+            SequentialTransition oneNodeTransition = new SequentialTransition(left, middle, right);
+            oneNodeTransition.setNode(node);
+            if(i!=0)
+                oneNodeTransition.setDelay(pauseBetweenElements);
+            parallelTransition.getChildren().add(oneNodeTransition);
+        }
+        parallelTransition.setOnFinished(event->{
+            onFinish.run();
+        });
+
+        Platform.runLater(parallelTransition::play);
     }
+
+
 
 }

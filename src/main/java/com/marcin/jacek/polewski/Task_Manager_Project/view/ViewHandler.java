@@ -1,7 +1,9 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.view;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.Events.StartUpInitializationCompletedEvent;
+import com.marcin.jacek.polewski.Task_Manager_Project.controller.StartViewController;
 import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
+import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -50,6 +52,7 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
             System.out.println("Error has occurred during loading fxml file," +
                     "according to path provided in application.properties");
         }
+
         try{
             setWindowIcon();
             System.out.println("Icon is set");
@@ -58,6 +61,7 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
             System.out.println("unable to get icon");
         }
         mainStage.show();
+
     }
 
     public void switchToLogInScene()
@@ -69,7 +73,7 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
                 mainStage.setScene(currentStage.getScene());
             } catch (IOException e)
             {
-                System.out.println("Error has occured during loading fxml file of log in scene");
+                System.out.println("Error has occured during loading scene from file" + e.getMessage());
             }
         }
     }

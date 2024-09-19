@@ -30,6 +30,52 @@
      ```
  -  aplication icon would not change. Using standard scene.getIcon.add(icon) did not work
     - still not fixed 
+ - Could not automatically run animation on start screen. Animations would finish before screen was shown
+    - tried using Platform.runLater(). This fixed a bit the problem - now window is displaying but scene is not fully loaded
+   ```java
+        iconView.sceneProperty().addListener((observable, oldScene, newScene) -> {
+            if (newScene != null) {
+                // Listen for when the scene's window property is set (i.e., when the scene is attached to a window)
+                newScene.windowProperty().addListener((obs, oldWindow, newWindow) -> {
+                    if (newWindow != null) {
+                        // The scene is added to the window, now listen for when it's shown
+                        newWindow.showingProperty().addListener((o, oldValue, newValue) -> {
 
+                            if (newValue) {
+                                // The window is shown
+                                //windowStartedBeingShown();
+                                // Use Platform.runLater to delay the animation until the window is fully shown
+                                Platform.runLater(this::windowStartedBeingShown);
+                            }
+                        });
+                    }
+                });
+            }
+        });
+      ```
+   
+   - tried creating a listener class, but it did not help 
+      ```java
+        public class WindowLoadedListener {
+     
+        public static void addWindowLoadedListener(Node nodeFromScene, Runnable onWindowLoaded) {
+
+        nodeFromScene.sceneProperty().addListener((o, oldVal, newVal) -> {
+            if(newVal != null)
+            {
+                newVal.windowProperty().addListener((oo, oldWindow, newWindow) -> {
+                    if(newWindow != null)
+                    {
+                        newWindow.showingProperty().addListener((ooo, oldIsShowing, newIsShowing) -> {
+                            Platform.runLater(onWindowLoaded);
+                        });
+                    }
+
+                });
+            }
+        });
+      }
+     }
+     ```
 ### Attributions
 - "list.png" <- <a href="https://www.flaticon.com/free-icons/to-do-list" title="to do list icons">To do list icons created by Freepik - Flaticon</a>
