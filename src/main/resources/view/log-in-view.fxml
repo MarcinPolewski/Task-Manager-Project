@@ -3,22 +3,32 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marcin.jacek.polewski.Task_Manager_Project.controller.LogInViewController">
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="250.0" layoutY="100.0" prefHeight="200.0" prefWidth="100.0">
+      <VBox fx:id="vBox" maxHeight="200.0" maxWidth="200.0">
          <children>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0">
-               <content>
-                  <Button mnemonicParsing="false" text="Jurek Ogórek" />
-               </content>
-            </ScrollPane>
-            <Button mnemonicParsing="false" text="Button" />
+            <Label fx:id="promptLabel" text="Please select user, or create one" />
+            <Label fx:id="signUpLabel" text="Label" />
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="editUserListButton" mnemonicParsing="false" text="edit" />
+                        <Button fx:id="signUpButton" mnemonicParsing="false" text="+" />
+                     </children>
+                  </HBox>
+                  <ScrollPane fx:id="userScrollView" prefHeight="174.0" prefWidth="140.0">
+                     <content>
+                        <Button mnemonicParsing="false" text="Jurek Ogórek" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
          </children>
       </VBox>
-      <Label layoutX="213.0" layoutY="72.0" text="Please select user, or create one" />
    </children>
-</AnchorPane>
+</StackPane>
