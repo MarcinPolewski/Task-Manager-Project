@@ -1,4 +1,29 @@
+* {
+    -fx-text-fill: #ECDFCC;
+}
+
 .root /* changing root nodes  */
 {
-    -fx-background-color: #ff0000;
+    -fx-background-color: #1E201E;
+}
+.vbox
+{
+    -fx-background-color: #3C3D37;
+    -fx-fill: #3C3D37;
+    -fx-background-radius: 20;
+}
+
+.scroll-pane
+{
+    -fx-background-color: #3C3D37;
+    -fx-fill: #3C3D37;
+    -fx-background-radius: 20;
+
+}
+
+.button
+{
+    -fx-background-color: #697565;
+    -fx-background-radius: 10;
+
 }

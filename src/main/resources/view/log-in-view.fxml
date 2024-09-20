@@ -7,21 +7,21 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marcin.jacek.polewski.Task_Manager_Project.controller.LogInViewController">
    <children>
-      <VBox fx:id="vBox" maxHeight="200.0" maxWidth="200.0">
+      <VBox fx:id="vBox" maxHeight="300.0" maxWidth="300.0" StackPane.alignment="CENTER">
          <children>
-            <Label fx:id="promptLabel" text="Please select user, or create one" />
-            <Label fx:id="signUpLabel" text="Label" />
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <Label fx:id="promptLabel" text="Please select user, or create one" wrapText="true" />
+            <Label fx:id="signUpLabel" text="Label" wrapText="true" />
+            <VBox fillWidth="false">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_RIGHT" fillHeight="false" prefHeight="20.0" prefWidth="300.0">
                      <children>
                         <Button fx:id="editUserListButton" mnemonicParsing="false" text="edit" />
                         <Button fx:id="signUpButton" mnemonicParsing="false" text="+" />
                      </children>
                   </HBox>
-                  <ScrollPane fx:id="userScrollView" prefHeight="174.0" prefWidth="140.0">
+                  <ScrollPane fx:id="userScrollView" prefHeight="174.0" prefWidth="300.0">
                      <content>
                         <Button mnemonicParsing="false" text="Jurek Ogórek" />
                      </content>

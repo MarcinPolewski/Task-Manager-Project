@@ -41,6 +41,7 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
         // initialization of spring has finished, now load start scene to application
         // and configure the main window
         mainStage = event.getStage();
+        mainStage.setResizable(false);
         try{
             currentStage = memoryHandler.getSceneWrapper(SceneId.START_SCENE);
 
@@ -76,5 +77,6 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
                 System.out.println("Error has occured during loading scene from file" + e.getMessage());
             }
         }
+        mainStage.setResizable(true);
     }
 }
