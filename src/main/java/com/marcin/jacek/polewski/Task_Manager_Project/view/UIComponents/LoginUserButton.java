@@ -16,7 +16,6 @@ import java.io.IOException;
 public class LoginUserButton extends Button {
     private User user;
     private MemoryHandler memoryHandler;
-    @Autowired
     public LoginUserButton(MemoryHandler memoryHandler, User user)
     {
         this.user = user;
