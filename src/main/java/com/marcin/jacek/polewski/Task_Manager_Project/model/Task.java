@@ -4,7 +4,7 @@ import com.marcin.jacek.polewski.Task_Manager_Project.exceptions.SubTaskNotFinis
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 @Getter
@@ -14,16 +14,16 @@ public class Task {
     private String title;
     @Setter
     private String note;
-    private ZonedDateTime creationData;
+    private LocalDateTime creationData;
     @Setter
-    private ZonedDateTime scheduledExecution;
+    private LocalDateTime scheduledExecution;
     @Setter
-    private ZonedDateTime dueDate;
+    private LocalDateTime dueDate;
     private ArrayList<Task> subTasks;
     TaskState state;
-    private ArrayList<ZonedDateTime> reminders;
+    private ArrayList<LocalDateTime> reminders;
 
-    Task(int taskId, String title, ZonedDateTime scheduledExecution, ZonedDateTime dueDate)
+    Task(int taskId, String title, LocalDateTime scheduledExecution, LocalDateTime dueDate)
     {
         this.taskId = taskId;
         this.title = title;

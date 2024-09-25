@@ -1,3 +1,6 @@
+### Ideas for change
+- add support for choosing a font size
+- make use of static directory(for static files like images, css; automatically read my spring)
 
 ### Design choices
 - IDs of scenes are declared in application.properties

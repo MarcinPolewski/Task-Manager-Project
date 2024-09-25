@@ -4,12 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="enchaned animations">
+    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="added sql querries for creating database and filling with example data">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/user/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/user/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/user/UserDAOJPAImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/user/UserManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/user/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/user/UserServiceJPAImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/user.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/StartScreenAnimator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/StartScreenAnimator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_querries/database_starter.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database_querries/database_starter.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/LogInViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/LogInViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/User.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/start-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/start-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/model/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/model/Task.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/view/ViewHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/view/ViewHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/styles/default_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/styles/default_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/styles/start_view.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/styles/start_view.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/start-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/start-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,10 +36,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
         <option value="FxmlFile" />
         <option value="CSS File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -57,7 +73,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.Main.executor": "Run",
+    "Spring Boot.Main.executor": "Debug",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/marcinpolewski/Documents/Task-Manager-Project/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/util",
@@ -76,9 +92,9 @@
       <recent name="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/icons" />
       <recent name="$PROJECT_DIR$/src/main/resources/languages" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
-      <recent name="$PROJECT_DIR$/src/main/resources/icons" />
       <recent name="$PROJECT_DIR$/src/main/resources/styles" />
       <recent name="$PROJECT_DIR$/src/main/resources/view" />
     </key>
@@ -110,7 +126,12 @@
       <workItem from="1726582940298" duration="1339000" />
       <workItem from="1726584281684" duration="5179000" />
       <workItem from="1726646491817" duration="7398000" />
-      <workItem from="1726656012874" duration="27118000" />
+      <workItem from="1726656012874" duration="36456000" />
+      <workItem from="1726820339625" duration="472000" />
+      <workItem from="1726853403072" duration="716000" />
+      <workItem from="1727026717131" duration="45000" />
+      <workItem from="1727268649270" duration="2742000" />
+      <workItem from="1727277114914" duration="5268000" />
     </task>
     <task id="LOCAL-00001" summary="Successfully connected Spring Boot with JavaFX">
       <option name="closed" value="true" />
@@ -208,7 +229,39 @@
       <option name="project" value="LOCAL" />
       <updated>1726761518890</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="finished start screen animations">
+      <option name="closed" value="true" />
+      <created>1726762679923</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1726762679923</updated>
+    </task>
+    <task id="LOCAL-00014" summary="modified log in view, to have main portion centered">
+      <option name="closed" value="true" />
+      <created>1726814658260</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1726814658260</updated>
+    </task>
+    <task id="LOCAL-00015" summary="minor changes to log in screen, started implementing LogInViewController, updated README.md">
+      <option name="closed" value="true" />
+      <created>1726816110179</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1726816110179</updated>
+    </task>
+    <task id="LOCAL-00016" summary="added sql querries for creating database and filling with example data">
+      <option name="closed" value="true" />
+      <created>1727284888972</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1727284888972</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,15 +280,19 @@
     <MESSAGE value="added animations, but they run before the window is actually shown" />
     <MESSAGE value="added animations for starting phase and automatic transition to log in screen" />
     <MESSAGE value="enchaned animations" />
-    <option name="LAST_COMMIT_MESSAGE" value="enchaned animations" />
+    <MESSAGE value="finished start screen animations" />
+    <MESSAGE value="modified log in view, to have main portion centered" />
+    <MESSAGE value="minor changes to log in screen, started implementing LogInViewController, updated README.md" />
+    <MESSAGE value="added sql querries for creating database and filling with example data" />
+    <option name="LAST_COMMIT_MESSAGE" value="added sql querries for creating database and filling with example data" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/ViewHandler.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="31" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/LogInViewController.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

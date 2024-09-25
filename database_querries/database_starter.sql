@@ -3,7 +3,7 @@ USE `task_manager`;
 
 CREATE TABLE Users(
     id INT AUTO_INCREMENT,
-    username VARCHAR(255),
+    username VARCHAR(255) UNIQUE,
     accent_color_hex_value CHAR(7),     -- for instance #112233
     PRIMARY KEY (id)
 );
