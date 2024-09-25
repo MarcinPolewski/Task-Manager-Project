@@ -1,10 +1,9 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.util;
 
-import com.marcin.jacek.polewski.Task_Manager_Project.JavaFXApplication;
-import com.marcin.jacek.polewski.Task_Manager_Project.view.ImageId;
-import com.marcin.jacek.polewski.Task_Manager_Project.view.ImageWrapper;
-import com.marcin.jacek.polewski.Task_Manager_Project.view.SceneId;
-import com.marcin.jacek.polewski.Task_Manager_Project.view.SceneWrapper;
+import com.marcin.jacek.polewski.Task_Manager_Project.view.image.ImageId;
+import com.marcin.jacek.polewski.Task_Manager_Project.view.image.ImageWrapper;
+import com.marcin.jacek.polewski.Task_Manager_Project.view.scene.SceneId;
+import com.marcin.jacek.polewski.Task_Manager_Project.view.scene.SceneWrapper;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -33,6 +32,7 @@ public class MemoryHandler {
     public MemoryHandler(
 
             @Value("classpath:${images.app_logo.path}") Resource mainIconResource,
+            @Value("classpath:${images.userIcon.path}") Resource userIconResource,
 
             @Value("${scene.startScene.name}") String startSceneName,
             @Value("classpath:${scene.startScene.path}") Resource startSceneResource,
@@ -57,6 +57,7 @@ public class MemoryHandler {
 
         // adding craeting images wrappers
         images.put(ImageId.APP_LOGO, new ImageWrapper(ImageId.APP_LOGO, mainIconResource));
+        images.put(ImageId.USER_ICON, new ImageWrapper(ImageId.USER_ICON, userIconResource));
 
         SceneWrapper.setDefaultCSSResource(defaultCSSResource);
     }

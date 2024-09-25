@@ -1,11 +1,11 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.view;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.Events.StartUpInitializationCompletedEvent;
-import com.marcin.jacek.polewski.Task_Manager_Project.controller.StartViewController;
 import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
-import javafx.application.Platform;
+import com.marcin.jacek.polewski.Task_Manager_Project.view.image.ImageId;
+import com.marcin.jacek.polewski.Task_Manager_Project.view.scene.SceneId;
+import com.marcin.jacek.polewski.Task_Manager_Project.view.scene.SceneWrapper;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;

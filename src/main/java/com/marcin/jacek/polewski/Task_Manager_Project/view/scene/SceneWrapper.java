@@ -1,4 +1,4 @@
-package com.marcin.jacek.polewski.Task_Manager_Project.view;
+package com.marcin.jacek.polewski.Task_Manager_Project.view.scene;
 
 import javafx.scene.Scene;
 import lombok.AccessLevel;

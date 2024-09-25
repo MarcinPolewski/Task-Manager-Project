@@ -1,5 +1,6 @@
 * {
     -fx-text-fill: #ECDFCC;
+    -fx-spacing: 5;
 }
 
 .root /* changing root nodes  */

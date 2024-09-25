@@ -2,25 +2,21 @@ package com.marcin.jacek.polewski.Task_Manager_Project.controller;
 
 
 import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
-import com.marcin.jacek.polewski.Task_Manager_Project.view.ImageId;
+import com.marcin.jacek.polewski.Task_Manager_Project.view.image.ImageId;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.StartScreenAnimator;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.ViewHandler;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.WindowLoadedListener;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 import javafx.stage.Window;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;

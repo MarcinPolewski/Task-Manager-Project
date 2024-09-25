@@ -1,4 +1,4 @@
-package com.marcin.jacek.polewski.Task_Manager_Project.view;
+package com.marcin.jacek.polewski.Task_Manager_Project.view.image;
 
 import javafx.scene.image.Image;
 import lombok.Getter;
