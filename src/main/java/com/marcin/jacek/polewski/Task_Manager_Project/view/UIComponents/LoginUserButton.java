@@ -9,11 +9,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 
 public class LoginUserButton extends Button {
+    @Getter
     private User user;
     private MemoryHandler memoryHandler;
     public LoginUserButton(MemoryHandler memoryHandler, User user)

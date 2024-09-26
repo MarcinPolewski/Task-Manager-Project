@@ -79,4 +79,19 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
         }
         mainStage.setResizable(true);
     }
+
+    public void switchToMainScene()
+    {
+        if(!currentStage.getId().equals(SceneId.MAIN_SCENE))
+        {
+            try{
+                currentStage = memoryHandler.getSceneWrapper(SceneId.MAIN_SCENE);
+                mainStage.setScene(currentStage.getScene());
+            } catch (IOException e)
+            {
+                System.out.println("Error has occured during loading scene from file" + e.getMessage());
+            }
+        }
+    }
+
 }

@@ -1,9 +1,13 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.controller;
 
+import com.marcin.jacek.polewski.Task_Manager_Project.model.TaskManager;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.TaskManagerApp;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.user.User;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.user.UserService;
 import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.LoginUserButton;
+import com.marcin.jacek.polewski.Task_Manager_Project.view.ViewHandler;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -37,13 +41,18 @@ public class LogInViewController implements Initializable{
     private MessageSource messageSource;
     private UserService userService;
     private MemoryHandler memoryHandler;
-
+    private TaskManagerApp taskManagerApp;
+    private ViewHandler viewHandler;
     @Autowired
-    LogInViewController(MemoryHandler memoryHandler, MessageSource messageSource, UserService userService)
+    LogInViewController(MemoryHandler memoryHandler, MessageSource messageSource,
+                        UserService userService, TaskManagerApp taskManagerApp,
+                        ViewHandler viewHandler)
     {
         this.memoryHandler = memoryHandler;
         this.messageSource = messageSource;
         this.userService = userService;
+        this.taskManagerApp = taskManagerApp;
+        this.viewHandler = viewHandler;
     }
 
     @Override
@@ -55,7 +64,18 @@ public class LogInViewController implements Initializable{
         List<User> users = userService.findAll();
         for(User user : users)
         {
-            vboxWithUsers.getChildren().add(new LoginUserButton(memoryHandler, user));
+            LoginUserButton button = new LoginUserButton(memoryHandler, user);
+            vboxWithUsers.getChildren().add(button);
+            button.setOnAction(this::UserButtonPressed);
         }
+    }
+
+    public void UserButtonPressed(ActionEvent event)
+    {
+        LoginUserButton userButton = (LoginUserButton)event.getSource();
+        User user = userButton.getUser();
+
+        taskManagerApp.setCurrentUser(user);
+        viewHandler.switchToMainScene();
     }
 }

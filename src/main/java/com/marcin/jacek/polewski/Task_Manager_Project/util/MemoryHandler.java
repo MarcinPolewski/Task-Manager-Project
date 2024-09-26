@@ -42,6 +42,9 @@ public class MemoryHandler {
             @Value("classpath:${scene.logInScene.path}") Resource logInSceneResource,
             @Value("classpath:${scene.logInScene.css.path}") Resource logInSceneCSSResource,
 
+            @Value("${scene.mainScene.name}") String mainSceneName,
+            @Value("classpath:${scene.mainScene.path}") Resource mainSceneResource,
+            @Value("classpath:${scene.mainScene.css.path}") Resource mainSceneCSSResource,
 
             @Value("classpath:${scene.default.css.path}") Resource defaultCSSResource,
 
@@ -53,6 +56,7 @@ public class MemoryHandler {
         // adding scenes to scenes map @TODO add all other scenes
         scenes.put(SceneId.START_SCENE, new SceneWrapper(SceneId.START_SCENE, startSceneName, startSceneResource, startSceneCSSResource));
         scenes.put(SceneId.LOG_IN_SCENE, new SceneWrapper(SceneId.LOG_IN_SCENE, logInSceneName, logInSceneResource, logInSceneCSSResource));
+        scenes.put(SceneId.MAIN_SCENE, new SceneWrapper(SceneId.MAIN_SCENE, mainSceneName, mainSceneResource, mainSceneCSSResource));
 
 
         // adding craeting images wrappers

@@ -1,4 +1,4 @@
-package com.marcin.jacek.polewski.Task_Manager_Project.model;
+package com.marcin.jacek.polewski.Task_Manager_Project.model.task;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * JavaFxApplication extends the JavaFX Application class and manages the
  * initialization of both Spring and JavaFX contexts.
  */
-@Component  // should this @TODO ???????
+@Component
 public class JavaFXApplication extends Application {
 
     // The Spring context that will be used to manage beans and application lifecycle
