@@ -1,6 +1,5 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.controller;
 
-import com.marcin.jacek.polewski.Task_Manager_Project.model.TaskManager;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.TaskManagerApp;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.user.User;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.user.UserService;
@@ -12,10 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 

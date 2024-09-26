@@ -20,7 +20,7 @@ CREATE TABLE Tasks(
        task_manager_id INT,
        title VARCHAR(255),
        notes TEXT,
-       creation_data DATETIME,
+       creation_date DATETIME,
        scheduled_execution DATETIME,
        due_date DATETIME,
        state INT,

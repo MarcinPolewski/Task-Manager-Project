@@ -1,6 +1,6 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.model.user;
 
-import com.marcin.jacek.polewski.Task_Manager_Project.model.TaskManager;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
