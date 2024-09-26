@@ -41,7 +41,10 @@ public class Task {
     private LocalDateTime dueDate;
 
     @Column(name="state")
-    TaskState state;
+    private TaskState state;
+
+    @Column(name="enclosing_folder_path")
+    private String enclosingFolderPath;
 
     @Transient
     private ArrayList<SubTask> subTasks;

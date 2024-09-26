@@ -19,6 +19,7 @@ CREATE TABLE Tasks(
        id INT AUTO_INCREMENT,
        task_manager_id INT,
        title VARCHAR(255),
+       enclosing_folder_path TEXT,
        notes TEXT,
        creation_date DATETIME,
        scheduled_execution DATETIME,
