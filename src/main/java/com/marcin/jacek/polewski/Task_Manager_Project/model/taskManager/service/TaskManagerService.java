@@ -5,4 +5,6 @@ import com.marcin.jacek.polewski.Task_Manager_Project.model.user.User;
 
 public interface TaskManagerService {
     TaskManager getTaskManager(User user);
+
+    void update(TaskManager taskManager);
 }

@@ -4,6 +4,7 @@ import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -24,5 +25,14 @@ public class TaskDAOJPA implements TaskDAO{
         TypedQuery<Task> query = entityManager.createQuery("FROM Task WHERE taskManagerId=:id", Task.class);
         query.setParameter("id",  taskManager.getTaskManagerId());
         return query.getResultList();
+    }
+
+    @Override
+    @Transactional
+    public void update(List<Task> tasks) {
+        for(Task task: tasks)
+        {
+            entityManager.merge(task);
+        }
     }
 }
