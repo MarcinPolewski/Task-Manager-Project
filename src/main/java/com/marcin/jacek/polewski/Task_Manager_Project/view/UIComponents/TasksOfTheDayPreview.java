@@ -1,6 +1,7 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -27,6 +28,7 @@ public class TasksOfTheDayPreview extends VBox {
         VBox scrollVBox = new VBox();
         // Bind the VBox's width to the width of the ScrollPane's viewport
         scrollVBox.setFillWidth(true);
+        //scrollVBox.setMaxWidth();
 
         for(int hour=1; hour<= 24; ++hour)
         {
@@ -35,16 +37,23 @@ public class TasksOfTheDayPreview extends VBox {
 
             Line line = new Line();
             // Bind the endX property of the Line to the width of the VBox
-            line.endXProperty().bind(scrollVBox.widthProperty());
+
+            // @TODO import this value from css !!!
+            double padding = 10.0;
+            line.endXProperty().bind(scrollVBox.widthProperty().subtract(20));
 
             VBox hourVBox = new VBox();
             hourVBox.getChildren().setAll(hourLabel, line);
-
+            hourVBox.setPadding(new Insets(padding));
+            // @TODO FIX line above causes wrnog functionality,because window is stretched
+            // indefinitely to the left
 
             scrollVBox.getChildren().add(hourVBox);
         }
 
         ScrollPane scroll = new ScrollPane(scrollVBox);
+        scroll.setFitToWidth(true);
+        scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
         this.getChildren().setAll(topBarHBox, scroll);
 
