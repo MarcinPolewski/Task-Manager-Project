@@ -36,7 +36,7 @@ public class TaskManagerApp {
         }
         currentUser = newUser;
         TaskManager tm = taskManagerService.getTaskManager(newUser);
-        currentUser.setTaskManager(tm);
+               currentUser.setTaskManager(tm);
     }
 
     public void setCurrentUser(User user)
