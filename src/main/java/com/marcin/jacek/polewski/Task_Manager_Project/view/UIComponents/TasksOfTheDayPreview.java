@@ -36,32 +36,35 @@ public class TasksOfTheDayPreview extends VBox {
         // Bind the VBox's width to the width of the ScrollPane's viewport
         scrollVBox.setFillWidth(true);
 
-        //instantiate hour lines with labels assigned
-        for(int hour=1; hour<= 24; ++hour)
-        {
-
-            Label hourLabel = new Label();
-            hourLabel.setText(String.valueOf(hour));
-
-            Line line = new Line();
-            hourLines.add(line);
-
-            // @TODO import this value from css !!! Injection?
-            double padding = 10.0;
-
-            // Bind the endX property of the Line to the width of the VBox
-            line.endXProperty().bind(scrollVBox.widthProperty().subtract(20));
-
-            VBox hourVBox = new VBox();
-            hourVBox.getChildren().setAll(hourLabel, line);
-            hourVBox.setPadding(new Insets(padding));
-
-            scrollVBox.getChildren().add(hourVBox);
-        }
-
         ScrollPane scroll = new ScrollPane(scrollVBox);
         scroll.setFitToWidth(true);
         scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
+        //instantiate hour lines with labels assigned
+        for(int hour=1; hour<= 24; ++hour)
+        {
+            scrollVBox.getChildren().add(new DayPreviewHourDisplay(hour));
+
+//            Label hourLabel = new Label();
+//            hourLabel.setText(String.valueOf(hour));
+//
+//            Line line = new Line();
+//            hourLines.add(line);
+//
+//            // @TODO import this value from css !!! Injection?
+//            double padding = 10.0;
+//
+//            // Bind the endX property of the Line to the width of the VBox
+//            line.endXProperty().bind(scrollVBox.widthProperty().subtract(20));
+//
+//            VBox hourVBox = new VBox();
+//            hourVBox.getChildren().setAll(hourLabel, line);
+//            hourVBox.setPadding(new Insets(padding));
+//
+//            scrollVBox.getChildren().add(hourVBox);
+        }
+
+
 
         this.getChildren().add(scroll);
     }
