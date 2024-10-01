@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="added loading paths from tasks to TaskDirectoryService">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/TasksOfTheDayPreview.java" afterDir="false" />
+    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="fixed issues with line not stretching to the end of container">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/AllTasksPreview.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/DayPreviewTaskButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/TaskManagerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/TaskManagerApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskDirectory/TaskDirectory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskDirectory/TaskDirectory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskDirectory/TaskDirectoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskDirectory/TaskDirectoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/DayPreviewHourDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/DayPreviewHourDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/TasksOfTheDayPreview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/TasksOfTheDayPreview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/main_view.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/main_view.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/main-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.class" afterDir="false" />
@@ -132,7 +138,7 @@
       <workItem from="1727026717131" duration="45000" />
       <workItem from="1727268649270" duration="2742000" />
       <workItem from="1727277114914" duration="20256000" />
-      <workItem from="1727436364283" duration="9706000" />
+      <workItem from="1727436364283" duration="34082000" />
     </task>
     <task id="LOCAL-00001" summary="Successfully connected Spring Boot with JavaFX">
       <option name="closed" value="true" />
@@ -318,15 +324,45 @@
       <option name="project" value="LOCAL" />
       <updated>1727456833397</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="started implementing day view">
+      <option name="closed" value="true" />
+      <created>1727463097904</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1727463097904</updated>
+    </task>
+    <task id="LOCAL-00025" summary="small fix">
+      <option name="closed" value="true" />
+      <created>1727464663193</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1727464663193</updated>
+    </task>
+    <task id="LOCAL-00026" summary="refactored code">
+      <option name="closed" value="true" />
+      <created>1727511987140</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1727511987140</updated>
+    </task>
+    <task id="LOCAL-00027" summary="fixed issues with line not stretching to the end of container">
+      <option name="closed" value="true" />
+      <created>1727516917347</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1727516917347</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Successfully connected Spring Boot with JavaFX" />
-    <MESSAGE value="implemented SceneWrapper, SceneId and MamoryHandler's getSceneWrapper" />
     <MESSAGE value="implemented loading css files of stages" />
     <MESSAGE value="fixed loading css files" />
     <MESSAGE value="started work on Setting app icon, image is loaded, but it's invisible" />
@@ -348,18 +384,13 @@
     <MESSAGE value="implemented fetching Tasks, SubTasks and TaskManagers from database" />
     <MESSAGE value="added reading enclosing folder path for  tasks" />
     <MESSAGE value="added loading paths from tasks to TaskDirectoryService" />
-    <option name="LAST_COMMIT_MESSAGE" value="added loading paths from tasks to TaskDirectoryService" />
+    <MESSAGE value="started implementing day view" />
+    <MESSAGE value="small fix" />
+    <MESSAGE value="refactored code" />
+    <MESSAGE value="fixed issues with line not stretching to the end of container" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed issues with line not stretching to the end of container" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/MainViewController.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager" memberName="tasks" />

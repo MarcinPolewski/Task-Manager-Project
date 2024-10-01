@@ -5,6 +5,8 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.shape.Line;
@@ -24,6 +26,7 @@ public class TasksOfTheDayPreview extends VBox {
     {
         dayLabel.setText(currentTime.toString());
         topBarHBox.getChildren().setAll(previousDay, dayLabel, nextDay);
+        topBarHBox.setFillHeight(true);
 
         // add top bar to this component
         this.getChildren().add(topBarHBox);
@@ -36,35 +39,22 @@ public class TasksOfTheDayPreview extends VBox {
         // Bind the VBox's width to the width of the ScrollPane's viewport
         scrollVBox.setFillWidth(true);
 
+
         ScrollPane scroll = new ScrollPane(scrollVBox);
         scroll.setFitToWidth(true);
+        scroll.setFitToHeight(true);
         scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
         //instantiate hour lines with labels assigned
         for(int hour=1; hour<= 24; ++hour)
         {
-            scrollVBox.getChildren().add(new DayPreviewHourDisplay(hour));
+            DayPreviewHourDisplay hourDisplay = new DayPreviewHourDisplay(hour);
+            scrollVBox.getChildren().add(hourDisplay);
 
-//            Label hourLabel = new Label();
-//            hourLabel.setText(String.valueOf(hour));
-//
-//            Line line = new Line();
-//            hourLines.add(line);
-//
-//            // @TODO import this value from css !!! Injection?
-//            double padding = 10.0;
-//
-//            // Bind the endX property of the Line to the width of the VBox
-//            line.endXProperty().bind(scrollVBox.widthProperty().subtract(20));
-//
-//            VBox hourVBox = new VBox();
-//            hourVBox.getChildren().setAll(hourLabel, line);
-//            hourVBox.setPadding(new Insets(padding));
-//
-//            scrollVBox.getChildren().add(hourVBox);
+            // @TODO delete, only for ui testing purposes
+            hourDisplay.addTask(taskManager.getTasks().get(0));
+            hourDisplay.addTask(taskManager.getTasks().get(1));
         }
-
-
 
         this.getChildren().add(scroll);
     }

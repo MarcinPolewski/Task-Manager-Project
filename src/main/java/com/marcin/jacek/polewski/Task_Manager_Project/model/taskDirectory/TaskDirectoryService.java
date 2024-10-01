@@ -1,6 +1,7 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
+import lombok.Getter;
 import org.springframework.stereotype.Service;
 
 import java.nio.file.Path;
@@ -9,6 +10,7 @@ import java.util.Iterator;
 
 @Service
 public class TaskDirectoryService {
+    @Getter
     private TaskDirectory root = new TaskDirectory();
 
     public void addTask(Task task)

@@ -1,6 +1,7 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -21,6 +22,7 @@ public class DayPreviewHourDisplay extends VBox {
 
         hourLabel.setText(String.valueOf(hour));
         labelAndTasksHBox.getChildren().add(hourLabel);
+        labelAndTasksHBox.setAlignment(Pos.BOTTOM_CENTER);
 
 
         // padding must be greater than one pixel, therefore it below binding
@@ -40,8 +42,10 @@ public class DayPreviewHourDisplay extends VBox {
 
 
 
+
     public void addTask(Task task)
     {
+        labelAndTasksHBox.getChildren().add(new DayPreviewTaskButton(task));
     }
 
 }

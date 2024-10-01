@@ -1,0 +1,11 @@
+.scroll-pane
+{
+    -fx-padding: 20;
+    -fx-spacing: 20;
+}
+
+.vbox
+{
+    -fx-padding: 20;
+    -fx-spacing: 20;
+}

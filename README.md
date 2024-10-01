@@ -6,6 +6,9 @@
 - IDs of scenes are declared in application.properties
   - enum might have been better, but I wanted to keep everything organized in one place. 
   - another possibility would be to create an enum that reads this properties and in one place stores link and autoasigns id. I think it would be too much
+
+### What to improve in the future projects
+- separation of concerns - UI components should not less dependent on backend. Implement more interfaces 
   
 ### Additional things that I have learned
 - i18n stands for internationalization
