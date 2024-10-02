@@ -4,6 +4,14 @@
     -fx-spacing: 20;
 }
 
+
+
+.tree-cell
+{
+    -fx-background-color: transparent;
+}
+
+
 .vbox
 {
     -fx-padding: 20;

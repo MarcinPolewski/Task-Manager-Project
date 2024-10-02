@@ -2,8 +2,10 @@ package com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectoryItem;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectoryService;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
+import javafx.scene.Node;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.VBox;
@@ -15,17 +17,16 @@ import java.util.List;
 import java.util.Queue;
 
 public class AllTasksPreview extends VBox {
-    private TreeView<TaskDirectory> treeView;
+    private TreeView<TaskDirectoryItem> treeView;
     private TaskDirectoryService taskDirectoryService;
 
+    @Getter
     private class QueueItem
     {
-        @Getter
         private TaskDirectory taskDirectory;
-        @Getter
-        private TreeItem<TaskDirectory> treeItem;
+        private TreeItem<TaskDirectoryItem> treeItem;
 
-        QueueItem(TaskDirectory taskDir, TreeItem<TaskDirectory> treeItem)
+        QueueItem(TaskDirectory taskDir, TreeItem<TaskDirectoryItem> treeItem)
         {
             this.taskDirectory = taskDir;
             this.treeItem = treeItem;
@@ -38,7 +39,8 @@ public class AllTasksPreview extends VBox {
         TaskDirectory root = taskDirectoryService.getRoot();
 
         Queue<QueueItem> directoriesToProcess = new LinkedList <QueueItem>();
-        TreeItem<TaskDirectory> rootTreeItem = new TreeItem<>();
+
+        TreeItem<TaskDirectoryItem> rootTreeItem = new TreeItem<>();
         directoriesToProcess.add(new QueueItem(root, rootTreeItem));
 
 
@@ -48,16 +50,26 @@ public class AllTasksPreview extends VBox {
 
             List<TaskDirectory> subFolders = currentFolder.getTaskDirectory().getSubDirectories();
 
-            TreeItem<TaskDirectory> currentTreeItem = currentFolder.getTreeItem();
+            TreeItem<TaskDirectoryItem> currentTreeItem = currentFolder.getTreeItem();
             if(subFolders!=null)
             {
                 for(TaskDirectory subFolder: subFolders)
                 {
-                    TreeItem<TaskDirectory> subTreeItem = new TreeItem<>(subFolder);
+                    TreeItem<TaskDirectoryItem> subTreeItem = new TreeItem<>(subFolder);
                     currentTreeItem.getChildren().add(subTreeItem);
                     directoriesToProcess.add(new QueueItem(subFolder, subTreeItem));
                 }
             }
+
+            List<Task> tasks =  currentFolder.getTaskDirectory().getTasks();
+            if(tasks!=null)
+            {
+                for(Task task : tasks)
+                {
+                    currentTreeItem.getChildren().add(new TreeItem<>(task));
+                }
+            }
+
         }
         rootTreeItem.setExpanded(true);
         this.treeView = new TreeView<>(rootTreeItem);
@@ -65,7 +77,6 @@ public class AllTasksPreview extends VBox {
 
 
     }
-
 
     public AllTasksPreview(TaskDirectoryService taskDirectoryService)
     {

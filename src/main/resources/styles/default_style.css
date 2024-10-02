@@ -19,7 +19,10 @@
     -fx-background-color: #3C3D37;
     -fx-fill: #3C3D37;
     -fx-background-radius: 20;
+}
 
+.tree-view {
+    -fx-background-color: transparent;
 }
 
 .scroll-pane .viewport {

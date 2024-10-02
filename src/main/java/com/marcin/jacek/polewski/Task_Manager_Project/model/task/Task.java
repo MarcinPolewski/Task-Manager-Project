@@ -2,6 +2,7 @@ package com.marcin.jacek.polewski.Task_Manager_Project.model.task;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.exceptions.SubTaskNotFinishedException;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.subTask.SubTask;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectoryItem;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 @Setter
 @NoArgsConstructor
 @Table(name="Tasks")
-public class Task {
+public class Task implements TaskDirectoryItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -87,5 +88,11 @@ public class Task {
             state = newState;
         }
 
+    }
+
+    @Override
+    public String toString()
+    {
+        return title;
     }
 }

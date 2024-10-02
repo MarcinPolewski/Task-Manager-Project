@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 @Getter
 @NoArgsConstructor
-public class TaskDirectory {
+public class TaskDirectory implements TaskDirectoryItem{
     /* represents a container for other Directories or Tasks*/
     @Setter
     private String name;

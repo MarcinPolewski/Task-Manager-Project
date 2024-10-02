@@ -47,15 +47,12 @@ public class MainViewController implements Initializable {
         TaskManager tm = taskManagerApp.getCurrentUser().getTaskManager();
 
         TasksOfTheDayPreview dayPreview = new TasksOfTheDayPreview(LocalDateTime.now(), tm);
-        dayPreview.setStyle(centerHBox.getStyle());
-
         centerHBox.getChildren().add(dayPreview);
     }
 
     private void initializeAllTasksPreview()
     {
         AllTasksPreview taskPreview = new AllTasksPreview(taskDirectoryService);
-        taskPreview.setStyle(centerHBox.getStyle());
         centerHBox.getChildren().add(taskPreview);
     }
 
