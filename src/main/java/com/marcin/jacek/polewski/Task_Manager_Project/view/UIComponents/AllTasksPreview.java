@@ -1,17 +1,20 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents;
 
+import com.marcin.jacek.polewski.Task_Manager_Project.controller.ControllerInterface;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectoryItem;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectoryService;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.VBox;
 import lombok.Getter;
 import org.antlr.v4.runtime.tree.Tree;
 
+import java.awt.*;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -19,6 +22,7 @@ import java.util.Queue;
 public class AllTasksPreview extends VBox {
     private TreeView<TaskDirectoryItem> treeView;
     private TaskDirectoryService taskDirectoryService;
+    private ControllerInterface controller;
 
     @Getter
     private class QueueItem
@@ -74,13 +78,12 @@ public class AllTasksPreview extends VBox {
         rootTreeItem.setExpanded(true);
         this.treeView = new TreeView<>(rootTreeItem);
         treeView.setShowRoot(false);
-
-
     }
 
-    public AllTasksPreview(TaskDirectoryService taskDirectoryService)
+    public AllTasksPreview(ControllerInterface controller, TaskDirectoryService taskDirectoryService)
     {
         super();
+        this.controller = controller;
         this.taskDirectoryService = taskDirectoryService;
         loadTreeStructure();
         this.getChildren().setAll(treeView);

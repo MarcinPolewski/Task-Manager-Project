@@ -50,9 +50,6 @@ public class Task implements TaskDirectoryItem {
     @Transient
     private ArrayList<SubTask> subTasks;
 
-    @Transient
-    private ArrayList<LocalDateTime> reminders;
-
     Task(int taskId, String title, LocalDateTime scheduledExecution, LocalDateTime dueDate)
     {
         this.taskId = taskId;

@@ -24,7 +24,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 @Component
-public class StartViewController implements Initializable{
+public class StartViewController implements Initializable, ControllerInterface{
     @FXML
     private ImageView iconView;
     @FXML

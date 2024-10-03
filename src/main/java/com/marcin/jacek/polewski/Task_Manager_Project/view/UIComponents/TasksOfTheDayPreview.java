@@ -1,5 +1,6 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents;
 
+import com.marcin.jacek.polewski.Task_Manager_Project.controller.ControllerInterface;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -21,6 +22,7 @@ public class TasksOfTheDayPreview extends VBox {
     private Button nextDay = new Button(">");
     private Label dayLabel = new Label();
     private List<Line>hourLines = new ArrayList<>();
+    private ControllerInterface controller;
 
     private void setUpTopBar(LocalDateTime currentTime)
     {
@@ -59,9 +61,10 @@ public class TasksOfTheDayPreview extends VBox {
         this.getChildren().add(scroll);
     }
 
-    public TasksOfTheDayPreview(LocalDateTime currentTime, TaskManager taskManager)
+    public TasksOfTheDayPreview(ControllerInterface controller, LocalDateTime currentTime, TaskManager taskManager)
     {
         super();
+        this.controller = controller;
         setUpTopBar(currentTime);
         setUpHourScrollView( currentTime,  taskManager);
     }

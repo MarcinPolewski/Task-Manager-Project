@@ -22,7 +22,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 @Component
-public class LogInViewController implements Initializable{
+public class LogInViewController implements Initializable, ControllerInterface {
     @FXML
     private Label promptLabel;
     @FXML
