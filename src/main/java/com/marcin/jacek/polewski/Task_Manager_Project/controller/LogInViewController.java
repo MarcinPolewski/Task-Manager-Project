@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.VBox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Component;
 import java.net.URL;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 @Component
@@ -52,27 +54,68 @@ public class LogInViewController implements Initializable, ControllerInterface {
         this.viewHandler = viewHandler;
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // add text to labels
+    private void initializeLabels()
+    {
         promptLabel.setText(messageSource.getMessage("logInScreenSelectUser",null, "notFound", Locale.getDefault()));
         signUpLabel.setText(messageSource.getMessage("logInScreenClickToSignUp",null, "notFound", Locale.getDefault()));
+    }
 
+    private void initializeUsersButtons()
+    {
         List<User> users = userService.findAll();
         for(User user : users)
         {
             LoginUserButton button = new LoginUserButton(memoryHandler, user);
             vboxWithUsers.getChildren().add(button);
-            button.setOnAction(this::UserButtonPressed);
+            button.setOnAction(this::userButtonPressed);
         }
     }
 
-    public void UserButtonPressed(ActionEvent event)
+    private void initializeControlButtons()
+    {
+        editUserListButton.setOnAction(this::editUserListButtonPressed);
+        addUserToListButton.setOnAction(this::addUserListButtonPressed);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // add text to labels
+        initializeLabels();
+        initializeUsersButtons();
+        initializeControlButtons();
+    }
+
+    public void userButtonPressed(ActionEvent event)
     {
         LoginUserButton userButton = (LoginUserButton)event.getSource();
         User user = userButton.getUser();
 
         taskManagerApp.setCurrentUser(user);
         viewHandler.switchToMainScene();
+    }
+
+    public void editUserListButtonPressed(ActionEvent event)
+    {
+        System.out.println("edit users pressed");
+    }
+
+    public void addUserListButtonPressed(ActionEvent event)
+    {
+        System.out.println("add user pressed");
+        TextInputDialog dialog = new TextInputDialog();
+
+
+        dialog.setTitle(messageSource.getMessage("logInScreenAddUserTitle",
+                null, "notFound", Locale.getDefault()));
+        dialog.setHeaderText(messageSource.getMessage("logInScreenAddUserHeader",
+                null, "notFound", Locale.getDefault()));
+        dialog.setContentText(messageSource.getMessage("logInScreenAddUserContext",
+                null, "notFound", Locale.getDefault()));
+
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()){
+            // @TODO create new user
+            System.out.println("Your username: " + result.get());
+        }
     }
 }
