@@ -18,7 +18,7 @@
                   <HBox alignment="CENTER_RIGHT" fillHeight="false" prefHeight="20.0" prefWidth="300.0">
                      <children>
                         <Button fx:id="editUserListButton" mnemonicParsing="false" text="edit" />
-                        <Button fx:id="signUpButton" mnemonicParsing="false" text="+" />
+                        <Button fx:id="addUserToListButton" mnemonicParsing="false" text="+" />
                      </children>
                   </HBox>
                   <ScrollPane fx:id="userScrollView" fitToHeight="true" fitToWidth="true" prefHeight="174.0" prefWidth="300.0">

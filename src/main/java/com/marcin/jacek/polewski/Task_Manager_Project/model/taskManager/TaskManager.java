@@ -1,6 +1,7 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.user.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,8 +20,9 @@ public class TaskManager {
     @Column(name="task_manager_id")
     private int taskManagerId;
 
-    @Column(name="user_id")
-    private int userId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    User user;
 
     @Transient
     private List<Task> tasks;

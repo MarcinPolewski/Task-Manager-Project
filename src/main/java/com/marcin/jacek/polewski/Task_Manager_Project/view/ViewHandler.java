@@ -17,7 +17,7 @@ import java.io.IOException;
 @Component
 public class ViewHandler implements ApplicationListener<StartUpInitializationCompletedEvent> {
     private Stage mainStage;
-    private SceneWrapper currentStage;
+    private SceneWrapper currentScene;
 
 
     private MemoryHandler memoryHandler;
@@ -43,9 +43,9 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
         mainStage = event.getStage();
         mainStage.setResizable(false);
         try{
-            currentStage = memoryHandler.getSceneWrapper(SceneId.START_SCENE);
+            currentScene = memoryHandler.getSceneWrapper(SceneId.START_SCENE);
 
-            mainStage.setScene(currentStage.getScene());
+            mainStage.setScene(currentScene.getScene());
         } catch (IndexOutOfBoundsException e){
             System.out.println("No scene with particular id found");
         } catch (IOException e)
@@ -67,11 +67,11 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
 
     public void switchToLogInScene()
     {
-        if(!currentStage.getId().equals(SceneId.LOG_IN_SCENE))
+        if(!currentScene.getId().equals(SceneId.LOG_IN_SCENE))
         {
             try{
-                currentStage = memoryHandler.getSceneWrapper(SceneId.LOG_IN_SCENE);
-                mainStage.setScene(currentStage.getScene());
+                currentScene = memoryHandler.getSceneWrapper(SceneId.LOG_IN_SCENE);
+                mainStage.setScene(currentScene.getScene());
             } catch (IOException e)
             {
                 System.out.println("Error has occured during loading scene from file" + e.getMessage());
@@ -82,16 +82,22 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
 
     public void switchToMainScene()
     {
-        if(!currentStage.getId().equals(SceneId.MAIN_SCENE))
+        if(!currentScene.getId().equals(SceneId.MAIN_SCENE))
         {
             try{
-                currentStage = memoryHandler.getSceneWrapper(SceneId.MAIN_SCENE);
-                mainStage.setScene(currentStage.getScene());
+                currentScene = memoryHandler.getSceneWrapper(SceneId.MAIN_SCENE);
+                mainStage.setScene(currentScene.getScene());
             } catch (IOException e)
             {
                 System.out.println("Error has occured during loading scene from file" + e.getMessage());
             }
         }
     }
+
+    public void switchToNewTaskView()
+    {
+
+    }
+
 
 }

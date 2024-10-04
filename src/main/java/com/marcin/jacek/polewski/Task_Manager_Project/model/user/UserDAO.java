@@ -8,6 +8,6 @@ public interface UserDAO {
     public User findByUsername(String username);
 
     public void update(User user);
-    public void add(User user);
+    public User add(User user);
     public void delete(User user);
 }
