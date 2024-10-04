@@ -1,18 +1,29 @@
+DROP SCHEMA IF EXISTS `task_manager`;
 CREATE DATABASE  IF NOT EXISTS `task_manager`;
 USE `task_manager`;
 
+SET FOREIGN_KEY_CHECKS = 0;
+
 CREATE TABLE Users(
-    id INT AUTO_INCREMENT,
+    id INT NOT NULL AUTO_INCREMENT,
     username VARCHAR(255) UNIQUE,
     accent_color_hex_value CHAR(7),     -- for instance #112233
     PRIMARY KEY (id)
 );
 
 CREATE TABLE Task_Managers(
-    task_manager_id INT AUTO_INCREMENT,
+    task_manager_id INT NOT NULL AUTO_INCREMENT,
     user_id INT,
     PRIMARY KEY (task_manager_id),
-    FOREIGN KEY (user_id) REFERENCES Users(id)
+
+    -- add index
+    KEY `FK_USER_id` (`user_id`),
+
+    -- add foreign key
+    CONSTRAINT `FK_USER` FOREIGN KEY(`user_id`)
+    REFERENCES `Users`(`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
 );
 
 CREATE TABLE Tasks(
@@ -37,3 +48,5 @@ CREATE TABLE Sub_Tasks(
     PRIMARY KEY (id),
     FOREIGN KEY (main_task_id) REFERENCES Tasks(id)
 );
+
+SET FOREIGN_KEY_CHECKS = 1;
