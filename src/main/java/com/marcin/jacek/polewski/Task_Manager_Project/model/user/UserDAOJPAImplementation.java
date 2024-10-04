@@ -43,11 +43,12 @@ public class UserDAOJPAImplementation implements UserDAO{
     }
 
     @Override
-    public void add(User user) {
+    public User add(User user) {
         // setting id=0, to make sure that new user is created
         // and wrong input will not override other user in db
         user.setId(0);
-        entityManager.merge(user);
+        user = entityManager.merge(user);
+        return user;
     }
 
     @Override
