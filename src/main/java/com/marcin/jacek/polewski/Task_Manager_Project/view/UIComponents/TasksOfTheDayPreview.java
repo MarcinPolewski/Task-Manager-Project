@@ -52,10 +52,6 @@ public class TasksOfTheDayPreview extends VBox {
         {
             DayPreviewHourDisplay hourDisplay = new DayPreviewHourDisplay(hour);
             scrollVBox.getChildren().add(hourDisplay);
-
-            // @TODO delete, only for ui testing purposes
-            hourDisplay.addTask(taskManager.getTasks().get(0));
-            hourDisplay.addTask(taskManager.getTasks().get(1));
         }
 
         this.getChildren().add(scroll);
@@ -68,6 +64,19 @@ public class TasksOfTheDayPreview extends VBox {
         setUpTopBar(currentTime);
         setUpHourScrollView( currentTime,  taskManager);
     }
+
+//    private void addTasks(List<Task> tasks)
+//    {
+////        if(tasks!=null)
+////        {
+////            for(Task task : tasks)
+////            {
+////                //            hourDisplay.addTask(taskManager.getTasks().get(0));
+//////                 hourDisplay.addTask(taskManager.getTasks().get(1));
+////            }
+////        }
+//    }
+
 
 //    private void addTaskBlock(Task task)
 //    {

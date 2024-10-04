@@ -1,6 +1,8 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.controller;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.model.TaskManagerApp;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.user.User;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.user.UserService;
 import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
@@ -60,14 +62,19 @@ public class LogInViewController implements Initializable, ControllerInterface {
         signUpLabel.setText(messageSource.getMessage("logInScreenClickToSignUp",null, "notFound", Locale.getDefault()));
     }
 
+    private void createUserButton(User user)
+    {
+        LoginUserButton button = new LoginUserButton(memoryHandler, user);
+        vboxWithUsers.getChildren().add(button);
+        button.setOnAction(this::userButtonPressed);
+    }
+
     private void initializeUsersButtons()
     {
         List<User> users = userService.findAll();
         for(User user : users)
         {
-            LoginUserButton button = new LoginUserButton(memoryHandler, user);
-            vboxWithUsers.getChildren().add(button);
-            button.setOnAction(this::userButtonPressed);
+            createUserButton(user);
         }
     }
 
@@ -115,7 +122,17 @@ public class LogInViewController implements Initializable, ControllerInterface {
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()){
             // @TODO create new user
+            //@TODO check for wrong user input(is name unique)
             System.out.println("Your username: " + result.get());
+
+            String username = result.get();
+            User user = new User(username);
+            TaskManager tm = new TaskManager();
+            tm.setUser(user);
+            user.setTaskManager(tm);
+
+            user = userService.add(user);
+            createUserButton(user);
         }
     }
 }
