@@ -22,7 +22,7 @@ public class User{
     @Column(name="username")
     private String username;
 
-    @OneToOne(mappedBy="taskManager", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy="user", cascade = CascadeType.ALL)
     private TaskManager taskManager;
 
     public User(String username)
