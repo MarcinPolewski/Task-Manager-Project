@@ -22,12 +22,11 @@ public class User{
     @Column(name="username")
     private String username;
 
-    @Transient
+    @OneToOne(mappedBy="taskManager", cascade = CascadeType.ALL)
     private TaskManager taskManager;
 
-    User(int id, String username)
+    public User(String username)
     {
-        this.id = id;
         this.username = username;
     }
 }
