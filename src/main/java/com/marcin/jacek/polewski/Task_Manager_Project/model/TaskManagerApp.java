@@ -1,14 +1,18 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.model;
 
+import com.marcin.jacek.polewski.Task_Manager_Project.model.task.DAO.TaskDAO;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectoryService;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
-import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.service.TaskManagerService;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.user.User;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.user.UserService;
 import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 @Getter
@@ -16,33 +20,45 @@ public class TaskManagerApp {
     // has current user, it's task manager, notification handler
     private User currentUser;
 
-    private TaskManagerService taskManagerService;
     private TaskDirectoryService taskDirectoryService;
+    private UserService userService;
+    private TaskDAO taskDAO;
 
     @Autowired
-    TaskManagerApp(TaskManagerService taskManagerService,
-                   TaskDirectoryService taskDirectoryService)
+    TaskManagerApp(UserService userService,
+            TaskDirectoryService taskDirectoryService,
+            TaskDAO taskDAO
+    )
     {
-        this.taskManagerService = taskManagerService;
         this.taskDirectoryService = taskDirectoryService;
+        this.userService = userService;
+        this.taskDAO = taskDAO;
+
     }
 
-    private void switchTaskManager(User newUser)
+    private void loadTasks()
     {
-        // sync database with previous user
-        if(currentUser!=null)
-        {
-            taskManagerService.update(currentUser.getTaskManager());
-        }
-        currentUser = newUser;
-        TaskManager tm = taskManagerService.getTaskManager(newUser);
-               currentUser.setTaskManager(tm);
+        // @TODO move this responsibility elsewhere???
+        TaskManager currentTaskManager = currentUser.getTaskManager();
+        List<Task> tasks = taskDAO.find(currentTaskManager);
+
+        taskDirectoryService.clear();
+        taskDirectoryService.addTasks(tasks);
+
+
+        currentTaskManager.setTasks(tasks);
+
     }
 
     public void setCurrentUser(User user)
     {
-        switchTaskManager(user);
-        this.currentUser = user;
+        if(currentUser!=null)
+        {
+            userService.update(currentUser);
+        }
+        currentUser = user;
+
+        loadTasks();
     }
 
 }

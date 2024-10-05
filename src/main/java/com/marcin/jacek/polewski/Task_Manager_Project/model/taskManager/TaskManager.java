@@ -24,7 +24,11 @@ public class TaskManager {
     @JoinColumn(name = "user_id")
     User user;
 
-    @Transient
+    @OneToMany(mappedBy = "taskManager",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    @Setter
     private List<Task> tasks;
 
 

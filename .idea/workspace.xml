@@ -4,18 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="fixed issues with line not stretching to the end of container">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/AllTasksPreview.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/DayPreviewTaskButton.java" afterDir="false" />
+    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="deleted TaskManager DAO and Service (it's automatically loaded by User dao)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskDirectory/TaskDirectory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskDirectory/TaskDirectory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_querries/database_starter.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database_querries/database_starter.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/LogInViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/LogInViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/TaskManagerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/TaskManagerApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/task/DAO/TaskDAOJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/task/DAO/TaskDAOJPA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/task/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/task/Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskDirectory/TaskDirectoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskDirectory/TaskDirectoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/DayPreviewHourDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/DayPreviewHourDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/TasksOfTheDayPreview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/TasksOfTheDayPreview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/main_view.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/main_view.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskManager/TaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskManager/TaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/user/UserServiceJPAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/user/UserServiceJPAImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/languages/messages_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/new-task-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/new-task-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/model/Task.class" beforeDir="false" />
@@ -45,8 +45,8 @@
         <option value="Enum" />
         <option value="FxmlFile" />
         <option value="CSS File" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -79,7 +79,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.Main.executor": "Run",
+    "Spring Boot.Main.executor": "Debug",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/marcinpolewski/Documents/Task-Manager-Project/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/util",
@@ -89,6 +89,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -138,7 +141,11 @@
       <workItem from="1727026717131" duration="45000" />
       <workItem from="1727268649270" duration="2742000" />
       <workItem from="1727277114914" duration="20256000" />
-      <workItem from="1727436364283" duration="34082000" />
+      <workItem from="1727436364283" duration="53504000" />
+      <workItem from="1727983651712" duration="1250000" />
+      <workItem from="1728051967897" duration="140000" />
+      <workItem from="1728052119630" duration="6058000" />
+      <workItem from="1728137105722" duration="1865000" />
     </task>
     <task id="LOCAL-00001" summary="Successfully connected Spring Boot with JavaFX">
       <option name="closed" value="true" />
@@ -356,25 +363,109 @@
       <option name="project" value="LOCAL" />
       <updated>1727516917347</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="started implementing folder view">
+      <option name="closed" value="true" />
+      <created>1727814386713</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1727814386713</updated>
+    </task>
+    <task id="LOCAL-00029" summary="added blueprint for top bar">
+      <option name="closed" value="true" />
+      <created>1727874787116</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1727874787116</updated>
+    </task>
+    <task id="LOCAL-00030" summary="updated all tasks preview, so now all the tasks are shown">
+      <option name="closed" value="true" />
+      <created>1727894036160</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1727894036160</updated>
+    </task>
+    <task id="LOCAL-00031" summary="added blueprint for add new task screen">
+      <option name="closed" value="true" />
+      <created>1727895833731</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1727895833731</updated>
+    </task>
+    <task id="LOCAL-00032" summary="implemnented ControllerInterface and established communications between custom UI components and controllr">
+      <option name="closed" value="true" />
+      <created>1727934980562</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1727934980562</updated>
+    </task>
+    <task id="LOCAL-00033" summary="added prompt for creating new user">
+      <option name="closed" value="true" />
+      <created>1727954055461</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1727954055461</updated>
+    </task>
+    <task id="LOCAL-00034" summary="updated database schema">
+      <option name="closed" value="true" />
+      <created>1728052997397</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1728052997397</updated>
+    </task>
+    <task id="LOCAL-00035" summary="implemented bidirectional link between User and TaskManager">
+      <option name="closed" value="true" />
+      <created>1728053592837</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1728053592837</updated>
+    </task>
+    <task id="LOCAL-00036" summary="fixed wrong mapping">
+      <option name="closed" value="true" />
+      <created>1728054098047</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1728054098047</updated>
+    </task>
+    <task id="LOCAL-00037" summary="updated user service and dao to be compatible with one to one mapping with task manager">
+      <option name="closed" value="true" />
+      <created>1728054216349</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1728054216349</updated>
+    </task>
+    <task id="LOCAL-00038" summary="updated other components to work with new mappings">
+      <option name="closed" value="true" />
+      <created>1728055347530</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1728055347530</updated>
+    </task>
+    <task id="LOCAL-00039" summary="deleted TaskManager DAO and Service (it's automatically loaded by User dao)">
+      <option name="closed" value="true" />
+      <created>1728108574979</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1728108574979</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implemented loading css files of stages" />
-    <MESSAGE value="fixed loading css files" />
-    <MESSAGE value="started work on Setting app icon, image is loaded, but it's invisible" />
-    <MESSAGE value="now Spring manages JavaFX Controllers - dependency injection is now possible" />
-    <MESSAGE value="updated dependencies" />
-    <MESSAGE value="added support for multiple languages" />
-    <MESSAGE value="added languages folder path to application.properties" />
-    <MESSAGE value="added animations, but they run before the window is actually shown" />
-    <MESSAGE value="added animations for starting phase and automatic transition to log in screen" />
-    <MESSAGE value="enchaned animations" />
-    <MESSAGE value="finished start screen animations" />
-    <MESSAGE value="modified log in view, to have main portion centered" />
     <MESSAGE value="minor changes to log in screen, started implementing LogInViewController, updated README.md" />
     <MESSAGE value="added sql querries for creating database and filling with example data" />
     <MESSAGE value="implemented fetching Users from database" />
@@ -388,9 +479,45 @@
     <MESSAGE value="small fix" />
     <MESSAGE value="refactored code" />
     <MESSAGE value="fixed issues with line not stretching to the end of container" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed issues with line not stretching to the end of container" />
+    <MESSAGE value="started implementing folder view" />
+    <MESSAGE value="added blueprint for top bar" />
+    <MESSAGE value="updated all tasks preview, so now all the tasks are shown" />
+    <MESSAGE value="added blueprint for add new task screen" />
+    <MESSAGE value="implemnented ControllerInterface and established communications between custom UI components and controllr" />
+    <MESSAGE value="added prompt for creating new user" />
+    <MESSAGE value="updated database schema" />
+    <MESSAGE value="implemented bidirectional link between User and TaskManager" />
+    <MESSAGE value="fixed wrong mapping" />
+    <MESSAGE value="updated user service and dao to be compatible with one to one mapping with task manager" />
+    <MESSAGE value="updated other components to work with new mappings" />
+    <MESSAGE value="deleted TaskManager DAO and Service (it's automatically loaded by User dao)" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted TaskManager DAO and Service (it's automatically loaded by User dao)" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskManager/service/TaskManagerDAOJPA.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskManager/service/TaskManagerServiceJPA.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/MainViewController.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/TaskManagerApp.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager" memberName="tasks" />

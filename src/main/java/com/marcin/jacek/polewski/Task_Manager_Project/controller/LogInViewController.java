@@ -106,12 +106,9 @@ public class LogInViewController implements Initializable, ControllerInterface {
         System.out.println("edit users pressed");
     }
 
-    public void addUserListButtonPressed(ActionEvent event)
+    private void HandleGetUsernameDialog()
     {
-        System.out.println("add user pressed");
         TextInputDialog dialog = new TextInputDialog();
-
-
         dialog.setTitle(messageSource.getMessage("logInScreenAddUserTitle",
                 null, "notFound", Locale.getDefault()));
         dialog.setHeaderText(messageSource.getMessage("logInScreenAddUserHeader",
@@ -119,9 +116,9 @@ public class LogInViewController implements Initializable, ControllerInterface {
         dialog.setContentText(messageSource.getMessage("logInScreenAddUserContext",
                 null, "notFound", Locale.getDefault()));
 
+
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()){
-            // @TODO create new user
             //@TODO check for wrong user input(is name unique)
             System.out.println("Your username: " + result.get());
 
@@ -134,5 +131,11 @@ public class LogInViewController implements Initializable, ControllerInterface {
             user = userService.add(user);
             createUserButton(user);
         }
+    }
+
+    public void addUserListButtonPressed(ActionEvent event)
+    {
+        HandleGetUsernameDialog();
+
     }
 }

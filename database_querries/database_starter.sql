@@ -36,8 +36,14 @@ CREATE TABLE Tasks(
        scheduled_execution DATETIME,
        due_date DATETIME,
        state INT,
+
        PRIMARY KEY (id),
-       FOREIGN KEY (task_manager_id) REFERENCES Task_Managers(task_manager_id)
+       KEY `FOREIGN_KEY_ID` (`task_manager_id`),
+
+        CONSTRAINT `FOREIGN_KEY` FOREIGN KEY (`task_manager_id`)
+        REFERENCES `Task_Managers`(`task_manager_id`)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION
 );
 
 CREATE TABLE Sub_Tasks(

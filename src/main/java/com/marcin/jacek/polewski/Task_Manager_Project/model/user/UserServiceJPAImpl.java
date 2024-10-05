@@ -1,6 +1,5 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.model.user;
 
-import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.service.TaskManagerService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -3,6 +3,7 @@ package com.marcin.jacek.polewski.Task_Manager_Project.model.task;
 import com.marcin.jacek.polewski.Task_Manager_Project.exceptions.SubTaskNotFinishedException;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.subTask.SubTask;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectoryItem;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,9 +23,6 @@ public class Task implements TaskDirectoryItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private int taskId;
-
-    @Column(name="task_manager_id")
-    private int taskManagerId;
 
     @Column(name="title")
     private String title;
@@ -46,6 +44,15 @@ public class Task implements TaskDirectoryItem {
 
     @Column(name="enclosing_folder_path")
     private String enclosingFolderPath;
+
+    @ManyToOne(cascade = {
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.PERSIST,
+            CascadeType.REFRESH
+    })
+    @JoinColumn(name="task_manager_id")
+    private TaskManager taskManager;
 
     @Transient
     private ArrayList<SubTask> subTasks;

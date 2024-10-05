@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Iterator;
+import java.util.List;
 
 @Service
 public class TaskDirectoryService {
@@ -35,5 +36,21 @@ public class TaskDirectoryService {
         // add task to folder
         currentFolder.addTask(task);
     }
+
+    public void addTasks(List<Task> tasks)
+    {
+        if(tasks!=null)
+        {
+            for (Task task : tasks) {
+                this.addTask(task);
+            }
+        }
+    }
+
+    public void clear()
+    {
+        root = new TaskDirectory();
+    }
+
 
 }
