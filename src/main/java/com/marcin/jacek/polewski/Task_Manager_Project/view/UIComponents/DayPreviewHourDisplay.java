@@ -12,7 +12,12 @@ public class DayPreviewHourDisplay extends VBox {
     private Line line = new Line();
     private Label hourLabel = new Label();
     private HBox labelAndTasksHBox = new HBox();
+    private HBox tasksHBox = new HBox();
 
+    public void clear()
+    {
+        tasksHBox.getChildren().clear();
+    }
 
     DayPreviewHourDisplay(int hour)
     {
@@ -21,7 +26,7 @@ public class DayPreviewHourDisplay extends VBox {
         this.setFillWidth(true);
 
         hourLabel.setText(String.valueOf(hour));
-        labelAndTasksHBox.getChildren().add(hourLabel);
+        labelAndTasksHBox.getChildren().setAll(hourLabel, tasksHBox);
         labelAndTasksHBox.setAlignment(Pos.BOTTOM_CENTER);
 
 
@@ -45,7 +50,7 @@ public class DayPreviewHourDisplay extends VBox {
 
     public void addTask(Task task)
     {
-        labelAndTasksHBox.getChildren().add(new DayPreviewTaskButton(task));
+        tasksHBox.getChildren().add(new DayPreviewTaskButton(task));
     }
 
 }

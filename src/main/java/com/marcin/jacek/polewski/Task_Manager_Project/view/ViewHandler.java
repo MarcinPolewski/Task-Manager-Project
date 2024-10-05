@@ -12,6 +12,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.Stack;
 
 /* class responsible for switching scenes*/
 @Component
@@ -19,6 +20,7 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
     private Stage mainStage;
     private SceneWrapper currentScene;
 
+    private Stack<SceneWrapper> sceneStack = new Stack<>();
 
     private MemoryHandler memoryHandler;
 

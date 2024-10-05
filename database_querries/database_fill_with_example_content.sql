@@ -10,9 +10,9 @@ VALUES
 
 INSERT INTO Tasks (task_manager_id, title,enclosing_folder_path, notes, creation_date, scheduled_execution, due_date, state)
 VALUES 
-    (1, 'Complete project report','/' ,'Finalizing the report for the client', NOW(), '2024-09-27 09:00:00', '2024-09-30 17:00:00', 0), -- Task 1 for user_id 1
+    (1, 'Complete project report','/' ,'Finalizing the report for the client', NOW(), '2024-10-05 09:00:00', '2024-09-30 17:00:00', 0), -- Task 1 for user_id 1
     (1, 'Prepare for meeting', '/folder1' ,'Gather all the necessary documents and prepare the presentation', NOW(), '2024-09-28 14:00:00', '2024-09-28 17:00:00', 0), -- Task 2 for user_id 1
-    (1, 'Team feedback','/folder1/folder2', 'Collect and compile team feedback for the quarterly review', NOW(), '2024-09-29 10:00:00', '2024-09-29 15:00:00', 0), -- Task 3 for user_id 1
+    (1, 'Team feedback','/folder1/folder2', 'Collect and compile team feedback for the quarterly review', NOW(), '2024-10-05 18:25:00', '2024-09-29 15:00:00', 0), -- Task 3 for user_id 1
     (2, 'Budget review', '/', 'Review the budget for the upcoming project', NOW(), '2024-09-26 13:00:00', '2024-09-26 18:00:00', 1); -- Task 4 for user_id 2
 
 INSERT INTO Sub_Tasks (main_task_id, title, state)

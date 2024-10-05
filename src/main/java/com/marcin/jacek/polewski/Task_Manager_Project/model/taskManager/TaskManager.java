@@ -7,6 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.lang.reflect.Array;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -30,6 +33,20 @@ public class TaskManager {
     )
     @Setter
     private List<Task> tasks;
+
+    public List<Task> getTasks(LocalDate date)
+    {
+        List<Task> result = new ArrayList<>();
+        for(Task task : tasks)
+        {
+            if(task.getScheduledExecution().toLocalDate().equals(date))
+            {
+                result.add(task);
+                System.out.println("foudnkdajsf;lakdsjf;lka");
+            }
+        }
+        return result;
+    }
 
 
     public void newTask()
