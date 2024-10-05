@@ -96,7 +96,16 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
 
     public void switchToNewTaskView()
     {
-
+        if(!currentScene.getId().equals(SceneId.NEW_TASK_SCENE))
+        {
+            try{
+                currentScene = memoryHandler.getSceneWrapper(SceneId.NEW_TASK_SCENE);
+                mainStage.setScene(currentScene.getScene());
+            } catch (IOException e)
+            {
+                System.out.println("Error has occured during loading scene from file" + e.getMessage());
+            }
+        }
     }
 
 

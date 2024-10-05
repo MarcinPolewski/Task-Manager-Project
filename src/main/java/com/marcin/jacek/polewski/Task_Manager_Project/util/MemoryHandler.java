@@ -46,6 +46,10 @@ public class MemoryHandler {
             @Value("classpath:${scene.mainScene.path}") Resource mainSceneResource,
             @Value("classpath:${scene.mainScene.css.path}") Resource mainSceneCSSResource,
 
+            @Value("${scene.newTaskScene.name}") String newTaskSceneName,
+            @Value("classpath:${scene.newTaskScene.path}") Resource newTaskSceneResource,
+            @Value("classpath:${scene.newTaskScene.css.path}") Resource newTaskSceneCSSResource,
+
             @Value("classpath:${scene.default.css.path}") Resource defaultCSSResource,
 
             ConfigurableApplicationContext context
@@ -57,6 +61,7 @@ public class MemoryHandler {
         scenes.put(SceneId.START_SCENE, new SceneWrapper(SceneId.START_SCENE, startSceneName, startSceneResource, startSceneCSSResource));
         scenes.put(SceneId.LOG_IN_SCENE, new SceneWrapper(SceneId.LOG_IN_SCENE, logInSceneName, logInSceneResource, logInSceneCSSResource));
         scenes.put(SceneId.MAIN_SCENE, new SceneWrapper(SceneId.MAIN_SCENE, mainSceneName, mainSceneResource, mainSceneCSSResource));
+        scenes.put(SceneId.NEW_TASK_SCENE, new SceneWrapper(SceneId.NEW_TASK_SCENE, newTaskSceneName, newTaskSceneResource, newTaskSceneResource));
 
 
         // adding craeting images wrappers

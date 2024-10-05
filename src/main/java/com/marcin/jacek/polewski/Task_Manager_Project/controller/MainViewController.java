@@ -6,6 +6,7 @@ import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskMana
 import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.AllTasksPreview;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.TasksOfTheDayPreview;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.TopBar;
+import com.marcin.jacek.polewski.Task_Manager_Project.view.ViewHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -34,12 +35,16 @@ public class MainViewController implements Initializable, TopBarController {
 
     private TaskManagerApp taskManagerApp;
     private TaskDirectoryService taskDirectoryService;
+    private ViewHandler viewHandler;
 
     @Autowired
-    MainViewController(TaskManagerApp taskManagerApp, TaskDirectoryService taskDirectoryService)
+    MainViewController(TaskManagerApp taskManagerApp,
+                       TaskDirectoryService taskDirectoryService,
+                       ViewHandler viewHandler)
     {
         this.taskManagerApp = taskManagerApp;
         this.taskDirectoryService = taskDirectoryService;
+        this.viewHandler = viewHandler;
     }
 
 
@@ -64,8 +69,7 @@ public class MainViewController implements Initializable, TopBarController {
     @Override
     public void newTaskButtonPressed(ActionEvent event)
     {
-        // @TODO implement method
-        System.out.println("create new task");
+        viewHandler.switchToNewTaskView();
     }
 
 
