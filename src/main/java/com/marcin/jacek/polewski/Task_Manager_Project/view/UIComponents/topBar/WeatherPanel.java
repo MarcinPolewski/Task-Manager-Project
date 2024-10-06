@@ -1,4 +1,4 @@
-package com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents;
+package com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.topBar;
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;

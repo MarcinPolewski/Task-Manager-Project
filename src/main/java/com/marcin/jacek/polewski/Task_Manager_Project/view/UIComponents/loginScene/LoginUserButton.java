@@ -1,4 +1,4 @@
-package com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents;
+package com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.loginScene;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.image.ImageId;
