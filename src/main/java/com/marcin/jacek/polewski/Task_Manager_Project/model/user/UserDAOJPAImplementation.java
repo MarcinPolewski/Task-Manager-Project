@@ -2,6 +2,7 @@ package com.marcin.jacek.polewski.Task_Manager_Project.model.user;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -53,6 +54,8 @@ public class UserDAOJPAImplementation implements UserDAO{
 
     @Override
     public void delete(User user) {
-
+        User syncedUser = entityManager.find(User.class, user.getId());
+        if(syncedUser!=null)
+            entityManager.remove(syncedUser);
     }
 }
