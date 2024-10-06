@@ -1,19 +1,15 @@
-package com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents;
+package com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.mainScene;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.controller.ControllerInterface;
 import com.marcin.jacek.polewski.Task_Manager_Project.exceptions.InvalidTaskDate;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
 import javafx.event.ActionEvent;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
-import javafx.scene.shape.Line;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

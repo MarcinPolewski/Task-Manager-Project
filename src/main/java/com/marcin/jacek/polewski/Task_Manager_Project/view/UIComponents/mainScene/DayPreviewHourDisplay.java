@@ -1,8 +1,7 @@
-package com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents;
+package com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.mainScene;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;

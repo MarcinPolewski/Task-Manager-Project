@@ -1,19 +1,19 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.controller;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.model.TaskManagerApp;
-import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.user.User;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.user.UserService;
 import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
-import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.LoginUserButton;
+import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.loginScene.DeleteUserButton;
+import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.loginScene.LoginUserButton;
+import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.loginScene.UserButtons;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.ViewHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextInputDialog;
+import javafx.scene.Node;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -64,9 +64,9 @@ public class LogInViewController implements Initializable, ControllerInterface {
 
     private void createUserButton(User user)
     {
-        LoginUserButton button = new LoginUserButton(memoryHandler, user);
-        vboxWithUsers.getChildren().add(button);
-        button.setOnAction(this::userButtonPressed);
+        UserButtons buttons = new UserButtons(memoryHandler, user);
+        buttons.setOnAction(this::logInUserButtonPressed, this::deleteUserButtonPressed);
+        vboxWithUsers.getChildren().add(buttons);
     }
 
     private void initializeUsersButtons()
@@ -78,21 +78,14 @@ public class LogInViewController implements Initializable, ControllerInterface {
         }
     }
 
-    private void initializeControlButtons()
-    {
-        editUserListButton.setOnAction(this::editUserListButtonPressed);
-        addUserToListButton.setOnAction(this::addUserListButtonPressed);
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // add text to labels
         initializeLabels();
         initializeUsersButtons();
-        initializeControlButtons();
     }
 
-    public void userButtonPressed(ActionEvent event)
+    public void logInUserButtonPressed(ActionEvent event)
     {
         LoginUserButton userButton = (LoginUserButton)event.getSource();
         User user = userButton.getUser();
@@ -101,9 +94,75 @@ public class LogInViewController implements Initializable, ControllerInterface {
         viewHandler.switchToMainScene();
     }
 
-    public void editUserListButtonPressed(ActionEvent event)
+    private void removeUserButtonFromScreen(User user)
     {
-        System.out.println("edit users pressed");
+        List<Node> listOfUserButtons = vboxWithUsers.getChildren();
+        if(listOfUserButtons!=null)
+        {
+            for(Node node : listOfUserButtons)
+            {
+                if(node instanceof UserButtons)
+                {
+                    UserButtons ub = (UserButtons)node;
+                    if(ub.getUser() == user)
+                    {
+                        vboxWithUsers.getChildren().remove(node);
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+
+    private void HandleDeleteUserConfirmationDialog(User user)
+    {
+        ButtonType yesButton = ButtonType.YES;
+        ButtonType noButton = ButtonType.NO;
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(messageSource.getMessage("logInScreenDeleteUserTitle",
+                null, "notFound", Locale.getDefault()));
+        alert.setHeaderText(messageSource.getMessage("logInScreenDeleteUserHeader",
+                null, "notFound", Locale.getDefault()) + " " + user.getUsername() + "?");
+        alert.setContentText(messageSource.getMessage("logInScreenDeleteUserContext",
+                null, "notFound", Locale.getDefault()));
+
+        alert.getButtonTypes().setAll(yesButton, noButton);
+        Optional<ButtonType> result = alert.showAndWait();
+        if(result.isPresent())
+        {
+            if(result.get()==yesButton)
+            {
+                removeUserButtonFromScreen(user);
+                userService.delete(user);
+            }
+        }
+    }
+
+    public void deleteUserButtonPressed(ActionEvent event)
+    {
+        DeleteUserButton button = (DeleteUserButton)event.getSource();
+        User user = button.getUser();
+
+
+        HandleDeleteUserConfirmationDialog(user);
+    }
+
+    public void editUsersPressed(ActionEvent event)
+    {
+        List<Node> listOfUserButtons = vboxWithUsers.getChildren();
+        if(listOfUserButtons!=null)
+        {
+            for(Node node : listOfUserButtons)
+            {
+                if(node instanceof UserButtons)
+                {
+                    UserButtons ub = (UserButtons)node;
+                    ub.setEditable(!ub.isEditable());
+                }
+            }
+        }
     }
 
     private void HandleGetUsernameDialog()
@@ -136,6 +195,5 @@ public class LogInViewController implements Initializable, ControllerInterface {
     public void addUserListButtonPressed(ActionEvent event)
     {
         HandleGetUsernameDialog();
-
     }
 }

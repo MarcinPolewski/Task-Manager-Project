@@ -1,4 +1,4 @@
-package com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents;
+package com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.mainScene;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.controller.ControllerInterface;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
