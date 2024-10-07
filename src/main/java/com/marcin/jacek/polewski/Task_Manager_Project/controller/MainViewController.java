@@ -1,6 +1,9 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.controller;
 
+import com.marcin.jacek.polewski.Task_Manager_Project.Events.TaskDirectoryPressedEvent;
+import com.marcin.jacek.polewski.Task_Manager_Project.Events.TaskPressedEvent;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.TaskManagerApp;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectoryService;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.mainScene.AllTasksPreview;
@@ -58,10 +61,22 @@ public class MainViewController implements Initializable, TopBarController {
         centerHBox.getChildren().add(dayPreview);
     }
 
+    private void taskPressed(TaskPressedEvent taskPressedEvent)
+    {
+        System.out.println("task pressed");
+    }
+
+    private void directoryPressed(TaskDirectoryPressedEvent directoryPressedEvent)
+    {
+        System.out.println("directory pressed");
+    }
+
+
     private void initializeAllTasksPreview()
     {
         AllTasksPreview taskPreview = new AllTasksPreview(this, taskDirectoryService);
         centerHBox.getChildren().add(taskPreview);
+        taskPreview.setOnAction(this::taskPressed, this::directoryPressed);
     }
 
     @Override

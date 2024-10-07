@@ -1,20 +1,19 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.mainScene;
 
+import com.marcin.jacek.polewski.Task_Manager_Project.Events.TaskDirectoryPressedEvent;
+import com.marcin.jacek.polewski.Task_Manager_Project.Events.TaskPressedEvent;
 import com.marcin.jacek.polewski.Task_Manager_Project.controller.ControllerInterface;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectoryItem;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectoryService;
-import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
+import javafx.event.EventHandler;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import lombok.Getter;
-import org.antlr.v4.runtime.tree.Tree;
 
-import java.awt.*;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -23,6 +22,13 @@ public class AllTasksPreview extends VBox {
     private TreeView<TaskDirectoryItem> treeView;
     private TaskDirectoryService taskDirectoryService;
     private ControllerInterface controller;
+
+    private EventHandler<TaskPressedEvent> taskPressed;
+    private EventHandler<TaskDirectoryPressedEvent> directoryPressed;
+
+    public void setOnAction(Object taskPressed, Object directoryPressed) {
+
+    }
 
     @Getter
     private class QueueItem
@@ -37,6 +43,16 @@ public class AllTasksPreview extends VBox {
         }
 
     }
+
+    public AllTasksPreview(ControllerInterface controller, TaskDirectoryService taskDirectoryService)
+    {
+        super();
+        this.controller = controller;
+        this.taskDirectoryService = taskDirectoryService;
+        loadTreeStructure();
+        this.getChildren().setAll(treeView);
+    }
+
 
     private void loadTreeStructure()
     {
@@ -80,13 +96,30 @@ public class AllTasksPreview extends VBox {
         treeView.setShowRoot(false);
     }
 
-    public AllTasksPreview(ControllerInterface controller, TaskDirectoryService taskDirectoryService)
+
+    public void treeItemPressed(MouseEvent event)
     {
-        super();
-        this.controller = controller;
-        this.taskDirectoryService = taskDirectoryService;
-        loadTreeStructure();
-        this.getChildren().setAll(treeView);
+        System.out.println("pressed");
+        TreeItem<TaskDirectoryItem> treeItem = treeView.getSelectionModel().getSelectedItem();
+        if (treeItem != null && event.getEventType().equals(MouseEvent.MOUSE_CLICKED) && event.getClickCount() == 1)
+        {
+            TaskDirectoryItem directoryItem = treeItem.getValue();
+            if(directoryItem instanceof TaskDirectory)
+            {
+                directoryPressed.handle(new TaskDirectoryPressedEvent((TaskDirectory)directoryItem));
+            }
+            else if (directoryItem instanceof Task)
+            {
+                taskPressed.handle(new TaskPressedEvent((Task)directoryItem));
+            }
+        }
+    }
+
+    public void setOnAction(EventHandler<TaskPressedEvent> taskPressed, EventHandler<TaskDirectoryPressedEvent> directoryPressed)
+    {
+        treeView.setOnMouseClicked(this::treeItemPressed);
+        this.taskPressed = taskPressed;
+        this.directoryPressed = directoryPressed;
     }
 
 }

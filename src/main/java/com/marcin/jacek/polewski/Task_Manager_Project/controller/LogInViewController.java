@@ -147,9 +147,10 @@ public class LogInViewController implements Initializable, ControllerInterface {
 
 
         HandleDeleteUserConfirmationDialog(user);
+        changeEditability();
     }
 
-    public void editUsersPressed(ActionEvent event)
+    private void changeEditability()
     {
         List<Node> listOfUserButtons = vboxWithUsers.getChildren();
         if(listOfUserButtons!=null)
@@ -163,6 +164,11 @@ public class LogInViewController implements Initializable, ControllerInterface {
                 }
             }
         }
+    }
+
+    public void editUsersPressed(ActionEvent event)
+    {
+        changeEditability();
     }
 
     private void HandleGetUsernameDialog()
