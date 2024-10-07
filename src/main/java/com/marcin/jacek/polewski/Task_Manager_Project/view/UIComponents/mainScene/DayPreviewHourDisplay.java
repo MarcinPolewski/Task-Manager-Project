@@ -1,6 +1,8 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.mainScene;
 
+import com.marcin.jacek.polewski.Task_Manager_Project.Events.TaskPressedEvent;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -12,6 +14,8 @@ public class DayPreviewHourDisplay extends VBox {
     private Label hourLabel = new Label();
     private HBox labelAndTasksHBox = new HBox();
     private HBox tasksHBox = new HBox();
+
+    private EventHandler<TaskPressedEvent> taskPressedEventHandler;
 
     public void clear()
     {
@@ -44,12 +48,18 @@ public class DayPreviewHourDisplay extends VBox {
         this.getChildren().setAll(labelAndTasksHBox, line);
     }
 
+    public void setOnAction(EventHandler<TaskPressedEvent> taskPressedEventHandler)
+    {
+        this.taskPressedEventHandler = taskPressedEventHandler;
+    }
 
 
 
     public void addTask(Task task)
     {
-        tasksHBox.getChildren().add(new DayPreviewTaskButton(task));
+        DayPreviewTaskButton button = new DayPreviewTaskButton(task);
+        button.setTaskPressedEventHandler(taskPressedEventHandler);
+        tasksHBox.getChildren().add(button);
     }
 
 }

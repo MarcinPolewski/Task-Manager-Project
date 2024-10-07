@@ -1,10 +1,12 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.mainScene;
 
+import com.marcin.jacek.polewski.Task_Manager_Project.Events.TaskPressedEvent;
 import com.marcin.jacek.polewski.Task_Manager_Project.controller.ControllerInterface;
 import com.marcin.jacek.polewski.Task_Manager_Project.exceptions.InvalidTaskDate;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -25,6 +27,8 @@ public class TasksOfTheDayPreview extends VBox {
 
     private LocalDateTime displayedTime;
     private TaskManager taskManager;
+
+    private EventHandler<TaskPressedEvent> taskPressedEventHandler;
 
     private void clear()
     {
@@ -59,7 +63,7 @@ public class TasksOfTheDayPreview extends VBox {
     private void updateView()
     {
         dayLabel.setText(displayedTime.toString());
-        addTasksToPreview();;
+        addTasksToPreview();
     }
 
     public void switchToPreviousDay(ActionEvent event)
@@ -111,6 +115,7 @@ public class TasksOfTheDayPreview extends VBox {
         {
             DayPreviewHourDisplay hourDisplay = new DayPreviewHourDisplay(hour);
             hourDisplays.add(hourDisplay);
+            hourDisplay.setOnAction(taskPressedEventHandler);
             scrollVBox.getChildren().add(hourDisplay);
         }
 
@@ -126,22 +131,13 @@ public class TasksOfTheDayPreview extends VBox {
         setUpHourScrollView( currentTime,  taskManager);
     }
 
-//    private void addTasks(List<Task> tasks)
-//    {
-////        if(tasks!=null)
-////        {
-////            for(Task task : tasks)
-////            {
-////                //            hourDisplay.addTask(taskManager.getTasks().get(0));
-//////                 hourDisplay.addTask(taskManager.getTasks().get(1));
-////            }
-////        }
-//    }
-
-
-//    private void addTaskBlock(Task task)
-//    {
-//
-//    }
+    public void setOnAction(EventHandler<TaskPressedEvent> taskPressedEventHandler)
+    {
+        this.taskPressedEventHandler = taskPressedEventHandler;
+        for(DayPreviewHourDisplay hourDisplay: hourDisplays)
+        {
+            hourDisplay.setOnAction(taskPressedEventHandler);
+        }
+    }
 
 }

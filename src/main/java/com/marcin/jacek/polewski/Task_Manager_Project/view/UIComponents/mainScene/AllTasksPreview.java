@@ -99,7 +99,6 @@ public class AllTasksPreview extends VBox {
 
     public void treeItemPressed(MouseEvent event)
     {
-        System.out.println("pressed");
         TreeItem<TaskDirectoryItem> treeItem = treeView.getSelectionModel().getSelectedItem();
         if (treeItem != null && event.getEventType().equals(MouseEvent.MOUSE_CLICKED) && event.getClickCount() == 1)
         {

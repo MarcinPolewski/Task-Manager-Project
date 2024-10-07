@@ -42,7 +42,6 @@ public class TaskManager {
             if(task.getScheduledExecution().toLocalDate().equals(date))
             {
                 result.add(task);
-                System.out.println("foudnkdajsf;lakdsjf;lka");
             }
         }
         return result;

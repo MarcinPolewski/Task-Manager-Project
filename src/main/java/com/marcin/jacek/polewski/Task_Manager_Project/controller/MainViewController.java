@@ -58,17 +58,18 @@ public class MainViewController implements Initializable, TopBarController {
         TaskManager tm = taskManagerApp.getCurrentUser().getTaskManager();
 
         TasksOfTheDayPreview dayPreview = new TasksOfTheDayPreview(this, LocalDateTime.now(), tm);
+        dayPreview.setOnAction(this::taskPressed);
         centerHBox.getChildren().add(dayPreview);
     }
 
     private void taskPressed(TaskPressedEvent taskPressedEvent)
     {
-        System.out.println("task pressed");
+        System.out.println("task pressed: "  + taskPressedEvent.getTask().getTitle());
     }
 
     private void directoryPressed(TaskDirectoryPressedEvent directoryPressedEvent)
     {
-        System.out.println("directory pressed");
+        System.out.println("directory pressed: " + directoryPressedEvent.getTaskDirectory().getName());
     }
 
 
