@@ -15,8 +15,5 @@ public class TimePanel extends VBox {
     {
         timeLabel.textProperty().bind(clockProperty);
         this.getChildren().setAll(timeLabel);
-//        this.getChildren().setAll(new Label("this is time panel"),
-//                new Label("12:34"),
-//                new Label("12.05.2124"));
     }
 }

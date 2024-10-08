@@ -77,6 +77,26 @@ public class MainViewController implements Initializable, TopBarController {
         viewHandler.openDirectoryView(directoryPressedEvent.getTaskDirectory());
     }
 
+    private void homePressed(ActionEvent event)
+    {
+        System.out.println("open home screen");
+    }
+    public void statisticsPressed(ActionEvent event)
+    {
+        System.out.println("open statistics view");
+    }
+
+    public void usersPressed(ActionEvent event)
+    {
+        taskManagerApp.logOutUser();
+        viewHandler.switchToLogInScene();
+    }
+
+    public void settingsPressed(ActionEvent event)
+    {
+        System.out.println("open settings view");
+    }
+
 
     private void initializeAllTasksPreview()
     {
@@ -89,6 +109,13 @@ public class MainViewController implements Initializable, TopBarController {
     {
         SideBar sideBar = new SideBar(memoryHandler);
         mainBorderPane.setLeft(sideBar);
+
+        sideBar.setOnAction(
+                this::homePressed,
+                this::newTaskButtonPressed,
+                this::statisticsPressed,
+                this::usersPressed,
+                this::settingsPressed);
     }
 
     @Override

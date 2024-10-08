@@ -37,6 +37,7 @@ public class MemoryHandler {
             @Value("classpath:${images.homeIcon.path}") Resource homeIconResource,
             @Value("classpath:${images.settingsIcon.path}") Resource settingsIconResource,
             @Value("classpath:${images.usersIcon.path}") Resource usersIconResource,
+            @Value("classpath:${images.addIcon.path}") Resource addIconResource,
 
             @Value("${scene.startScene.name}") String startSceneName,
             @Value("classpath:${scene.startScene.path}") Resource startSceneResource,
@@ -78,13 +79,14 @@ public class MemoryHandler {
         scenes.put(SceneId.DIRECTORY_SCENE, new SceneWrapper(SceneId.DIRECTORY_SCENE, directoryViewSceneName, directoryViewSceneResource, directoryViewSceneCSSResource));
 
 
-        // adding craeting images wrappers
+        // adding raeting images wrappers
         images.put(ImageId.APP_LOGO, new ImageWrapper(ImageId.APP_LOGO, mainIconResource));
         images.put(ImageId.USER_ICON, new ImageWrapper(ImageId.USER_ICON, userIconResource));
         images.put(ImageId.CHART_ICON, new ImageWrapper(ImageId.APP_LOGO, chartIconResource));
         images.put(ImageId.HOME_ICON, new ImageWrapper(ImageId.USER_ICON, homeIconResource));
         images.put(ImageId.SETTINGS_ICON, new ImageWrapper(ImageId.APP_LOGO, settingsIconResource));
         images.put(ImageId.USERS_ICON, new ImageWrapper(ImageId.USER_ICON, usersIconResource));
+        images.put(ImageId.ADD_ICON, new ImageWrapper(ImageId.ADD_ICON, addIconResource));
 
 
 

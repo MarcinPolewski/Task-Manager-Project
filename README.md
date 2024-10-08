@@ -46,5 +46,6 @@
 - "settings.png" Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
 - "user.png" Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
 - "users.png" Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
+- "add.png" Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
 - 
 - colour combination <- <a href="https://colorhunt.co/palette/1e201e3c3d37697565ecdfcc" title="colour">colorhunt.co</a>

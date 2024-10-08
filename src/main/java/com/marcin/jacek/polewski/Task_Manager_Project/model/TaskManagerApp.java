@@ -61,4 +61,15 @@ public class TaskManagerApp {
         loadTasks();
     }
 
+    public void logOutUser()
+    {
+        if(currentUser!=null)
+        {
+            userService.update(currentUser);
+            currentUser = null;
+            taskDirectoryService.clear();
+        }
+
+    }
+
 }

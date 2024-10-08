@@ -16,7 +16,6 @@ public class ClockProperty extends SimpleStringProperty {
 
     public ClockProperty()
     {
-        // "E ,d.M.y , HH:mm:ss"
         super(LocalDateTime.now().format(DateTimeFormatter.ofPattern("E, d.M.y, HH:mm:ss")));
         this.formatter = DateTimeFormatter.ofPattern("E, d.M.y, HH:mm:ss");
         startClock();
