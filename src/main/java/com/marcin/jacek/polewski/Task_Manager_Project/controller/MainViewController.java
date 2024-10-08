@@ -75,7 +75,7 @@ public class MainViewController implements Initializable, TopBarController {
 
     private void initializeAllTasksPreview()
     {
-        AllTasksPreview taskPreview = new AllTasksPreview(this, taskDirectoryService);
+        AllTasksPreview taskPreview = new AllTasksPreview(taskDirectoryService);
         centerHBox.getChildren().add(taskPreview);
         taskPreview.setOnAction(this::taskPressed, this::directoryPressed);
     }
