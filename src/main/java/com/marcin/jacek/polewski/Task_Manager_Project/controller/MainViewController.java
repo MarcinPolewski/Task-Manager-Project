@@ -64,12 +64,12 @@ public class MainViewController implements Initializable, TopBarController {
 
     private void taskPressed(TaskPressedEvent taskPressedEvent)
     {
-        System.out.println("task pressed: "  + taskPressedEvent.getTask().getTitle());
+        viewHandler.openTaskView(taskPressedEvent.getTask());
     }
 
     private void directoryPressed(TaskDirectoryPressedEvent directoryPressedEvent)
     {
-        System.out.println("directory pressed: " + directoryPressedEvent.getTaskDirectory().getName());
+        viewHandler.openDirectoryView(directoryPressedEvent.getTaskDirectory());
     }
 
 

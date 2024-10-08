@@ -1,6 +1,11 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.view;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.Events.StartUpInitializationCompletedEvent;
+import com.marcin.jacek.polewski.Task_Manager_Project.controller.DirectoryViewController;
+import com.marcin.jacek.polewski.Task_Manager_Project.controller.TaskViewController;
+import com.marcin.jacek.polewski.Task_Manager_Project.exceptions.CannotGoBackError;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
 import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.image.ImageId;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.scene.SceneId;
@@ -80,6 +85,54 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
             }
         }
         mainStage.setResizable(true);
+    }
+
+    public void openTaskView(Task task)
+    {
+        sceneStack.push(currentScene);
+        if(!currentScene.getId().equals(SceneId.TASK_SCENE))
+        {
+            try{
+                currentScene = memoryHandler.getSceneWrapper(SceneId.TASK_SCENE);
+                mainStage.setScene(currentScene.getScene());
+                ((TaskViewController)currentScene.getController()).setTask(task);
+            } catch (IOException e)
+            {
+                System.out.println("Error has occured during loading scene from file" + e.getMessage());
+            }
+            catch(ClassCastException e)
+            {
+                System.out.println("Cannot cast controller into TaskViewController");
+            }
+        }
+    }
+
+    public void back()
+    {
+        if(sceneStack.isEmpty())
+            throw new CannotGoBackError();
+
+        currentScene = sceneStack.pop();
+    }
+
+    public void openDirectoryView(TaskDirectory directory)
+    {
+        sceneStack.push(currentScene);
+        if(!currentScene.getId().equals(SceneId.DIRECTORY_SCENE))
+        {
+            try{
+                currentScene = memoryHandler.getSceneWrapper(SceneId.DIRECTORY_SCENE);
+                mainStage.setScene(currentScene.getScene());
+                ((DirectoryViewController)currentScene.getController()).setTaskDirectory(directory);
+            } catch (IOException e)
+            {
+                System.out.println("Error has occured during loading scene from file" + e.getMessage());
+            }
+            catch(ClassCastException e)
+            {
+                System.out.println("Cannot cast controller into DirectoryViewController");
+            }
+        }
     }
 
     public void switchToMainScene()

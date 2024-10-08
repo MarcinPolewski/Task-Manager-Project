@@ -50,6 +50,14 @@ public class MemoryHandler {
             @Value("classpath:${scene.newTaskScene.path}") Resource newTaskSceneResource,
             @Value("classpath:${scene.newTaskScene.css.path}") Resource newTaskSceneCSSResource,
 
+            @Value("${scene.taskView.name}") String taskViewSceneName,
+            @Value("classpath:${scene.taskView.path}") Resource taskViewSceneResource,
+            @Value("classpath:${scene.taskView.css.path}") Resource taskViewSceneCSSResource,
+
+            @Value("${scene.directoryView.name}") String directoryViewSceneName,
+            @Value("classpath:${scene.directoryView.path}") Resource directoryViewSceneResource,
+            @Value("classpath:${scene.directoryView.css.path}") Resource directoryViewSceneCSSResource,
+
             @Value("classpath:${scene.default.css.path}") Resource defaultCSSResource,
 
             ConfigurableApplicationContext context
@@ -61,7 +69,9 @@ public class MemoryHandler {
         scenes.put(SceneId.START_SCENE, new SceneWrapper(SceneId.START_SCENE, startSceneName, startSceneResource, startSceneCSSResource));
         scenes.put(SceneId.LOG_IN_SCENE, new SceneWrapper(SceneId.LOG_IN_SCENE, logInSceneName, logInSceneResource, logInSceneCSSResource));
         scenes.put(SceneId.MAIN_SCENE, new SceneWrapper(SceneId.MAIN_SCENE, mainSceneName, mainSceneResource, mainSceneCSSResource));
-        scenes.put(SceneId.NEW_TASK_SCENE, new SceneWrapper(SceneId.NEW_TASK_SCENE, newTaskSceneName, newTaskSceneResource, newTaskSceneResource));
+        scenes.put(SceneId.NEW_TASK_SCENE, new SceneWrapper(SceneId.NEW_TASK_SCENE, newTaskSceneName, newTaskSceneResource, newTaskSceneCSSResource));
+        scenes.put(SceneId.TASK_SCENE, new SceneWrapper(SceneId.TASK_SCENE, taskViewSceneName, taskViewSceneResource, taskViewSceneCSSResource));
+        scenes.put(SceneId.DIRECTORY_SCENE, new SceneWrapper(SceneId.DIRECTORY_SCENE, directoryViewSceneName, directoryViewSceneResource, directoryViewSceneCSSResource));
 
 
         // adding craeting images wrappers
