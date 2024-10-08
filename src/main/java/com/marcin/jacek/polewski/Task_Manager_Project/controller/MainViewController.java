@@ -6,6 +6,8 @@ import com.marcin.jacek.polewski.Task_Manager_Project.model.TaskManagerApp;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectoryService;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
+import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
+import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.SideBar;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.mainScene.AllTasksPreview;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.mainScene.TasksOfTheDayPreview;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.topBar.TopBar;
@@ -37,15 +39,18 @@ public class MainViewController implements Initializable, TopBarController {
     private TaskManagerApp taskManagerApp;
     private TaskDirectoryService taskDirectoryService;
     private ViewHandler viewHandler;
+    private MemoryHandler memoryHandler;
 
     @Autowired
     MainViewController(TaskManagerApp taskManagerApp,
                        TaskDirectoryService taskDirectoryService,
-                       ViewHandler viewHandler)
+                       ViewHandler viewHandler,
+                       MemoryHandler memoryHandler)
     {
         this.taskManagerApp = taskManagerApp;
         this.taskDirectoryService = taskDirectoryService;
         this.viewHandler = viewHandler;
+        this.memoryHandler = memoryHandler;
     }
 
 
@@ -80,6 +85,12 @@ public class MainViewController implements Initializable, TopBarController {
         taskPreview.setOnAction(this::taskPressed, this::directoryPressed);
     }
 
+    private void initializeSideBar()
+    {
+        SideBar sideBar = new SideBar(memoryHandler);
+        mainBorderPane.setLeft(sideBar);
+    }
+
     @Override
     public void newTaskButtonPressed(ActionEvent event)
     {
@@ -92,5 +103,6 @@ public class MainViewController implements Initializable, TopBarController {
         initializeTopBar();
         initializeDayTaskPreview();
         initializeAllTasksPreview();
+        initializeSideBar();
     }
 }

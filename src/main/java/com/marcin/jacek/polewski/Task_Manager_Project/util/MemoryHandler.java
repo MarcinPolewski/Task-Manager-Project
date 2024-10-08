@@ -33,6 +33,10 @@ public class MemoryHandler {
 
             @Value("classpath:${images.app_logo.path}") Resource mainIconResource,
             @Value("classpath:${images.userIcon.path}") Resource userIconResource,
+            @Value("classpath:${images.chartIcon.path}") Resource chartIconResource,
+            @Value("classpath:${images.homeIcon.path}") Resource homeIconResource,
+            @Value("classpath:${images.settingsIcon.path}") Resource settingsIconResource,
+            @Value("classpath:${images.usersIcon.path}") Resource usersIconResource,
 
             @Value("${scene.startScene.name}") String startSceneName,
             @Value("classpath:${scene.startScene.path}") Resource startSceneResource,
@@ -77,6 +81,12 @@ public class MemoryHandler {
         // adding craeting images wrappers
         images.put(ImageId.APP_LOGO, new ImageWrapper(ImageId.APP_LOGO, mainIconResource));
         images.put(ImageId.USER_ICON, new ImageWrapper(ImageId.USER_ICON, userIconResource));
+        images.put(ImageId.CHART_ICON, new ImageWrapper(ImageId.APP_LOGO, chartIconResource));
+        images.put(ImageId.HOME_ICON, new ImageWrapper(ImageId.USER_ICON, homeIconResource));
+        images.put(ImageId.SETTINGS_ICON, new ImageWrapper(ImageId.APP_LOGO, settingsIconResource));
+        images.put(ImageId.USERS_ICON, new ImageWrapper(ImageId.USER_ICON, usersIconResource));
+
+
 
         SceneWrapper.setDefaultCSSResource(defaultCSSResource);
     }

@@ -40,5 +40,11 @@
     - use of  Platform.runLater() and a SceneLoadedListener(class that listens if a scene is assigned to object from that scene, then listens for adding this scene to a window, then listens for isShowing property of a window ) fixed the problem
 ### Attributions
 - "list.png" <- <a href="https://www.flaticon.com/free-icons/to-do-list" title="to do list icons">To do list icons created by Freepik - Flaticon</a>
-- <a href="https://www.flaticon.com/free-icons/user" title="user icons">User icons created by Becris - Flaticon</a>
+- "chart-histogram.png" Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
+- "home.png" Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
+- "list.png" Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
+- "settings.png" Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
+- "user.png" Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
+- "users.png" Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
+- 
 - colour combination <- <a href="https://colorhunt.co/palette/1e201e3c3d37697565ecdfcc" title="colour">colorhunt.co</a>

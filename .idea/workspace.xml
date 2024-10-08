@@ -4,10 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="connected back button to nwe task view">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/AllTasksTreeView.java" afterDir="false" />
+    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="isolated functionality of task directory tree">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/SideBar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/chart-histogram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/settings.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/users.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/util/MemoryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/util/MemoryHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/mainScene/AllTasksPreview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/mainScene/AllTasksPreview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/image/ImageId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/image/ImageId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/user.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/user.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/main-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/model/Task.class" beforeDir="false" />
@@ -74,7 +85,7 @@
     "Spring Boot.Main.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/marcinpolewski/Documents/Task-Manager-Project/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/util",
+    "last_opened_file_path": "/Users/marcinpolewski/Documents/Task-Manager-Project/src/main/resources/icons",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -89,6 +100,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/icons" />
       <recent name="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/util" />
       <recent name="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model" />
     </key>
@@ -143,7 +155,7 @@
       <workItem from="1728212113017" duration="145000" />
       <workItem from="1728212260756" duration="2056000" />
       <workItem from="1728296215747" duration="10463000" />
-      <workItem from="1728368495019" duration="8001000" />
+      <workItem from="1728368495019" duration="10593000" />
     </task>
     <task id="LOCAL-00001" summary="Successfully connected Spring Boot with JavaFX">
       <option name="closed" value="true" />
@@ -521,14 +533,21 @@
       <option name="project" value="LOCAL" />
       <updated>1728374284181</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="isolated functionality of task directory tree">
+      <option name="closed" value="true" />
+      <created>1728391767344</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1728391767344</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added loading paths from tasks to TaskDirectoryService" />
     <MESSAGE value="started implementing day view" />
     <MESSAGE value="small fix" />
     <MESSAGE value="refactored code" />
@@ -553,7 +572,8 @@
     <MESSAGE value="implemented passing information from TasksOfTheDayPreview to scene controller" />
     <MESSAGE value="implemented opening task view and directory view" />
     <MESSAGE value="connected back button to nwe task view" />
-    <option name="LAST_COMMIT_MESSAGE" value="connected back button to nwe task view" />
+    <MESSAGE value="isolated functionality of task directory tree" />
+    <option name="LAST_COMMIT_MESSAGE" value="isolated functionality of task directory tree" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

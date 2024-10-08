@@ -38,5 +38,4 @@ public class AllTasksPreview extends VBox {
         treeView.setOnAction(taskPressed, directoryPressed);
     }
 
-
 }
