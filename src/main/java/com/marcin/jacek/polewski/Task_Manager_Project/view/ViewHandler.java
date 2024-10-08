@@ -107,12 +107,13 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
         }
     }
 
-    public void back()
+    public void back() throws CannotGoBackError
     {
         if(sceneStack.isEmpty())
             throw new CannotGoBackError();
 
         currentScene = sceneStack.pop();
+        mainStage.setScene(currentScene.getScene());
     }
 
     public void openDirectoryView(TaskDirectory directory)
@@ -149,8 +150,10 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
         }
     }
 
-    public void switchToNewTaskView()
+    public void openNewTaskView()
     {
+        sceneStack.push(currentScene);
+
         if(!currentScene.getId().equals(SceneId.NEW_TASK_SCENE))
         {
             try{

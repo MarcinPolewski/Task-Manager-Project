@@ -83,7 +83,7 @@ public class MainViewController implements Initializable, TopBarController {
     @Override
     public void newTaskButtonPressed(ActionEvent event)
     {
-        viewHandler.switchToNewTaskView();
+        viewHandler.openNewTaskView();
     }
 
 

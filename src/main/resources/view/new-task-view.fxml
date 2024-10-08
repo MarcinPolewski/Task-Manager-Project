@@ -7,12 +7,11 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marcin.jacek.polewski.Task_Manager_Project.controller.NewTaskController">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -50,17 +49,13 @@
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label text="Folder" />
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                     <content>
-                        <TreeView prefHeight="200.0" prefWidth="200.0" />
-                     </content>
-                  </ScrollPane>
+                  <ScrollPane fx:id="directoryScrollPane" prefHeight="200.0" prefWidth="200.0" />
                </children>
             </VBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button mnemonicParsing="false" text="add sub task" />
-                  <Button mnemonicParsing="false" text="cancel" />
+                  <Button mnemonicParsing="false" onAction="#cancelButtonPressed" text="cancel" />
                   <Button mnemonicParsing="false" text="save task" />
                </children>
             </HBox>
