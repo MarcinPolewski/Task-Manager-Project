@@ -3,7 +3,6 @@ package com.marcin.jacek.polewski.Task_Manager_Project.controller;
 import com.marcin.jacek.polewski.Task_Manager_Project.Events.TaskDirectoryPressedEvent;
 import com.marcin.jacek.polewski.Task_Manager_Project.Events.TaskPressedEvent;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.TaskManagerApp;
-import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectoryService;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
 import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
@@ -26,7 +25,7 @@ import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 @Component
-public class MainViewController implements Initializable, TopBarController {
+public class MainViewController implements Initializable, ControllerInterface {
     @FXML
     BorderPane mainBorderPane;
 
@@ -58,14 +57,7 @@ public class MainViewController implements Initializable, TopBarController {
     {
         mainBorderPane.setTop(new TopBar(this));
     }
-    private void initializeDayTaskPreview()
-    {
-        TaskManager tm = taskManagerApp.getCurrentUser().getTaskManager();
 
-        TasksOfTheDayPreview dayPreview = new TasksOfTheDayPreview(this, LocalDateTime.now(), tm);
-        dayPreview.setOnAction(this::taskPressed);
-        centerHBox.getChildren().add(dayPreview);
-    }
 
     private void taskPressed(TaskPressedEvent taskPressedEvent)
     {
@@ -98,11 +90,16 @@ public class MainViewController implements Initializable, TopBarController {
     }
 
 
-    private void initializeAllTasksPreview()
+    private void initializeCenterScreen()
     {
         AllTasksPreview taskPreview = new AllTasksPreview(taskDirectoryService);
-        centerHBox.getChildren().add(taskPreview);
         taskPreview.setOnAction(this::taskPressed, this::directoryPressed);
+
+        TaskManager tm = taskManagerApp.getCurrentUser().getTaskManager();
+
+        TasksOfTheDayPreview dayPreview = new TasksOfTheDayPreview(this, LocalDateTime.now(), tm);
+        dayPreview.setOnAction(this::taskPressed);
+        centerHBox.getChildren().setAll(dayPreview, taskPreview);
     }
 
     private void initializeSideBar()
@@ -118,18 +115,22 @@ public class MainViewController implements Initializable, TopBarController {
                 this::settingsPressed);
     }
 
-    @Override
     public void newTaskButtonPressed(ActionEvent event)
     {
         viewHandler.openNewTaskView();
     }
 
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        initializeScene();
+    }
+
+    @Override
+    public void initializeScene() {
         initializeTopBar();
-        initializeDayTaskPreview();
-        initializeAllTasksPreview();
+        initializeCenterScreen();
         initializeSideBar();
     }
 }

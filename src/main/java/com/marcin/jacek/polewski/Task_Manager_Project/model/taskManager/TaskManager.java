@@ -48,9 +48,9 @@ public class TaskManager {
     }
 
 
-    public void newTask()
+    public void newTask(Task task)
     {
-
+        tasks.add(task);
     }
     public void newTaskDirectory()
     {

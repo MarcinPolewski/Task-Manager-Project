@@ -1,5 +1,6 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.util;
 
+import com.marcin.jacek.polewski.Task_Manager_Project.controller.ControllerInterface;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.image.ImageId;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.image.ImageWrapper;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.scene.SceneId;
@@ -140,7 +141,10 @@ public class MemoryHandler {
             scene.getStylesheets().add(defaultCss);
             scene.getStylesheets().add(scenesCss);
         }
-
+        else
+        {
+            ((ControllerInterface)wrapper.getController()).initializeScene();
+        }
         return wrapper;
     }
 }

@@ -10,4 +10,8 @@ public class TaskViewController implements ControllerInterface{
     @Setter
     private Task task;
 
+    @Override
+    public void initializeScene() {
+
+    }
 }

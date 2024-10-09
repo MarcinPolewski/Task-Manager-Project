@@ -202,4 +202,9 @@ public class LogInViewController implements Initializable, ControllerInterface {
     {
         HandleGetUsernameDialog();
     }
+
+    @Override
+    public void initializeScene() {
+
+    }
 }

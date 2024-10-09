@@ -107,4 +107,9 @@ public class StartViewController implements Initializable, ControllerInterface{
         // adding a listener to a scene, so a method will be called when scene with this button is added to a window
         WindowLoadedListener.addWindowLoadedListener(iconView, this::windowStartedBeingShown);
     }
+
+    @Override
+    public void initializeScene() {
+
+    }
 }

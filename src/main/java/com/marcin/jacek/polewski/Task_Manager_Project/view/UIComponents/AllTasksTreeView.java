@@ -12,6 +12,7 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -22,6 +23,8 @@ public class AllTasksTreeView extends TreeView<TaskDirectoryItem> {
 
     private EventHandler<TaskPressedEvent> taskPressedEventHandler;
     private EventHandler<TaskDirectoryPressedEvent> directoryPressedEventHandler;
+
+    private boolean onlyDirectories = false;
 
     @Getter
     private class QueueItem
@@ -37,9 +40,10 @@ public class AllTasksTreeView extends TreeView<TaskDirectoryItem> {
 
     }
 
-    public AllTasksTreeView(TaskDirectoryService taskDirectoryService)
+    public AllTasksTreeView(TaskDirectoryService taskDirectoryService, boolean onlyDirectories)
     {
         super();
+        this.onlyDirectories = onlyDirectories;
         this.taskDirectoryService = taskDirectoryService;
         loadTreeStructure();
 
@@ -75,7 +79,7 @@ public class AllTasksTreeView extends TreeView<TaskDirectoryItem> {
             }
 
             List<Task> tasks =  currentFolder.getTaskDirectory().getTasks();
-            if(tasks!=null)
+            if(!onlyDirectories && tasks!=null)
             {
                 for(Task task : tasks)
                 {
@@ -98,11 +102,11 @@ public class AllTasksTreeView extends TreeView<TaskDirectoryItem> {
         if (treeItem != null && event.getEventType().equals(MouseEvent.MOUSE_CLICKED) && event.getClickCount() == 1)
         {
             TaskDirectoryItem directoryItem = treeItem.getValue();
-            if(directoryItem instanceof TaskDirectory)
+            if( directoryPressedEventHandler!=null && directoryItem instanceof TaskDirectory)
             {
                 directoryPressedEventHandler.handle(new TaskDirectoryPressedEvent((TaskDirectory)directoryItem));
             }
-            else if (directoryItem instanceof Task)
+            else if ( taskPressedEventHandler!=null && directoryItem instanceof Task)
             {
                 taskPressedEventHandler.handle(new TaskPressedEvent((Task)directoryItem));
             }
@@ -113,6 +117,12 @@ public class AllTasksTreeView extends TreeView<TaskDirectoryItem> {
     {
         this.setOnMouseClicked(this::treeItemPressed);
         this.taskPressedEventHandler = taskPressed;
+        this.directoryPressedEventHandler = directoryPressed;
+    }
+
+    public void setOnAction(EventHandler<TaskDirectoryPressedEvent> directoryPressed)
+    {
+        this.setOnMouseClicked(this::treeItemPressed);
         this.directoryPressedEventHandler = directoryPressed;
     }
 

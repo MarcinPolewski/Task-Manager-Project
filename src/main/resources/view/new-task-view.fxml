@@ -19,7 +19,7 @@
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label text="Title" />
-                  <TextField />
+                  <TextField fx:id="titleTextField" />
                </children>
             </VBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
@@ -27,15 +27,15 @@
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
                         <Label prefHeight="14.0" prefWidth="146.0" text="Scheduled execution" />
-                        <DatePicker />
-                        <ComboBox prefWidth="150.0" promptText="18:00" />
+                        <DatePicker fx:id="scheduledDatePicker" />
+                        <ComboBox fx:id="scheduledTimePicker" prefWidth="150.0" promptText="18:00" />
                      </children>
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
                         <Label text="Label" />
-                        <DatePicker />
-                        <ComboBox prefWidth="150.0" />
+                        <DatePicker fx:id="dueDatePicker" />
+                        <ComboBox fx:id="dueTimePicker" prefWidth="150.0" />
                      </children>
                   </VBox>
                </children>
@@ -43,7 +43,7 @@
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label text="Notes" />
-                  <TextArea prefHeight="200.0" prefWidth="200.0" />
+                  <TextArea fx:id="notesTextArea" prefHeight="200.0" prefWidth="200.0" />
                </children>
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0">

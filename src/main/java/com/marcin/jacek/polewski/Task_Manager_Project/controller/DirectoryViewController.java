@@ -11,4 +11,8 @@ public class DirectoryViewController implements ControllerInterface{
     @Setter
     private TaskDirectory taskDirectory;
 
+    @Override
+    public void initializeScene() {
+
+    }
 }

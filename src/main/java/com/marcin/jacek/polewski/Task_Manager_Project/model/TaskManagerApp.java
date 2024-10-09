@@ -72,4 +72,11 @@ public class TaskManagerApp {
 
     }
 
+    public void newTask(Task task)
+    {
+        // add to task manager
+        currentUser.getTaskManager().newTask(task);
+        // add to task directory service
+        taskDirectoryService.addTask(task);
+    }
 }

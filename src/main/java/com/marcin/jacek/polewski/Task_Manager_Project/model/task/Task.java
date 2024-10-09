@@ -2,6 +2,7 @@ package com.marcin.jacek.polewski.Task_Manager_Project.model.task;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.exceptions.SubTaskNotFinishedException;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.subTask.SubTask;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectoryItem;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
 import jakarta.persistence.*;
@@ -28,6 +29,7 @@ public class Task implements TaskDirectoryItem {
     private String title;
 
     @Column(name="notes")
+    @Setter
     private String note;
 
     @Column(name="creation_date")
@@ -57,12 +59,14 @@ public class Task implements TaskDirectoryItem {
     @Transient
     private ArrayList<SubTask> subTasks;
 
-    Task(int taskId, String title, LocalDateTime scheduledExecution, LocalDateTime dueDate)
+    public Task(int taskId, String title, LocalDateTime scheduledExecution, LocalDateTime dueDate, TaskDirectory parentFolder)
     {
         this.taskId = taskId;
         this.title = title;
         this.scheduledExecution =scheduledExecution;
         this.dueDate = dueDate;
+        this.state = TaskState.CREATED;
+        // this.enclosingFolderPath = parentFolder; @TODO how to store this information??  
     }
 
     void addSubTask(SubTask subTask)

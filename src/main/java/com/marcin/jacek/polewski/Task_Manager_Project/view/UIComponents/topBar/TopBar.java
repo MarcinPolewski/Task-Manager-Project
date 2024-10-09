@@ -1,5 +1,7 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.topBar;
 
+import com.marcin.jacek.polewski.Task_Manager_Project.controller.ControllerInterface;
+import com.marcin.jacek.polewski.Task_Manager_Project.controller.MainViewController;
 import com.marcin.jacek.polewski.Task_Manager_Project.controller.TopBarController;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
@@ -7,10 +9,10 @@ import javafx.scene.layout.HBox;
 public class TopBar extends HBox {
     private Button addTaskButton = new Button("New task");
     private TimePanel timePanel = new TimePanel();
-    private TopBarController controller;
+    private ControllerInterface controller;
 
 
-    public TopBar(TopBarController controller)
+    public TopBar(ControllerInterface controller)
     {
         super();
         this.controller = controller;
@@ -22,7 +24,7 @@ public class TopBar extends HBox {
 
     private void initializeComponents()
     {
-        addTaskButton.setOnAction(controller::newTaskButtonPressed);
+        addTaskButton.setOnAction(((MainViewController)controller)::newTaskButtonPressed);
     }
 
 

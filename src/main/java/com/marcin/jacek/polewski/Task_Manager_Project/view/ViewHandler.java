@@ -32,6 +32,7 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
     @Autowired
     ViewHandler(MemoryHandler memoryHandler)
     {
+
         this.memoryHandler = memoryHandler;
     }
 
@@ -51,7 +52,6 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
         mainStage.setResizable(false);
         try{
             currentScene = memoryHandler.getSceneWrapper(SceneId.START_SCENE);
-
             mainStage.setScene(currentScene.getScene());
         } catch (IndexOutOfBoundsException e){
             System.out.println("No scene with particular id found");
@@ -74,6 +74,8 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
 
     public void switchToLogInScene()
     {
+
+
         if(!currentScene.getId().equals(SceneId.LOG_IN_SCENE))
         {
             try{
@@ -156,6 +158,7 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
 
         if(!currentScene.getId().equals(SceneId.NEW_TASK_SCENE))
         {
+
             try{
                 currentScene = memoryHandler.getSceneWrapper(SceneId.NEW_TASK_SCENE);
                 mainStage.setScene(currentScene.getScene());

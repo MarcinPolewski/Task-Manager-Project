@@ -27,7 +27,7 @@ public class AllTasksPreview extends VBox {
 
     public AllTasksPreview(TaskDirectoryService taskDirectoryService)
     {
-        treeView = new AllTasksTreeView(taskDirectoryService);
+        treeView = new AllTasksTreeView(taskDirectoryService, false);
         Label titleLabel = new Label("label");
         this.getChildren().setAll(titleLabel, treeView);
 
