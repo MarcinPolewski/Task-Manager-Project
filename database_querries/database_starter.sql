@@ -26,11 +26,35 @@ CREATE TABLE Task_Managers(
     ON UPDATE NO ACTION
 );
 
+CREATE TABLE Task_Directories(
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(64) NOT NULL,
+    parent_id INT,
+    task_manager_id INT NOT NULL,
+
+    PRIMARY KEY(id),
+
+--     constraint and intex for task manager key
+    KEY `TASK_MANAGER_FOREIGN_KEY_ID` (`task_manager_id`),
+
+    CONSTRAINT `TASK_MANAGER_FOREIGN_KEY_IN_DIRECTORY` FOREIGN KEY (`task_manager_id`)
+    REFERENCES `Task_Managers` (`task_manager_id`)
+    ON DELETE  NO ACTION
+    ON UPDATE  NO ACTION,
+
+    KEY `PARENT_DIRECTORY_FOREIGN_KEY_ID` (`parent_id`),
+
+    CONSTRAINT `PARENT_DIRECTORY_FOREIGN_KEY` FOREIGN KEY (`parent_id`)
+        REFERENCES `Task_Directories` (`id`)
+        ON DELETE  NO ACTION
+        ON UPDATE  NO ACTION
+);
+
 CREATE TABLE Tasks(
        id INT AUTO_INCREMENT,
        task_manager_id INT,
        title VARCHAR(255),
-       enclosing_folder_path TEXT,
+       enclosing_folder_id INT,
        notes TEXT,
        creation_date DATETIME,
        scheduled_execution DATETIME,
@@ -38,10 +62,17 @@ CREATE TABLE Tasks(
        state INT,
 
        PRIMARY KEY (id),
-       KEY `FOREIGN_KEY_ID` (`task_manager_id`),
+       KEY `TASK_MANAGER_FOREIGN_KEY_ID` (`task_manager_id`),
 
-        CONSTRAINT `FOREIGN_KEY` FOREIGN KEY (`task_manager_id`)
-        REFERENCES `Task_Managers`(`task_manager_id`)
+        CONSTRAINT `TASK_MANAGER_FOREIGN_KEY` FOREIGN KEY (`task_manager_id`)
+        REFERENCES `Task_Managers` (`task_manager_id`)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION,
+
+        KEY `TASK_DIRECTORY_ID` (`enclosing_folder_id`),
+
+        CONSTRAINT `TASK_DIRECTORY_FOREIGN_KEY` FOREIGN KEY (`enclosing_folder_id`)
+        REFERENCES `Task_Directories` (`id`)
         ON DELETE NO ACTION
         ON UPDATE NO ACTION
 );
