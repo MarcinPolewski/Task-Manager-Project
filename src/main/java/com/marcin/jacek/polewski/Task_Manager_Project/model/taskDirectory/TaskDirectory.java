@@ -1,22 +1,56 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.List;
 
+@Entity
 @Getter
 @NoArgsConstructor
+@Table(name="Task_Directories")
 public class TaskDirectory implements TaskDirectoryItem{
     /* represents a container for other Directories or Tasks*/
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
+    private int id;
+
+    @Column(name="name")
     @Setter
     private String name;
+
     @Setter
+    @ManyToOne(cascade = {
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.PERSIST,
+            CascadeType.REFRESH
+    }, fetch = FetchType.EAGER
+    )
+    @JoinColumn(name = "parent_id")
     private TaskDirectory parentDirectory;
-    private ArrayList<TaskDirectory> subDirectories;
-    private ArrayList<Task> tasks;
+
+    @OneToMany(mappedBy = "parentDirectory", cascade = CascadeType.ALL,  fetch = FetchType.EAGER)
+    private List<TaskDirectory> subDirectories;
+
+    @OneToMany(mappedBy = "enclosingFolder", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Task> tasks;
+
+    @ManyToOne(cascade = {
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.PERSIST,
+            CascadeType.REFRESH
+    })
+    @JoinColumn(name="task_manager_id")
+    TaskManager taskManager;
 
     TaskDirectory(TaskDirectory parentDirectory, String name)
     {

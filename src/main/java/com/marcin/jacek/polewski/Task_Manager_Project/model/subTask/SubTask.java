@@ -1,5 +1,6 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.model.subTask;
 
+import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,8 +17,14 @@ public class SubTask {
     @Column(name="id")
     private int id;
 
-    @Column(name="main_task_id")
-    private int mainTaskId;
+    @ManyToOne(cascade = {
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.PERSIST,
+            CascadeType.REFRESH
+    }, fetch = FetchType.EAGER)
+    @JoinColumn(name="main_task_id")
+    Task mainTask;
 
     @Column(name="title")
     private String title;

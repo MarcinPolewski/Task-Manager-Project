@@ -1,6 +1,7 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.user.User;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -27,22 +28,18 @@ public class TaskManager {
     @JoinColumn(name = "user_id")
     User user;
 
-    @OneToMany(mappedBy = "taskManager",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
+    @OneToMany(mappedBy = "taskManager", cascade = CascadeType.ALL)
     @Setter
-    private List<Task> tasks;
+    List<TaskDirectory> taskDirectories;
+
 
     public List<Task> getTasks(LocalDate date)
     {
         List<Task> result = new ArrayList<>();
-        for(Task task : tasks)
+        for(TaskDirectory directory : taskDirectories)
         {
-            if(task.getScheduledExecution().toLocalDate().equals(date))
-            {
-                result.add(task);
-            }
+            if(directory.getTasks()!=null)
+                result.addAll(directory.getTasks());
         }
         return result;
     }
@@ -50,7 +47,7 @@ public class TaskManager {
 
     public void newTask(Task task)
     {
-        tasks.add(task);
+//        tasks.add(task);
     }
     public void newTaskDirectory()
     {

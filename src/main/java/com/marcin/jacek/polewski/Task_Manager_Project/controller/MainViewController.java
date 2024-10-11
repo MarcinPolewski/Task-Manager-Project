@@ -3,7 +3,7 @@ package com.marcin.jacek.polewski.Task_Manager_Project.controller;
 import com.marcin.jacek.polewski.Task_Manager_Project.Events.TaskDirectoryPressedEvent;
 import com.marcin.jacek.polewski.Task_Manager_Project.Events.TaskPressedEvent;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.TaskManagerApp;
-import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectoryService;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
 import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.SideBar;
@@ -22,6 +22,7 @@ import org.springframework.stereotype.Component;
 
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.ResourceBundle;
 
 @Component
@@ -36,18 +37,15 @@ public class MainViewController implements Initializable, ControllerInterface {
     StackPane mainStackPane;
 
     private TaskManagerApp taskManagerApp;
-    private TaskDirectoryService taskDirectoryService;
     private ViewHandler viewHandler;
     private MemoryHandler memoryHandler;
 
     @Autowired
     MainViewController(TaskManagerApp taskManagerApp,
-                       TaskDirectoryService taskDirectoryService,
                        ViewHandler viewHandler,
                        MemoryHandler memoryHandler)
     {
         this.taskManagerApp = taskManagerApp;
-        this.taskDirectoryService = taskDirectoryService;
         this.viewHandler = viewHandler;
         this.memoryHandler = memoryHandler;
     }
@@ -92,7 +90,9 @@ public class MainViewController implements Initializable, ControllerInterface {
 
     private void initializeCenterScreen()
     {
-        AllTasksPreview taskPreview = new AllTasksPreview(taskDirectoryService);
+        List<TaskDirectory> directories = taskManagerApp.getCurrentUser().getTaskManager().getTaskDirectories();
+        AllTasksPreview taskPreview = new AllTasksPreview(directories);
+
         taskPreview.setOnAction(this::taskPressed, this::directoryPressed);
 
         TaskManager tm = taskManagerApp.getCurrentUser().getTaskManager();

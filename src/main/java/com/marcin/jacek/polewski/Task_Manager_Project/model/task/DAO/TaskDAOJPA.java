@@ -20,12 +20,12 @@ public class TaskDAOJPA implements TaskDAO{
     }
 
 
-    @Override
-    public List<Task> find(TaskManager taskManager) {
-        TypedQuery<Task> query = entityManager.createQuery("FROM Task t WHERE t.taskManager.taskManagerId = :id", Task.class);
-        query.setParameter("id",  taskManager.getTaskManagerId());
-        return query.getResultList();
-    }
+//    @Override
+//    public List<Task> find(TaskManager taskManager) {
+//        TypedQuery<Task> query = entityManager.createQuery("FROM Task t WHERE t.taskManager.taskManagerId = :id", Task.class);
+//        query.setParameter("id",  taskManager.getTaskManagerId());
+//        return query.getResultList();
+//    }
 
     @Override
     @Transactional

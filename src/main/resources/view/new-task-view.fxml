@@ -56,7 +56,7 @@
                <children>
                   <Button mnemonicParsing="false" text="add sub task" />
                   <Button mnemonicParsing="false" onAction="#cancelButtonPressed" text="cancel" />
-                  <Button mnemonicParsing="false" text="save task" />
+                  <Button mnemonicParsing="false" onAction="#saveButtonPressed" text="save task" />
                </children>
             </HBox>
          </children>

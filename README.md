@@ -9,7 +9,12 @@
 
 ### What to improve in the future projects
 - separation of concerns - UI components should not less dependent on backend. Implement more interfaces 
-  
+
+### Conclusions: 
+ - when desigining database, when you can store some thing in separate table, do it.
+   - It makes it more flexible, easier to process(in fact Hibernate handles it automatically)
+ - changing database schema later can be painful  
+
 ### Additional things that I have learned
 - i18n stands for internationalization
 

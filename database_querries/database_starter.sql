@@ -52,7 +52,6 @@ CREATE TABLE Task_Directories(
 
 CREATE TABLE Tasks(
        id INT AUTO_INCREMENT,
-       task_manager_id INT,
        title VARCHAR(255),
        enclosing_folder_id INT,
        notes TEXT,
@@ -62,12 +61,6 @@ CREATE TABLE Tasks(
        state INT,
 
        PRIMARY KEY (id),
-       KEY `TASK_MANAGER_FOREIGN_KEY_ID` (`task_manager_id`),
-
-        CONSTRAINT `TASK_MANAGER_FOREIGN_KEY` FOREIGN KEY (`task_manager_id`)
-        REFERENCES `Task_Managers` (`task_manager_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION,
 
         KEY `TASK_DIRECTORY_ID` (`enclosing_folder_id`),
 

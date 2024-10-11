@@ -6,6 +6,6 @@ import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskMana
 import java.util.List;
 
 public interface TaskDAO {
-    List<Task> find(TaskManager taskManager);
+    //List<Task> find(TaskManager taskManager);
     void update(List<Task> tasks);
 }

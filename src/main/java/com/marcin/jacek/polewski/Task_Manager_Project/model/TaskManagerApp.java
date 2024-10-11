@@ -1,14 +1,12 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.model;
 
-import com.marcin.jacek.polewski.Task_Manager_Project.model.task.DAO.TaskDAO;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
-import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectoryService;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectoryDAO;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.user.User;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.user.UserService;
-import jakarta.persistence.Entity;
 import lombok.Getter;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,34 +18,24 @@ public class TaskManagerApp {
     // has current user, it's task manager, notification handler
     private User currentUser;
 
-    private TaskDirectoryService taskDirectoryService;
     private UserService userService;
-    private TaskDAO taskDAO;
+    private TaskDirectoryDAO taskDirectoryDAO;
 
     @Autowired
     TaskManagerApp(UserService userService,
-            TaskDirectoryService taskDirectoryService,
-            TaskDAO taskDAO
-    )
+            TaskDirectoryDAO taskDirectoryDAO)
     {
-        this.taskDirectoryService = taskDirectoryService;
         this.userService = userService;
-        this.taskDAO = taskDAO;
+        this.taskDirectoryDAO = taskDirectoryDAO;
 
     }
 
     private void loadTasks()
     {
-        // @TODO move this responsibility elsewhere???
         TaskManager currentTaskManager = currentUser.getTaskManager();
-        List<Task> tasks = taskDAO.find(currentTaskManager);
+        List<TaskDirectory> directories = taskDirectoryDAO.find(currentTaskManager);
 
-        taskDirectoryService.clear();
-        taskDirectoryService.addTasks(tasks);
-
-
-        currentTaskManager.setTasks(tasks);
-
+        currentTaskManager.setTaskDirectories(directories);
     }
 
     public void setCurrentUser(User user)
@@ -67,7 +55,6 @@ public class TaskManagerApp {
         {
             userService.update(currentUser);
             currentUser = null;
-            taskDirectoryService.clear();
         }
 
     }
@@ -77,6 +64,5 @@ public class TaskManagerApp {
         // add to task manager
         currentUser.getTaskManager().newTask(task);
         // add to task directory service
-        taskDirectoryService.addTask(task);
     }
 }

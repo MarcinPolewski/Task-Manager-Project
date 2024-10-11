@@ -12,6 +12,7 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -44,20 +45,17 @@ public class Task implements TaskDirectoryItem {
     @Column(name="state")
     private TaskState state;
 
-    @Column(name="enclosing_folder_path")
-    private String enclosingFolderPath;
-
     @ManyToOne(cascade = {
             CascadeType.DETACH,
             CascadeType.MERGE,
             CascadeType.PERSIST,
             CascadeType.REFRESH
-    })
-    @JoinColumn(name="task_manager_id")
-    private TaskManager taskManager;
+    }, fetch = FetchType.EAGER)
+    @JoinColumn(name="enclosing_folder_id")
+    private TaskDirectory enclosingFolder;
 
-    @Transient
-    private ArrayList<SubTask> subTasks;
+    @OneToMany(mappedBy = "mainTask", cascade = CascadeType.ALL,  fetch = FetchType.EAGER)
+    private List<SubTask> subTasks;
 
     public Task(int taskId, String title, LocalDateTime scheduledExecution, LocalDateTime dueDate, TaskDirectory parentFolder)
     {
@@ -66,7 +64,8 @@ public class Task implements TaskDirectoryItem {
         this.scheduledExecution =scheduledExecution;
         this.dueDate = dueDate;
         this.state = TaskState.CREATED;
-        // this.enclosingFolderPath = parentFolder; @TODO how to store this information??  
+        this.enclosingFolder = parentFolder;
+
     }
 
     void addSubTask(SubTask subTask)

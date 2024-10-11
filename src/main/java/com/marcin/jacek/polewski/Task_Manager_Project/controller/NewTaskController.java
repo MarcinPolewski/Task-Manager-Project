@@ -5,9 +5,6 @@ import com.marcin.jacek.polewski.Task_Manager_Project.exceptions.CannotGoBackErr
 import com.marcin.jacek.polewski.Task_Manager_Project.model.TaskManagerApp;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
-import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectoryItem;
-import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectoryService;
-import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.AllTasksTreeView;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.ViewHandler;
 import javafx.event.ActionEvent;
@@ -28,7 +25,6 @@ import java.util.ResourceBundle;
 public class NewTaskController implements Initializable, ControllerInterface {
 
     private ViewHandler viewHandler;
-    private TaskDirectoryService taskDirectoryService;
     private AllTasksTreeView treeView;
     private TaskDirectory selectedTaskDirectory;
     @Setter
@@ -52,12 +48,10 @@ public class NewTaskController implements Initializable, ControllerInterface {
 
     @Autowired
     NewTaskController(ViewHandler viewHandler,
-                      TaskDirectoryService taskDirectoryService,
                       TaskManagerApp taskManagerApp)
     {
 
         this.viewHandler = viewHandler;
-        this.taskDirectoryService = taskDirectoryService;
         this.taskManagerApp = taskManagerApp;
     }
 
@@ -89,6 +83,10 @@ public class NewTaskController implements Initializable, ControllerInterface {
 
         //Task(int taskId, String title, LocalDateTime scheduledExecution, LocalDateTime dueDate)
         Task newTask = new Task(0, title, scheduledDateTime, dueDateTime, parentFolder);
+        // @TODO FIX error, because string path is not set
+              /*
+            adding to task directory service, becauase no path is set
+         */
         newTask.setNote(notes);
         taskManagerApp.newTask(newTask);
     }
@@ -118,7 +116,7 @@ public class NewTaskController implements Initializable, ControllerInterface {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeComboBoxes();
-        this.treeView =  new AllTasksTreeView(taskDirectoryService, true);
+        this.treeView =  new AllTasksTreeView(taskManagerApp.getCurrentUser().getTaskManager().getTaskDirectories(), true);
         treeView.setOnAction(this::directoryPressed);
         directoryScrollPane.setContent(treeView);
 
@@ -134,6 +132,5 @@ public class NewTaskController implements Initializable, ControllerInterface {
         dueTimePicker.setValue(null);
         notesTextArea.setText(null);
         treeView.setSelectionModel(null);
-
     }
 }
