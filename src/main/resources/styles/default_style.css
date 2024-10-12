@@ -33,5 +33,19 @@
 {
     -fx-background-color: #697565;
     -fx-background-radius: 10;
+}
 
+.main-screen-background-element
+{
+    -fx-background-color: #434441;
+    -fx-padding: 10;
+    -fx-border-color: black;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.side-bar
+{
+    -fx-background-color: #677757;
+    -fx-background-radius: 0 5 5 0;
 }

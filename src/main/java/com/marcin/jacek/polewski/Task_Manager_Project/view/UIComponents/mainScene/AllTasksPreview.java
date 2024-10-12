@@ -20,6 +20,7 @@ public class AllTasksPreview extends VBox {
         treeView = new AllTasksTreeView(directories, false);
         Label titleLabel = new Label("label");
         this.getChildren().setAll(titleLabel, treeView);
+        this.getStyleClass().add("main-screen-background-element");
 
     }
 

@@ -132,6 +132,7 @@ public class TasksOfTheDayPreview extends VBox {
         this.controller = controller;
         setUpTopBar(currentTime, taskManager);
         setUpHourScrollView( currentTime,  taskManager);
+        this.getStyleClass().add("main-screen-background-element");
     }
 
     public void setOnAction(EventHandler<TaskPressedEvent> taskPressedEventHandler)

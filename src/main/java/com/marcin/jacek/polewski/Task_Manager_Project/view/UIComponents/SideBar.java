@@ -36,6 +36,7 @@ public class SideBar extends VBox {
         {
             System.out.println("could not read icons for side bar");
         }
+        this.getStyleClass().add("side-bar");
     }
 
     public void setOnAction(EventHandler<ActionEvent> homePressed,
