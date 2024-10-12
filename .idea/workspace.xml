@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="added loading new task to db and added exiting new task view after creatin a task">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/exceptions/InvalidUserInputException.java" afterDir="false" />
+    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="added language support for new task view and prompts when user does not provide some data">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/NewTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/NewTaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/languages/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/languages/messages_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/new-task-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/new-task-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/mainScene/TasksOfTheDayPreview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/mainScene/TasksOfTheDayPreview.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/model/Task.class" beforeDir="false" />
@@ -148,15 +145,7 @@
       <workItem from="1728212113017" duration="145000" />
       <workItem from="1728212260756" duration="2056000" />
       <workItem from="1728296215747" duration="10463000" />
-      <workItem from="1728368495019" duration="61890000" />
-    </task>
-    <task id="LOCAL-00010" summary="added animations, but they run before the window is actually shown">
-      <option name="closed" value="true" />
-      <created>1726734361587</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1726734361587</updated>
+      <workItem from="1728368495019" duration="62467000" />
     </task>
     <task id="LOCAL-00011" summary="added animations for starting phase and automatic transition to log in screen">
       <option name="closed" value="true" />
@@ -542,14 +531,21 @@
       <option name="project" value="LOCAL" />
       <updated>1728752301614</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="added language support for new task view and prompts when user does not provide some data">
+      <option name="closed" value="true" />
+      <created>1728757166452</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1728757166452</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated database schema" />
     <MESSAGE value="implemented bidirectional link between User and TaskManager" />
     <MESSAGE value="fixed wrong mapping" />
     <MESSAGE value="updated user service and dao to be compatible with one to one mapping with task manager" />
@@ -574,7 +570,8 @@
     <MESSAGE value="implemented new data structure to task tree view" />
     <MESSAGE value="fixed seting on action in day preview" />
     <MESSAGE value="added loading new task to db and added exiting new task view after creatin a task" />
-    <option name="LAST_COMMIT_MESSAGE" value="added loading new task to db and added exiting new task view after creatin a task" />
+    <MESSAGE value="added language support for new task view and prompts when user does not provide some data" />
+    <option name="LAST_COMMIT_MESSAGE" value="added language support for new task view and prompts when user does not provide some data" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

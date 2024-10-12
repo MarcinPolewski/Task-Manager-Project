@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +30,7 @@ public class TasksOfTheDayPreview extends VBox {
     private TaskManager taskManager;
 
     private EventHandler<TaskPressedEvent> taskPressedEventHandler;
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, dd.MM.yyyy");
 
     private void clear()
     {
@@ -62,7 +64,8 @@ public class TasksOfTheDayPreview extends VBox {
 
     private void updateView()
     {
-        dayLabel.setText(displayedTime.toString());
+
+        dayLabel.setText(displayedTime.format(formatter));
         addTasksToPreview();
     }
 
