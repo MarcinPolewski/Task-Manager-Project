@@ -1,5 +1,6 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.model;
 
+import com.marcin.jacek.polewski.Task_Manager_Project.model.task.DAO.TaskDAO;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectoryDAO;
@@ -20,13 +21,16 @@ public class TaskManagerApp {
 
     private UserService userService;
     private TaskDirectoryDAO taskDirectoryDAO;
+    private TaskDAO taskDAO;
 
     @Autowired
     TaskManagerApp(UserService userService,
-            TaskDirectoryDAO taskDirectoryDAO)
+            TaskDirectoryDAO taskDirectoryDAO,
+                   TaskDAO taskDAO)
     {
         this.userService = userService;
         this.taskDirectoryDAO = taskDirectoryDAO;
+        this.taskDAO = taskDAO;
 
     }
 
@@ -63,6 +67,8 @@ public class TaskManagerApp {
     {
         // add to task manager
         currentUser.getTaskManager().newTask(task);
-        // add to task directory service
+        // save new task to db
+        taskDAO.update(task);
+
     }
 }

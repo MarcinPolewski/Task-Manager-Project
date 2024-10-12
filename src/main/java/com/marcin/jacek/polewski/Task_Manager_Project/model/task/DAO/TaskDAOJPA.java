@@ -29,10 +29,7 @@ public class TaskDAOJPA implements TaskDAO{
 
     @Override
     @Transactional
-    public void update(List<Task> tasks) {
-        for(Task task: tasks)
-        {
-            entityManager.merge(task);
-        }
+    public void update(Task task) {
+        entityManager.merge(task);
     }
 }

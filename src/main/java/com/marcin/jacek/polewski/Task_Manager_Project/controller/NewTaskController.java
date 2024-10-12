@@ -55,7 +55,7 @@ public class NewTaskController implements Initializable, ControllerInterface {
         this.taskManagerApp = taskManagerApp;
     }
 
-    public void cancelButtonPressed(ActionEvent event)
+    private void exitThisScene()
     {
         try{
             viewHandler.back();
@@ -63,6 +63,11 @@ public class NewTaskController implements Initializable, ControllerInterface {
         {
             System.out.println(e.getMessage());
         }
+    }
+
+    public void cancelButtonPressed(ActionEvent event)
+    {
+        exitThisScene();
     }
 
     public void saveButtonPressed(ActionEvent event)
@@ -89,6 +94,8 @@ public class NewTaskController implements Initializable, ControllerInterface {
          */
         newTask.setNote(notes);
         taskManagerApp.newTask(newTask);
+
+        exitThisScene();
     }
 
     private void directoryPressed(TaskDirectoryPressedEvent event)

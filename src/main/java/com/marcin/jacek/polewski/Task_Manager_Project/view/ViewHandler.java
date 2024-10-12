@@ -1,6 +1,7 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.view;
 
 import com.marcin.jacek.polewski.Task_Manager_Project.Events.StartUpInitializationCompletedEvent;
+import com.marcin.jacek.polewski.Task_Manager_Project.controller.ControllerInterface;
 import com.marcin.jacek.polewski.Task_Manager_Project.controller.DirectoryViewController;
 import com.marcin.jacek.polewski.Task_Manager_Project.controller.TaskViewController;
 import com.marcin.jacek.polewski.Task_Manager_Project.exceptions.CannotGoBackError;
@@ -74,8 +75,6 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
 
     public void switchToLogInScene()
     {
-
-
         if(!currentScene.getId().equals(SceneId.LOG_IN_SCENE))
         {
             try{
@@ -115,6 +114,7 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
             throw new CannotGoBackError();
 
         currentScene = sceneStack.pop();
+        ((ControllerInterface)currentScene.getController()).initializeScene();
         mainStage.setScene(currentScene.getScene());
     }
 

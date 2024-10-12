@@ -65,7 +65,9 @@ public class Task implements TaskDirectoryItem {
         this.dueDate = dueDate;
         this.state = TaskState.CREATED;
         this.enclosingFolder = parentFolder;
+        this.creationData = LocalDateTime.now();
 
+        parentFolder.addTask(this);
     }
 
     void addSubTask(SubTask subTask)
