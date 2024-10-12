@@ -11,9 +11,7 @@ import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
 import lombok.Getter;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class AllTasksTreeView extends TreeView<TaskDirectoryItem> {
     private List<TaskDirectory> directories;
@@ -23,19 +21,7 @@ public class AllTasksTreeView extends TreeView<TaskDirectoryItem> {
 
     private boolean onlyDirectories = false;
 
-//    @Getter
-//    private class QueueItem
-//    {
-//        private TaskDirectory taskDirectory;
-//        private TreeItem<TaskDirectoryItem> treeItem;
-//
-//        QueueItem(TaskDirectory taskDir, TreeItem<TaskDirectoryItem> treeItem)
-//        {
-//            this.taskDirectory = taskDir;
-//            this.treeItem = treeItem;
-//        }
-//
-//    }
+    private Map<TaskDirectory, TreeItem<TaskDirectoryItem>> map = new HashMap<>();
 
     public AllTasksTreeView(List<TaskDirectory> directories, boolean onlyDirectories)
     {
@@ -47,50 +33,53 @@ public class AllTasksTreeView extends TreeView<TaskDirectoryItem> {
     }
 
 
+    private void addDirectoryToTree(TaskDirectory directory)
+    {
+        TreeItem<TaskDirectoryItem> treeItem = new TreeItem<>(directory);
+        if(!onlyDirectories && directory.getTasks() != null)
+        {
+            for(Task task : directory.getTasks())
+            {
+                treeItem.getChildren().add(new TreeItem<>(task));
+            }
+        }
+
+
+        map.put(directory, treeItem);
+
+        boolean treeItemFound = false;
+        TaskDirectory parent = directory.getParentDirectory();
+        while(parent!=null && !treeItemFound)
+        {
+                TreeItem<TaskDirectoryItem> mapSearchResult = map.get(parent);
+                if(mapSearchResult == null) // no such directory currently in tree view
+                {
+                    TreeItem<TaskDirectoryItem> tempTreeItem = treeItem;
+
+                    directory = directory.getParentDirectory();
+                    treeItem = new TreeItem<>();
+                    treeItem.getChildren().setAll(tempTreeItem);
+                }
+                else
+                {
+                    mapSearchResult.getChildren().add(treeItem);
+                    treeItemFound = true;
+                }
+        }
+        if(parent==null && !treeItemFound)
+        {
+            this.getRoot().getChildren().add(treeItem);
+        }
+    }
 
     private void loadTreeStructure()
     {
-//        TaskDirectory root = taskDirectoryService.getRoot();
-//
-//        Queue<QueueItem> directoriesToProcess = new LinkedList<QueueItem>();
-//
-//        TreeItem<TaskDirectoryItem> rootTreeItem = new TreeItem<>();
-//        directoriesToProcess.add(new QueueItem(root, rootTreeItem));
-//
-//
-//        while(!directoriesToProcess.isEmpty())
-//        {
-//            QueueItem currentFolder = directoriesToProcess.poll();
-//
-//            List<TaskDirectory> subFolders = currentFolder.getTaskDirectory().getSubDirectories();
-//
-//            TreeItem<TaskDirectoryItem> currentTreeItem = currentFolder.getTreeItem();
-//            if(subFolders!=null)
-//            {
-//                for(TaskDirectory subFolder: subFolders)
-//                {
-//                    TreeItem<TaskDirectoryItem> subTreeItem = new TreeItem<>(subFolder);
-//                    currentTreeItem.getChildren().add(subTreeItem);
-//                    directoriesToProcess.add(new QueueItem(subFolder, subTreeItem));
-//                }
-//            }
-//
-//            List<Task> tasks =  currentFolder.getTaskDirectory().getTasks();
-//            if(!onlyDirectories && tasks!=null)
-//            {
-//                for(Task task : tasks)
-//                {
-//                    currentTreeItem.getChildren().add(new TreeItem<>(task));
-//                }
-//            }
-//
-//        }
-//        rootTreeItem.setExpanded(true);
-//        // this.treeView = new TreeView<>(rootTreeItem);
-//        this.setRoot(rootTreeItem);
-//
-//        //treeView.setShowRoot(false);
-//        this.setShowRoot(false);
+        this.setRoot(new TreeItem<>());
+        for(TaskDirectory dir : directories)
+        {
+            addDirectoryToTree(dir);
+        }
+        this.setShowRoot(false);
     }
 
     public void treeItemPressed(MouseEvent event)
