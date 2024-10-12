@@ -114,7 +114,7 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
             throw new CannotGoBackError();
 
         currentScene = sceneStack.pop();
-        ((ControllerInterface)currentScene.getController()).initializeScene();
+        ((ControllerInterface)currentScene.getController()).restartSceneAfterPreviousUse();
         mainStage.setScene(currentScene.getScene());
     }
 

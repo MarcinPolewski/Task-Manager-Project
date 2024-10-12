@@ -143,7 +143,7 @@ public class MemoryHandler {
         }
         else
         {
-            ((ControllerInterface)wrapper.getController()).initializeScene();
+            ((ControllerInterface)wrapper.getController()).restartSceneAfterPreviousUse();
         }
         return wrapper;
     }

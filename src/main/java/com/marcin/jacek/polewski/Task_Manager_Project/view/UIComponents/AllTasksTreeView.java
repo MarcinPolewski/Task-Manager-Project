@@ -21,6 +21,7 @@ public class AllTasksTreeView extends TreeView<TaskDirectoryItem> {
 
     private boolean onlyDirectories = false;
 
+    @Getter
     private Map<TaskDirectory, TreeItem<TaskDirectoryItem>> map = new HashMap<>();
 
     public AllTasksTreeView(List<TaskDirectory> directories, boolean onlyDirectories)

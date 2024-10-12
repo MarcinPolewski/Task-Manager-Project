@@ -109,7 +109,7 @@ public class StartViewController implements Initializable, ControllerInterface{
     }
 
     @Override
-    public void initializeScene() {
+    public void restartSceneAfterPreviousUse() {
 
     }
 }

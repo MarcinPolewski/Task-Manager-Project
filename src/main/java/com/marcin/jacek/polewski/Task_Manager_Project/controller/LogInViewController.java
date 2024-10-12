@@ -204,7 +204,7 @@ public class LogInViewController implements Initializable, ControllerInterface {
     }
 
     @Override
-    public void initializeScene() {
+    public void restartSceneAfterPreviousUse() {
 
     }
 }

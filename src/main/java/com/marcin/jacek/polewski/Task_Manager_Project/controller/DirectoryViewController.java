@@ -12,7 +12,7 @@ public class DirectoryViewController implements ControllerInterface{
     private TaskDirectory taskDirectory;
 
     @Override
-    public void initializeScene() {
+    public void restartSceneAfterPreviousUse() {
 
     }
 }

@@ -124,11 +124,11 @@ public class MainViewController implements Initializable, ControllerInterface {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initializeScene();
+        restartSceneAfterPreviousUse();
     }
 
     @Override
-    public void initializeScene() {
+    public void restartSceneAfterPreviousUse() {
         initializeTopBar();
         initializeCenterScreen();
         initializeSideBar();
