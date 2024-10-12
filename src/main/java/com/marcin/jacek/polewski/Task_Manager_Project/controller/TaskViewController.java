@@ -23,7 +23,6 @@ public class TaskViewController extends TaskControllerBase implements Controller
     @FXML
     private Button deleteButton;
 
-
     private Task task;
 
     @Autowired

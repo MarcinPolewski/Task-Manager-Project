@@ -7,7 +7,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 
 public class TopBar extends HBox {
-    private Button addTaskButton = new Button("New task");
     private TimePanel timePanel = new TimePanel();
     private ControllerInterface controller;
 
@@ -16,16 +15,7 @@ public class TopBar extends HBox {
     {
         super();
         this.controller = controller;
-        initializeComponents();
-        this.getChildren().setAll(timePanel, addTaskButton);
-
-
+        this.getChildren().setAll(timePanel);
     }
-
-    private void initializeComponents()
-    {
-        addTaskButton.setOnAction(((MainViewController)controller)::newTaskButtonPressed);
-    }
-
 
 }

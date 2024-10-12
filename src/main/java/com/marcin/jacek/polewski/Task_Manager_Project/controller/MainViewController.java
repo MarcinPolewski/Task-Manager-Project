@@ -34,6 +34,9 @@ public class MainViewController implements Initializable, ControllerInterface {
     private HBox centerHBox;
 
     @FXML
+    private HBox topBarHBox;
+
+    @FXML
     StackPane mainStackPane;
 
     private TaskManagerApp taskManagerApp;
@@ -53,7 +56,10 @@ public class MainViewController implements Initializable, ControllerInterface {
 
     private void initializeTopBar()
     {
-        mainBorderPane.setTop(new TopBar(this));
+
+        topBarHBox.getChildren().setAll(new TopBar(this));
+        topBarHBox.setFillHeight(false);
+        topBarHBox.setAlignment(javafx.geometry.Pos.CENTER);
     }
 
 
@@ -124,12 +130,12 @@ public class MainViewController implements Initializable, ControllerInterface {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        initializeTopBar();
         restartSceneAfterPreviousUse();
     }
 
     @Override
     public void restartSceneAfterPreviousUse() {
-        initializeTopBar();
         initializeCenterScreen();
         initializeSideBar();
     }
