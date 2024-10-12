@@ -15,10 +15,10 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="New Task" />
+            <Label fx:id="sceneTitle" text="New Task" />
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label text="Title" />
+                  <Label fx:id="taskTitleLabel" text="Title" />
                   <TextField fx:id="titleTextField" />
                </children>
             </VBox>
@@ -26,14 +26,14 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label prefHeight="14.0" prefWidth="146.0" text="Scheduled execution" />
+                        <Label fx:id="scheduledExecutionLabel" prefHeight="14.0" prefWidth="146.0" text="Scheduled execution" />
                         <DatePicker fx:id="scheduledDatePicker" />
                         <ComboBox fx:id="scheduledTimePicker" prefWidth="150.0" promptText="18:00" />
                      </children>
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label text="Label" />
+                        <Label fx:id="dueDateLabel" text="Label" />
                         <DatePicker fx:id="dueDatePicker" />
                         <ComboBox fx:id="dueTimePicker" prefWidth="150.0" />
                      </children>
@@ -42,21 +42,21 @@
             </HBox>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label text="Notes" />
+                  <Label fx:id="notesLabel" text="Notes" />
                   <TextArea fx:id="notesTextArea" prefHeight="200.0" prefWidth="200.0" />
                </children>
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label text="Folder" />
+                  <Label fx:id="folderLabel" text="Folder" />
                   <ScrollPane fx:id="directoryScrollPane" prefHeight="200.0" prefWidth="200.0" />
                </children>
             </VBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" text="add sub task" />
-                  <Button mnemonicParsing="false" onAction="#cancelButtonPressed" text="cancel" />
-                  <Button mnemonicParsing="false" onAction="#saveButtonPressed" text="save task" />
+                  <Button fx:id="addSubtaskButton" mnemonicParsing="false" text="add sub task" />
+                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonPressed" text="cancel" />
+                  <Button fx:id="saveTaskButton" mnemonicParsing="false" onAction="#saveButtonPressed" text="save task" />
                </children>
             </HBox>
          </children>
