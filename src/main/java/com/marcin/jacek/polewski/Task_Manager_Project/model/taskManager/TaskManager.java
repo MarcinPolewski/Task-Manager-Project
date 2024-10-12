@@ -39,7 +39,15 @@ public class TaskManager {
         for(TaskDirectory directory : taskDirectories)
         {
             if(directory.getTasks()!=null)
-                result.addAll(directory.getTasks());
+            {
+                for(Task task : directory.getTasks())
+                {
+                    if(task.getScheduledExecution().toLocalDate().equals(date))
+                    {
+                        result.add(task);
+                    }
+                }
+            }
         }
         return result;
     }
