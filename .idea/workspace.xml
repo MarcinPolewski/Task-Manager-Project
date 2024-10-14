@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="centered the top bar">
+    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="small update to ui">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/SideBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/SideBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/mainScene/AllTasksPreview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/mainScene/AllTasksPreview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/mainScene/TasksOfTheDayPreview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/mainScene/TasksOfTheDayPreview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/default_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/default_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/NewTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/NewTaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskControllerBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskControllerBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/new-task-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/new-task-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/model/Task.class" beforeDir="false" />
@@ -68,30 +67,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.Main.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/marcinpolewski/Documents/Task-Manager-Project/src/main/resources/view",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Main.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/marcinpolewski/Documents/Task-Manager-Project/src/main/resources/view&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/view" />
@@ -150,15 +149,9 @@
       <workItem from="1728212113017" duration="145000" />
       <workItem from="1728212260756" duration="2056000" />
       <workItem from="1728296215747" duration="10463000" />
-      <workItem from="1728368495019" duration="68980000" />
-    </task>
-    <task id="LOCAL-00014" summary="modified log in view, to have main portion centered">
-      <option name="closed" value="true" />
-      <created>1726814658260</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1726814658260</updated>
+      <workItem from="1728368495019" duration="70492000" />
+      <workItem from="1728820357027" duration="645000" />
+      <workItem from="1728913707748" duration="1987000" />
     </task>
     <task id="LOCAL-00015" summary="minor changes to log in screen, started implementing LogInViewController, updated README.md">
       <option name="closed" value="true" />
@@ -544,7 +537,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728764090980</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="small update to ui">
+      <option name="closed" value="true" />
+      <created>1728765207676</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1728765207676</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,7 +563,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated other components to work with new mappings" />
     <MESSAGE value="deleted TaskManager DAO and Service (it's automatically loaded by User dao)" />
     <MESSAGE value="implemented more advanced mapping between task manager and tasks" />
     <MESSAGE value="implemented switching to new task scene" />
@@ -587,7 +587,8 @@
     <MESSAGE value="implemented time formatter" />
     <MESSAGE value="implemented new approach to task view" />
     <MESSAGE value="centered the top bar" />
-    <option name="LAST_COMMIT_MESSAGE" value="centered the top bar" />
+    <MESSAGE value="small update to ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="small update to ui" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

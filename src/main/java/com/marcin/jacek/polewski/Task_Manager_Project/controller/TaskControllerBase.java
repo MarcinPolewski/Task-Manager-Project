@@ -67,7 +67,7 @@ public abstract class TaskControllerBase implements Initializable, ControllerInt
     private Label notesLabel;
     @FXML
     private Label folderLabel;
-
+    private int interval = 15; // how many minutes between selections
 
 
     TaskControllerBase(ViewHandler viewHandler,
@@ -130,13 +130,20 @@ public abstract class TaskControllerBase implements Initializable, ControllerInt
         this.selectedTaskDirectory = event.getTaskDirectory();
     }
 
+    private void setTimePicersToNow(LocalTime time)
+    {
+
+        int defaultValueIndex = (time.getHour() * 60 + time.getMinute())/interval;
+        scheduledTimePicker.setValue(scheduledTimePicker.getItems().get(defaultValueIndex));
+        dueTimePicker.setValue(dueTimePicker.getItems().get(defaultValueIndex));
+    }
+
 
     private void initializeComboBoxes()
     {
         LocalTime time = LocalTime.of(0,0,0);
 
-        int interval = 15;
-        int numberOfIntervals = 24*(60/interval);
+        int numberOfIntervals = 24*(60/ interval);
         for(int i=0; i!=numberOfIntervals; ++i)
         {
             scheduledTimePicker.getItems().add(time);
@@ -144,17 +151,21 @@ public abstract class TaskControllerBase implements Initializable, ControllerInt
             time = time.plusMinutes(interval);
         }
 
-        int defaultValueIndex = (LocalTime.now().getHour() * 60 + LocalTime.now().getMinute())/interval;
-        scheduledTimePicker.setValue(scheduledTimePicker.getItems().get(defaultValueIndex));
-        dueTimePicker.setValue(dueTimePicker.getItems().get(defaultValueIndex));
-
+        setTimePicersToNow(LocalTime.now());
     }
+
+    private void setDateInDatePickers(LocalDate date)
+    {
+        scheduledDatePicker.setValue(date);
+        dueDatePicker.setValue(date);
+    }
+
 
     private void initializeDatePickers()
     {
-        scheduledDatePicker.setValue(LocalDate.now());
-        dueDatePicker.setValue(LocalDate.now());
+        setDateInDatePickers(LocalDate.now());
     }
+
 
     private void initializeTexts()
     {
@@ -180,6 +191,12 @@ public abstract class TaskControllerBase implements Initializable, ControllerInt
         treeView.setOnAction(this::directoryPressed);
         directoryScrollPane.setContent(treeView);
 
+    }
+
+    public void setDateAndTime(LocalDateTime dt)
+    {
+        setDateInDatePickers(dt.toLocalDate());
+        setTimePicersToNow(dt.toLocalTime());
     }
 
 

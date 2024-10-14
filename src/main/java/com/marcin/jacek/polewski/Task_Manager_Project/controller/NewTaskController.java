@@ -84,11 +84,8 @@ public class NewTaskController extends TaskControllerBase implements Initializab
     @Override
     public void restartSceneAfterPreviousUse() {
 
+        setDateAndTime(LocalDateTime.now());
         getTitleTextField().setText(null);
-        getScheduledDatePicker().setValue(null);
-        getScheduledTimePicker().setValue(null);
-        getDueDatePicker().setValue(null);
-        getDueTimePicker().setValue(null);
         getNotesTextArea().setText(null);
         getTreeView().setSelectionModel(null);
     }
