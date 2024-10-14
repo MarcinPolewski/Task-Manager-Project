@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="further improvement to new task window">
+    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="fixed issues with window resizing">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/SideAndTopBarControllerBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/NewTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/NewTaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/ViewHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/Clearable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/DirectoryViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/DirectoryViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskControllerBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskControllerBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/directory-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/directory-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/model/Task.class" beforeDir="false" />
@@ -150,23 +154,7 @@
       <workItem from="1728296215747" duration="10463000" />
       <workItem from="1728368495019" duration="70492000" />
       <workItem from="1728820357027" duration="645000" />
-      <workItem from="1728913707748" duration="4854000" />
-    </task>
-    <task id="LOCAL-00017" summary="implemented fetching Users from database">
-      <option name="closed" value="true" />
-      <created>1727286191582</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1727286191582</updated>
-    </task>
-    <task id="LOCAL-00018" summary="minor changes to looks of login screen">
-      <option name="closed" value="true" />
-      <created>1727289193904</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1727289193904</updated>
+      <workItem from="1728913707748" duration="8120000" />
     </task>
     <task id="LOCAL-00019" summary="removed false annotation">
       <option name="closed" value="true" />
@@ -544,7 +532,23 @@
       <option name="project" value="LOCAL" />
       <updated>1728924210591</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="fixed bug with selecting folder after window reload">
+      <option name="closed" value="true" />
+      <created>1728933527027</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1728933527027</updated>
+    </task>
+    <task id="LOCAL-00067" summary="fixed issues with window resizing">
+      <option name="closed" value="true" />
+      <created>1728933590833</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1728933590833</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,8 +566,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implemented switching to new task scene" />
-    <MESSAGE value="implemented loading tasks to DayPreview" />
     <MESSAGE value="created new packages for UI components, created UI features for deleting users" />
     <MESSAGE value="implemented passing information about pressing task / directory from AllTasksPreview to Scene Controller" />
     <MESSAGE value="implemented passing information from TasksOfTheDayPreview to scene controller" />
@@ -587,7 +589,9 @@
     <MESSAGE value="small update to ui" />
     <MESSAGE value="updated new task view and fixed bug with reopening new task window" />
     <MESSAGE value="further improvement to new task window" />
-    <option name="LAST_COMMIT_MESSAGE" value="further improvement to new task window" />
+    <MESSAGE value="fixed bug with selecting folder after window reload" />
+    <MESSAGE value="fixed issues with window resizing" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed issues with window resizing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

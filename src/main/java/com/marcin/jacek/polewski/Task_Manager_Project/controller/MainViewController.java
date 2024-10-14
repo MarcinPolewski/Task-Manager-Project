@@ -26,40 +26,22 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 @Component
-public class MainViewController implements Initializable, ControllerInterface {
-    @FXML
-    BorderPane mainBorderPane;
-
+public class MainViewController extends SideAndTopBarControllerBase implements Initializable, ControllerInterface {
     @FXML
     private HBox centerHBox;
 
-    @FXML
-    private HBox topBarHBox;
-
-    @FXML
-    StackPane mainStackPane;
-
     private TaskManagerApp taskManagerApp;
-    private ViewHandler viewHandler;
-    private MemoryHandler memoryHandler;
+
 
     @Autowired
     MainViewController(TaskManagerApp taskManagerApp,
                        ViewHandler viewHandler,
                        MemoryHandler memoryHandler)
     {
+        super(viewHandler, memoryHandler);
         this.taskManagerApp = taskManagerApp;
         this.viewHandler = viewHandler;
         this.memoryHandler = memoryHandler;
-    }
-
-
-    private void initializeTopBar()
-    {
-
-        topBarHBox.getChildren().setAll(new TopBar());
-        topBarHBox.setFillHeight(false);
-        topBarHBox.setAlignment(javafx.geometry.Pos.CENTER);
     }
 
 
@@ -72,27 +54,6 @@ public class MainViewController implements Initializable, ControllerInterface {
     {
         viewHandler.openDirectoryView(directoryPressedEvent.getTaskDirectory());
     }
-
-    private void homePressed(ActionEvent event)
-    {
-        System.out.println("open home screen");
-    }
-    public void statisticsPressed(ActionEvent event)
-    {
-        System.out.println("open statistics view");
-    }
-
-    public void usersPressed(ActionEvent event)
-    {
-        taskManagerApp.logOutUser();
-        viewHandler.switchToLogInScene();
-    }
-
-    public void settingsPressed(ActionEvent event)
-    {
-        System.out.println("open settings view");
-    }
-
 
     private void initializeCenterScreen()
     {
@@ -107,26 +68,6 @@ public class MainViewController implements Initializable, ControllerInterface {
         dayPreview.setOnAction(this::taskPressed);
         centerHBox.getChildren().setAll(dayPreview, taskPreview);
     }
-
-    private void initializeSideBar()
-    {
-        SideBar sideBar = new SideBar(memoryHandler);
-        mainBorderPane.setLeft(sideBar);
-
-        sideBar.setOnAction(
-                this::homePressed,
-                this::newTaskButtonPressed,
-                this::statisticsPressed,
-                this::usersPressed,
-                this::settingsPressed);
-    }
-
-    public void newTaskButtonPressed(ActionEvent event)
-    {
-        viewHandler.openNewTaskView();
-    }
-
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
