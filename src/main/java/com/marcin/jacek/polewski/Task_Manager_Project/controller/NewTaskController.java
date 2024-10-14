@@ -89,6 +89,6 @@ public class NewTaskController extends TaskControllerBase implements Initializab
         setDateAndTime(LocalDateTime.now());
         getTitleTextField().setText(null);
         getNotesTextArea().setText(null);
-        getTreeView().setSelectionModel(null);
+        getTreeView().getSelectionModel().select(null);
     }
 }
