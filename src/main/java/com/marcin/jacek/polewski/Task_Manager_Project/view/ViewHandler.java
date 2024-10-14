@@ -11,6 +11,7 @@ import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.image.ImageId;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.scene.SceneId;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.scene.SceneWrapper;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,13 +74,21 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
 
     }
 
+    private void restorePreviousWindowSize(Scene previousScene)
+    {
+        this.mainStage.setHeight(previousScene.getHeight());
+        this.mainStage.setWidth(previousScene.getWidth());
+    }
+
     public void switchToLogInScene()
     {
         if(!currentScene.getId().equals(SceneId.LOG_IN_SCENE))
         {
             try{
+                Scene previousScene = currentScene.getScene();
                 currentScene = memoryHandler.getSceneWrapper(SceneId.LOG_IN_SCENE);
                 mainStage.setScene(currentScene.getScene());
+                restorePreviousWindowSize(previousScene);
             } catch (IOException e)
             {
                 System.out.println("Error has occured during loading scene from file" + e.getMessage());
@@ -94,9 +103,11 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
         if(!currentScene.getId().equals(SceneId.TASK_SCENE))
         {
             try{
+                Scene previousScene = currentScene.getScene();
                 currentScene = memoryHandler.getSceneWrapper(SceneId.TASK_SCENE);
                 mainStage.setScene(currentScene.getScene());
                 ((TaskViewController)currentScene.getController()).setTask(task);
+                restorePreviousWindowSize(previousScene);
             } catch (IOException e)
             {
                 System.out.println("Error has occured during loading scene from file" + e.getMessage());
@@ -124,6 +135,7 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
         if(!currentScene.getId().equals(SceneId.DIRECTORY_SCENE))
         {
             try{
+                Scene previousScene = currentScene.getScene();
                 currentScene = memoryHandler.getSceneWrapper(SceneId.DIRECTORY_SCENE);
                 mainStage.setScene(currentScene.getScene());
                 ((DirectoryViewController)currentScene.getController()).setTaskDirectory(directory);
@@ -143,6 +155,7 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
         if(!currentScene.getId().equals(SceneId.MAIN_SCENE))
         {
             try{
+                Scene previousScene = currentScene.getScene();
                 currentScene = memoryHandler.getSceneWrapper(SceneId.MAIN_SCENE);
                 mainStage.setScene(currentScene.getScene());
             } catch (IOException e)
@@ -160,6 +173,7 @@ public class ViewHandler implements ApplicationListener<StartUpInitializationCom
         {
 
             try{
+                Scene previousScene = currentScene.getScene();
                 currentScene = memoryHandler.getSceneWrapper(SceneId.NEW_TASK_SCENE);
                 mainStage.setScene(currentScene.getScene());
             } catch (IOException e)
