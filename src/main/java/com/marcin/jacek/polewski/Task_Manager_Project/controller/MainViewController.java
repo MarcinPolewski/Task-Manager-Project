@@ -57,7 +57,7 @@ public class MainViewController implements Initializable, ControllerInterface {
     private void initializeTopBar()
     {
 
-        topBarHBox.getChildren().setAll(new TopBar(this));
+        topBarHBox.getChildren().setAll(new TopBar());
         topBarHBox.setFillHeight(false);
         topBarHBox.setAlignment(javafx.geometry.Pos.CENTER);
     }

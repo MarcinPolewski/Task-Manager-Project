@@ -8,13 +8,11 @@ import javafx.scene.layout.HBox;
 
 public class TopBar extends HBox {
     private TimePanel timePanel = new TimePanel();
-    private ControllerInterface controller;
 
 
-    public TopBar(ControllerInterface controller)
+    public TopBar()
     {
         super();
-        this.controller = controller;
         this.getChildren().setAll(timePanel);
     }
 

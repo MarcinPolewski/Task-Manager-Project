@@ -6,12 +6,16 @@ import com.marcin.jacek.polewski.Task_Manager_Project.exceptions.InvalidUserInpu
 import com.marcin.jacek.polewski.Task_Manager_Project.model.TaskManagerApp;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
+import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.AllTasksTreeView;
+import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.SideBar;
+import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.topBar.TopBar;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.ViewHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +34,7 @@ public abstract class TaskControllerBase implements Initializable, ControllerInt
     private ViewHandler viewHandler;
     private AllTasksTreeView treeView;
     private TaskDirectory selectedTaskDirectory;
+    private MemoryHandler memoryHandler;
 
     private MessageSource messageSource;
 
@@ -67,17 +72,22 @@ public abstract class TaskControllerBase implements Initializable, ControllerInt
     private Label notesLabel;
     @FXML
     private Label folderLabel;
+    @FXML
+    private BorderPane mainBorderPane;
+
     private int interval = 15; // how many minutes between selections
 
 
     TaskControllerBase(ViewHandler viewHandler,
-                      TaskManagerApp taskManagerApp,
-                      MessageSource messageSource)
+                       TaskManagerApp taskManagerApp,
+                       MessageSource messageSource,
+                       MemoryHandler memoryHandler)
     {
 
         this.viewHandler = viewHandler;
         this.taskManagerApp = taskManagerApp;
         this.messageSource = messageSource;
+        this.memoryHandler = memoryHandler;
     }
 
     void exitThisScene()
@@ -182,11 +192,24 @@ public abstract class TaskControllerBase implements Initializable, ControllerInt
         folderLabel.setText(messageSource.getMessage("newTaskScreenFolderLabel", null, "", Locale.getDefault()));
     }
 
+    private void initializeTopBar()
+    {
+        mainBorderPane.setTop(new TopBar());
+    }
+
+    private void initializeSideBar()
+    {
+        mainBorderPane.setLeft(new SideBar(memoryHandler));
+    }
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeComboBoxes();
         initializeDatePickers();
         initializeTexts();
+        initializeTopBar();
+        initializeSideBar();
         this.treeView =  new AllTasksTreeView(taskManagerApp.getCurrentUser().getTaskManager().getTaskDirectories(), true);
         treeView.setOnAction(this::directoryPressed);
         directoryScrollPane.setContent(treeView);

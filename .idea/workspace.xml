@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="small update to ui">
+    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="updated new task view and fixed bug with reopening new task window">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/MainViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/NewTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/NewTaskController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskControllerBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskControllerBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/topBar/TopBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/topBar/TopBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/new-task-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/new-task-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/task-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/task-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/model/Task.class" beforeDir="false" />
@@ -151,15 +155,7 @@
       <workItem from="1728296215747" duration="10463000" />
       <workItem from="1728368495019" duration="70492000" />
       <workItem from="1728820357027" duration="645000" />
-      <workItem from="1728913707748" duration="1987000" />
-    </task>
-    <task id="LOCAL-00015" summary="minor changes to log in screen, started implementing LogInViewController, updated README.md">
-      <option name="closed" value="true" />
-      <created>1726816110179</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1726816110179</updated>
+      <workItem from="1728913707748" duration="3247000" />
     </task>
     <task id="LOCAL-00016" summary="added sql querries for creating database and filling with example data">
       <option name="closed" value="true" />
@@ -545,7 +541,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728765207676</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="updated new task view and fixed bug with reopening new task window">
+      <option name="closed" value="true" />
+      <created>1728923088205</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1728923088206</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -563,7 +567,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="deleted TaskManager DAO and Service (it's automatically loaded by User dao)" />
     <MESSAGE value="implemented more advanced mapping between task manager and tasks" />
     <MESSAGE value="implemented switching to new task scene" />
     <MESSAGE value="implemented loading tasks to DayPreview" />
@@ -588,7 +591,8 @@
     <MESSAGE value="implemented new approach to task view" />
     <MESSAGE value="centered the top bar" />
     <MESSAGE value="small update to ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="small update to ui" />
+    <MESSAGE value="updated new task view and fixed bug with reopening new task window" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated new task view and fixed bug with reopening new task window" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -604,9 +608,14 @@
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/ViewHandler.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="63" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskViewController.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskViewController.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="66" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

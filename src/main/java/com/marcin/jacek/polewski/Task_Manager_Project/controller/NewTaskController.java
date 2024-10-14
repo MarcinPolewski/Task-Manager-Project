@@ -6,6 +6,7 @@ import com.marcin.jacek.polewski.Task_Manager_Project.exceptions.InvalidUserInpu
 import com.marcin.jacek.polewski.Task_Manager_Project.model.TaskManagerApp;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
+import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.AllTasksTreeView;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.ViewHandler;
 import javafx.event.ActionEvent;
@@ -30,9 +31,10 @@ public class NewTaskController extends TaskControllerBase implements Initializab
     @Autowired
     NewTaskController(ViewHandler viewHandler,
                       TaskManagerApp taskManagerApp,
-                      MessageSource messageSource)
+                      MessageSource messageSource,
+                      MemoryHandler memoryHandler)
     {
-        super(viewHandler, taskManagerApp, messageSource);
+        super(viewHandler, taskManagerApp, messageSource, memoryHandler);
     }
 
     private void createNewTask()
