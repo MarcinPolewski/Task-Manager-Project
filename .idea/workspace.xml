@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="fixed issues with window resizing">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/SideAndTopBarControllerBase.java" afterDir="false" />
+    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="introduced base class that provides default handling of top and sidebar to reduce code repetition">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/Clearable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/DirectoryViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/DirectoryViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/MainViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskControllerBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskControllerBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/directory-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/directory-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/new-task-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/new-task-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/task-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/task-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/model/Task.class" beforeDir="false" />
@@ -154,15 +151,7 @@
       <workItem from="1728296215747" duration="10463000" />
       <workItem from="1728368495019" duration="70492000" />
       <workItem from="1728820357027" duration="645000" />
-      <workItem from="1728913707748" duration="8120000" />
-    </task>
-    <task id="LOCAL-00019" summary="removed false annotation">
-      <option name="closed" value="true" />
-      <created>1727289786373</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1727289786373</updated>
+      <workItem from="1728913707748" duration="9893000" />
     </task>
     <task id="LOCAL-00020" summary="refactored the code and implemented switching to main scene">
       <option name="closed" value="true" />
@@ -548,7 +537,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728933590833</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="introduced base class that provides default handling of top and sidebar to reduce code repetition">
+      <option name="closed" value="true" />
+      <created>1728937305064</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1728937305064</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,7 +563,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="created new packages for UI components, created UI features for deleting users" />
     <MESSAGE value="implemented passing information about pressing task / directory from AllTasksPreview to Scene Controller" />
     <MESSAGE value="implemented passing information from TasksOfTheDayPreview to scene controller" />
     <MESSAGE value="implemented opening task view and directory view" />
@@ -591,7 +587,8 @@
     <MESSAGE value="further improvement to new task window" />
     <MESSAGE value="fixed bug with selecting folder after window reload" />
     <MESSAGE value="fixed issues with window resizing" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed issues with window resizing" />
+    <MESSAGE value="introduced base class that provides default handling of top and sidebar to reduce code repetition" />
+    <option name="LAST_COMMIT_MESSAGE" value="introduced base class that provides default handling of top and sidebar to reduce code repetition" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

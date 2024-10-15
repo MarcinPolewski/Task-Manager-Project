@@ -7,13 +7,12 @@ import com.marcin.jacek.polewski.Task_Manager_Project.model.TaskManagerApp;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
 import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.AllTasksTreeView;
-import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.SideBar;
-import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.topBar.TopBar;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.ViewHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.MessageSource;
@@ -67,6 +66,8 @@ public abstract class TaskControllerBase extends SideAndTopBarControllerBase imp
     private Label notesLabel;
     @FXML
     private Label folderLabel;
+    @FXML
+    private VBox mainVBox;
 //    @FXML
 //    private BorderPane mainBorderPane;
 
@@ -134,7 +135,7 @@ public abstract class TaskControllerBase extends SideAndTopBarControllerBase imp
         this.selectedTaskDirectory = event.getTaskDirectory();
     }
 
-    private void setTimePicersToNow(LocalTime time)
+    private void setTimePickersToNow(LocalTime time)
     {
 
         int defaultValueIndex = (time.getHour() * 60 + time.getMinute())/interval;
@@ -155,7 +156,7 @@ public abstract class TaskControllerBase extends SideAndTopBarControllerBase imp
             time = time.plusMinutes(interval);
         }
 
-        setTimePicersToNow(LocalTime.now());
+        setTimePickersToNow(LocalTime.now());
     }
 
     private void setDateInDatePickers(LocalDate date)
@@ -200,13 +201,14 @@ public abstract class TaskControllerBase extends SideAndTopBarControllerBase imp
         this.treeView =  new AllTasksTreeView(taskManagerApp.getCurrentUser().getTaskManager().getTaskDirectories(), true);
         treeView.setOnAction(this::directoryPressed);
         directoryScrollPane.setContent(treeView);
+        mainVBox.getStyleClass().add("main-screen-background-element");
 
     }
 
     public void setDateAndTime(LocalDateTime dt)
     {
         setDateInDatePickers(dt.toLocalDate());
-        setTimePicersToNow(dt.toLocalTime());
+        setTimePickersToNow(dt.toLocalTime());
     }
 
 
