@@ -3,7 +3,9 @@ package com.marcin.jacek.polewski.Task_Manager_Project.controller;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
 import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.ViewHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.VBox;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,6 +18,9 @@ public class DirectoryViewController extends SideAndTopBarControllerBase impleme
 
     @Setter
     private TaskDirectory taskDirectory;
+
+    @FXML
+    private VBox mainVBox;
 
     @Autowired
     DirectoryViewController(ViewHandler viewHandler, MemoryHandler memoryHandler)
@@ -32,5 +37,6 @@ public class DirectoryViewController extends SideAndTopBarControllerBase impleme
     public void initialize(URL location, ResourceBundle resources) {
         initializeSideBar();
         initializeTopBar();
+        mainVBox.getStyleClass().add("main-screen-background-element");
     }
 }
