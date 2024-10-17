@@ -50,12 +50,14 @@ public class TaskDirectory implements TaskDirectoryItem{
             CascadeType.REFRESH
     })
     @JoinColumn(name="task_manager_id")
+    @Setter
     TaskManager taskManager;
 
-    TaskDirectory(TaskDirectory parentDirectory, String name)
+    public TaskDirectory(String name, TaskManager taskManager)
     {
-        this.parentDirectory = parentDirectory;
         this.name = name;
+        this.taskManager = taskManager;
+        this.parentDirectory = null;
     }
 
     public void addTask(Task newTask)
@@ -71,8 +73,12 @@ public class TaskDirectory implements TaskDirectoryItem{
         if(subDirectories==null)
             subDirectories = new ArrayList<>();
 
-        TaskDirectory newDir = new TaskDirectory(this, name);
+        TaskDirectory newDir = new TaskDirectory(name, taskManager);
         subDirectories.add(newDir);
+        newDir.setParentDirectory(this);
+
+        taskManager.getTaskDirectories().add(newDir);
+
         return newDir;
     }
 

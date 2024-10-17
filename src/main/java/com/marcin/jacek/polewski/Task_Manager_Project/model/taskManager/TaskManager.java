@@ -7,8 +7,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.collection.spi.PersistentBag;
 
-import java.lang.reflect.Array;
+import java.awt.image.AreaAveragingScaleFilter;
+import java.sql.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,9 +31,17 @@ public class TaskManager {
     User user;
 
     @OneToMany(mappedBy = "taskManager", cascade = CascadeType.ALL)
-    @Setter
     List<TaskDirectory> taskDirectories;
 
+    public void setTaskDirectories(List<TaskDirectory> taskDirectories)
+    {
+        this.taskDirectories = taskDirectories;
+
+        // @TODO do it better? during loading from db new instance of tm is created, therefore
+        // it causes problem down the line (in loaded TM directories are not loaded)
+        for (TaskDirectory td : taskDirectories)
+            td.setTaskManager(this);
+    }
 
     public List<Task> getTasks(LocalDate date)
     {
@@ -57,8 +67,14 @@ public class TaskManager {
     {
 //        tasks.add(task);
     }
-    public void newTaskDirectory()
+    public void newTaskDirectory(TaskDirectory taskDirectory)
     {
+        // nawet jak dany tm ma foldery wchodzi do tego ifa
+//        if(taskDirectories instanceof PersistentBag<?> && !((PersistentBag<?>) taskDirectories).wasInitialized())
+//            this.taskDirectories = new ArrayList<>();
 
+        // @TODO fix this line
+        // wywala bo jest lazy type
+        this.taskDirectories.add(taskDirectory);
     }
 }

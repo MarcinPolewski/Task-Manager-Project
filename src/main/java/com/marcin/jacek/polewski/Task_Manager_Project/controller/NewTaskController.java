@@ -53,7 +53,6 @@ public class NewTaskController extends TaskControllerBase implements Initializab
 
         TaskDirectory parentFolder = getSelectedTaskDirectory();
 
-        //Task(int taskId, String title, LocalDateTime scheduledExecution, LocalDateTime dueDate)
         Task newTask = new Task(0, title, scheduledDateTime, dueDateTime, parentFolder);
         newTask.setNote(notes);
 

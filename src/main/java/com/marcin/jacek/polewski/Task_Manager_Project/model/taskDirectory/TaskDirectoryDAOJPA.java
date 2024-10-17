@@ -21,7 +21,7 @@ public class TaskDirectoryDAOJPA implements TaskDirectoryDAO{
     }
 
     @Override
-    @Transactional
+    @Transactional // @TODO delete?
     public List<TaskDirectory> find(TaskManager taskManager)
     {
          TypedQuery<TaskDirectory> query = entityManager.createQuery
@@ -29,6 +29,13 @@ public class TaskDirectoryDAOJPA implements TaskDirectoryDAO{
         query.setParameter("id", taskManager.getTaskManagerId());
 
         return query.getResultList();
+    }
+
+    @Override
+    @Transactional
+    public void update(TaskDirectory taskDirectory)
+    {
+       entityManager.merge(taskDirectory);
     }
 
 }

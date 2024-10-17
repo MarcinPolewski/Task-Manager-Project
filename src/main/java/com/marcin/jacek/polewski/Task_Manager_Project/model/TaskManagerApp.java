@@ -71,4 +71,9 @@ public class TaskManagerApp {
         taskDAO.update(task);
 
     }
+
+    public void newDirectory(TaskDirectory directory)
+    {
+        taskDirectoryDAO.update(directory);
+    }
 }

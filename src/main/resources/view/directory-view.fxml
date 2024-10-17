@@ -32,10 +32,10 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" text="delete directory" />
-                  <Button mnemonicParsing="false" text="add sub directory" />
-                  <Button mnemonicParsing="false" text="cancel" />
-                  <Button mnemonicParsing="false" text="save" />
+                  <Button mnemonicParsing="false" onAction="#deleteButtonPressed" text="delete directory" />
+                  <Button mnemonicParsing="false" onAction="#addSubDirectoryButtonPressed" text="add sub directory" />
+                  <Button mnemonicParsing="false" onAction="#cancelButtonPressed" text="cancel" />
+                  <Button mnemonicParsing="false" onAction="#saveButtonPressed" text="save" />
                </children>
             </HBox>
          </children>
