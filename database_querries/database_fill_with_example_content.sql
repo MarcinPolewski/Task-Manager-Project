@@ -72,22 +72,3 @@ INSERT INTO Tasks (title, enclosing_folder_id, notes, creation_date, scheduled_e
                                                                                                                ('Task1_User3', (SELECT id FROM Task_Directories WHERE name = 'Folder1_User3'), 'Notes for Task1_User3', NOW(), NOW() + INTERVAL 1 DAY, NOW() + INTERVAL 2 DAY, 0),
                                                                                                                ('Task2_User3', (SELECT id FROM Task_Directories WHERE name = 'Folder2_User3'), 'Notes for Task2_User3', NOW(), NOW() + INTERVAL 2 DAY, NOW() + INTERVAL 3 DAY, 0),
                                                                                                                ('Task3_User3', (SELECT id FROM Task_Directories WHERE name = 'Folder3_User3'), 'Notes for Task3_User3', NOW(), NOW() + INTERVAL 3 DAY, NOW() + INTERVAL 4 DAY, 0);
-
--- Insert 3 tasks per user, each in a different folder
--- User1 tasks
-INSERT INTO Tasks (title, enclosing_folder_id, notes, creation_date, scheduled_execution, due_date, state) VALUES
-                                                                                                               ('Task1_User1', (SELECT id FROM Task_Directories WHERE name = 'Folder1_User1'), 'Notes for Task1_User1', NOW(), NOW() + INTERVAL 1 DAY, NOW() + INTERVAL 2 DAY, 0),
-                                                                                                               ('Task2_User1', (SELECT id FROM Task_Directories WHERE name = 'Folder2_User1'), 'Notes for Task2_User1', NOW(), NOW() + INTERVAL 2 DAY, NOW() + INTERVAL 3 DAY, 0),
-                                                                                                               ('Task3_User1', (SELECT id FROM Task_Directories WHERE name = 'Folder3_User1'), 'Notes for Task3_User1', NOW(), NOW() + INTERVAL 3 DAY, NOW() + INTERVAL 4 DAY, 0);
-
--- User2 tasks
-INSERT INTO Tasks (title, enclosing_folder_id, notes, creation_date, scheduled_execution, due_date, state) VALUES
-                                                                                                               ('Task1_User2', (SELECT id FROM Task_Directories WHERE name = 'Folder1_User2'), 'Notes for Task1_User2', NOW(), NOW() + INTERVAL 1 DAY, NOW() + INTERVAL 2 DAY, 0),
-                                                                                                               ('Task2_User2', (SELECT id FROM Task_Directories WHERE name = 'Folder2_User2'), 'Notes for Task2_User2', NOW(), NOW() + INTERVAL 2 DAY, NOW() + INTERVAL 3 DAY, 0),
-                                                                                                               ('Task3_User2', (SELECT id FROM Task_Directories WHERE name = 'Folder3_User2'), 'Notes for Task3_User2', NOW(), NOW() + INTERVAL 3 DAY, NOW() + INTERVAL 4 DAY, 0);
-
--- User3 tasks
-INSERT INTO Tasks (title, enclosing_folder_id, notes, creation_date, scheduled_execution, due_date, state) VALUES
-                                                                                                               ('Task1_User3', (SELECT id FROM Task_Directories WHERE name = 'Folder1_User3'), 'Notes for Task1_User3', NOW(), NOW() + INTERVAL 1 DAY, NOW() + INTERVAL 2 DAY, 0),
-                                                                                                               ('Task2_User3', (SELECT id FROM Task_Directories WHERE name = 'Folder2_User3'), 'Notes for Task2_User3', NOW(), NOW() + INTERVAL 2 DAY, NOW() + INTERVAL 3 DAY, 0),
-                                                                                                               ('Task3_User3', (SELECT id FROM Task_Directories WHERE name = 'Folder3_User3'), 'Notes for Task3_User3', NOW(), NOW() + INTERVAL 3 DAY, NOW() + INTERVAL 4 DAY, 0);
