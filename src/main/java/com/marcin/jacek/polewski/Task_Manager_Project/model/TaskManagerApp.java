@@ -25,27 +25,23 @@ public class TaskManagerApp {
 
     @Autowired
     TaskManagerApp(UserService userService,
-            TaskDirectoryDAO taskDirectoryDAO,
-                   TaskDAO taskDAO)
-    {
+                   TaskDirectoryDAO taskDirectoryDAO,
+                   TaskDAO taskDAO) {
         this.userService = userService;
         this.taskDirectoryDAO = taskDirectoryDAO;
         this.taskDAO = taskDAO;
 
     }
 
-    private void loadTasks()
-    {
+    private void loadTasks() {
         TaskManager currentTaskManager = currentUser.getTaskManager();
         List<TaskDirectory> directories = taskDirectoryDAO.find(currentTaskManager);
 
         currentTaskManager.setTaskDirectories(directories);
     }
 
-    public void setCurrentUser(User user)
-    {
-        if(currentUser!=null)
-        {
+    public void setCurrentUser(User user) {
+        if (currentUser != null) {
             userService.update(currentUser);
         }
         currentUser = user;
@@ -53,18 +49,15 @@ public class TaskManagerApp {
         loadTasks();
     }
 
-    public void logOutUser()
-    {
-        if(currentUser!=null)
-        {
+    public void logOutUser() {
+        if (currentUser != null) {
             userService.update(currentUser);
             currentUser = null;
         }
 
     }
 
-    public void newTask(Task task)
-    {
+    public void newTask(Task task) {
         // add to task manager
         currentUser.getTaskManager().newTask(task);
         // save new task to db
@@ -72,8 +65,12 @@ public class TaskManagerApp {
 
     }
 
-    public void newDirectory(TaskDirectory directory)
-    {
+    public void newDirectory(TaskDirectory directory) {
         taskDirectoryDAO.update(directory);
+    }
+
+    public void updateTask(Task task)
+    {
+        taskDAO.update(task);
     }
 }

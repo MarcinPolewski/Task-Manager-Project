@@ -7,6 +7,7 @@ import com.marcin.jacek.polewski.Task_Manager_Project.model.TaskManagerApp;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
 import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.AllTasksTreeView;
+import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.taskViewBase.SubTasksView;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.ViewHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,6 +37,8 @@ public abstract class TaskControllerBase extends SideAndTopBarControllerBase imp
     private TaskManagerApp taskManagerApp;
     @FXML
     private ScrollPane directoryScrollPane;
+    @FXML
+    ScrollPane subTasksScrollPane;
     @FXML
     private TextField titleTextField;
     @FXML
@@ -128,7 +131,13 @@ public abstract class TaskControllerBase extends SideAndTopBarControllerBase imp
 
     }
 
-
+    void handleInvalidUserInputAlert(InvalidUserInputException e)
+    {
+        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+        errorAlert.setTitle(getMessageSource().getMessage("newTaskScreenInvalidDataTitle", null, "", Locale.getDefault()));
+        errorAlert.setContentText(e.getUserPrompt());
+        errorAlert.showAndWait();
+    }
 
     private void directoryPressed(TaskDirectoryPressedEvent event)
     {
@@ -186,7 +195,6 @@ public abstract class TaskControllerBase extends SideAndTopBarControllerBase imp
         notesLabel.setText(messageSource.getMessage("newTaskScreenNotesLabel", null, "", Locale.getDefault()));
         folderLabel.setText(messageSource.getMessage("newTaskScreenFolderLabel", null, "", Locale.getDefault()));
     }
-
 
 
 

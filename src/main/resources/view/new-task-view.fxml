@@ -52,7 +52,12 @@
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <ScrollPane fx:id="directoryScrollPane" prefHeight="200.0" prefWidth="200.0" />
-                        <ScrollPane prefHeight="200.0" prefWidth="200.0" />
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Button fx:id="newSubTaskButton" mnemonicParsing="false" text="+" />
+                              <ScrollPane fx:id="subTasksScrollPane" prefHeight="74.0" prefWidth="240.0" />
+                           </children>
+                        </VBox>
                      </children>
                   </HBox>
                </children>

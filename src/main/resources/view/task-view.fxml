@@ -16,7 +16,7 @@
       <VBox fx:id="mainVBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="sceneTitle" text="New Task" />
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox prefHeight="76.0" prefWidth="600.0">
                <children>
                   <Label fx:id="taskTitleLabel" text="Title" />
                   <TextField fx:id="titleTextField" />
@@ -40,18 +40,28 @@
                   </VBox>
                </children>
             </HBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox prefHeight="74.0" prefWidth="600.0">
                <children>
                   <Label fx:id="notesLabel" text="Notes" />
-                  <TextArea fx:id="notesTextArea" prefHeight="200.0" prefWidth="200.0" />
+                  <TextArea fx:id="notesTextArea" prefHeight="57.0" prefWidth="600.0" />
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label fx:id="folderLabel" text="Folder" />
-                  <ScrollPane fx:id="directoryScrollPane" prefHeight="200.0" prefWidth="200.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="folderLabel" text="Folder" />
+                        <ScrollPane fx:id="directoryScrollPane" prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Button fx:id="newSubTaskButton" mnemonicParsing="false" text="Button" />
+                        <ScrollPane fx:id="subTasksScrollPane" prefHeight="94.0" prefWidth="200.0" />
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
+            </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button fx:id="addSubtaskButton" mnemonicParsing="false" text="add sub task" />

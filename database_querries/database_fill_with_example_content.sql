@@ -72,3 +72,20 @@ INSERT INTO Tasks (title, enclosing_folder_id, notes, creation_date, scheduled_e
                                                                                                                ('Task1_User3', (SELECT id FROM Task_Directories WHERE name = 'Folder1_User3'), 'Notes for Task1_User3', NOW(), NOW() + INTERVAL 1 DAY, NOW() + INTERVAL 2 DAY, 0),
                                                                                                                ('Task2_User3', (SELECT id FROM Task_Directories WHERE name = 'Folder2_User3'), 'Notes for Task2_User3', NOW(), NOW() + INTERVAL 2 DAY, NOW() + INTERVAL 3 DAY, 0),
                                                                                                                ('Task3_User3', (SELECT id FROM Task_Directories WHERE name = 'Folder3_User3'), 'Notes for Task3_User3', NOW(), NOW() + INTERVAL 3 DAY, NOW() + INTERVAL 4 DAY, 0);
+
+INSERT INTO Sub_Tasks (main_task_id, title, state) VALUES
+                                                       ((SELECT id FROM Tasks WHERE title = 'Task1_User1'), 'Subtask1_Task1_User1', 0),
+                                                       ((SELECT id FROM Tasks WHERE title = 'Task1_User1'), 'Subtask2_Task1_User1', 0),
+                                                       ((SELECT id FROM Tasks WHERE title = 'Task1_User1'), 'Subtask3_Task1_User1', 0);
+
+-- User2 subtasks
+INSERT INTO Sub_Tasks (main_task_id, title, state) VALUES
+                                                       ((SELECT id FROM Tasks WHERE title = 'Task1_User2'), 'Subtask1_Task1_User2', 0),
+                                                       ((SELECT id FROM Tasks WHERE title = 'Task1_User2'), 'Subtask2_Task1_User2', 0),
+                                                       ((SELECT id FROM Tasks WHERE title = 'Task1_User2'), 'Subtask3_Task1_User2', 0);
+
+-- User3 subtasks
+INSERT INTO Sub_Tasks (main_task_id, title, state) VALUES
+                                                       ((SELECT id FROM Tasks WHERE title = 'Task1_User3'), 'Subtask1_Task1_User3', 0),
+                                                       ((SELECT id FROM Tasks WHERE title = 'Task1_User3'), 'Subtask2_Task1_User3', 0),
+                                                       ((SELECT id FROM Tasks WHERE title = 'Task1_User3'), 'Subtask3_Task1_User3', 0);
