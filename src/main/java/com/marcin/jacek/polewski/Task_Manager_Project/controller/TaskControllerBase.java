@@ -4,6 +4,7 @@ import com.marcin.jacek.polewski.Task_Manager_Project.Events.TaskDirectoryPresse
 import com.marcin.jacek.polewski.Task_Manager_Project.exceptions.CannotGoBackError;
 import com.marcin.jacek.polewski.Task_Manager_Project.exceptions.InvalidUserInputException;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.TaskManagerApp;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.subTask.SubTask;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
 import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.AllTasksTreeView;
@@ -22,6 +23,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -30,6 +32,7 @@ public abstract class TaskControllerBase extends SideAndTopBarControllerBase imp
 
     private AllTasksTreeView treeView;
     private TaskDirectory selectedTaskDirectory;
+    List<SubTask> subTasks;
 
     private MessageSource messageSource;
 

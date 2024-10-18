@@ -34,7 +34,7 @@ public class TaskViewController extends TaskControllerBase implements Controller
     private Button deleteButton;
 
     private Task task;
-    private List<SubTask> subTasks;
+
 
     @Autowired
     TaskViewController(ViewHandler viewHandler,

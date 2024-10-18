@@ -4,45 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="updated db example content">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/taskViewBase/SubTaskChangeStatusButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/taskViewBase/SubTaskPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/taskViewBase/SubTasksView.java" afterDir="false" />
+    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="deleted binary files from repo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_querries/database_fill_with_example_content.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database_querries/database_fill_with_example_content.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/NewTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/NewTaskController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskControllerBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskControllerBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/TaskManagerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/TaskManagerApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/subTask/SubTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/subTask/SubTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/new-task-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/new-task-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/task-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/task-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/Events/StartUpInitializationCompletedEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/JavaFXApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/JavaFXConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/controller/StartViewController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/exceptions/SubTaskNotFinishedException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/model/NotificationHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/model/Task.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/model/TaskDirectory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/model/TaskManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/model/TaskPriority.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/model/TaskState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/util/AssetLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/util/MemoryHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/view/ImageId.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/view/ImageWrapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/view/SceneId.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/view/SceneWrapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marcin/jacek/polewski/Task_Manager_Project/view/ViewHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/icons/list.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/styles/default_style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/styles/start_view.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/start-view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/marcin/jacek/polewski/Task_Manager_Project/MainTests.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,23 +136,7 @@
       <workItem from="1728368495019" duration="70492000" />
       <workItem from="1728820357027" duration="645000" />
       <workItem from="1728913707748" duration="35541000" />
-      <workItem from="1729240549246" duration="11443000" />
-    </task>
-    <task id="LOCAL-00023" summary="added loading paths from tasks to TaskDirectoryService">
-      <option name="closed" value="true" />
-      <created>1727456833397</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1727456833397</updated>
-    </task>
-    <task id="LOCAL-00024" summary="started implementing day view">
-      <option name="closed" value="true" />
-      <created>1727463097904</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1727463097904</updated>
+      <workItem from="1729240549246" duration="12439000" />
     </task>
     <task id="LOCAL-00025" summary="small fix">
       <option name="closed" value="true" />
@@ -564,7 +514,23 @@
       <option name="project" value="LOCAL" />
       <updated>1729151985364</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="started work on sub tasks, implemented save functionality for task view">
+      <option name="closed" value="true" />
+      <created>1729265935285</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1729265935286</updated>
+    </task>
+    <task id="LOCAL-00073" summary="deleted binary files from repo">
+      <option name="closed" value="true" />
+      <created>1729265978143</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1729265978143</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -582,8 +548,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="connected back button to nwe task view" />
-    <MESSAGE value="isolated functionality of task directory tree" />
     <MESSAGE value="implemented loading images and started work on side bar" />
     <MESSAGE value="implemented clock functionality to top bar" />
     <MESSAGE value="implemented new add button" />
@@ -607,7 +571,9 @@
     <MESSAGE value="added background to task / new task view" />
     <MESSAGE value="added background to directory view" />
     <MESSAGE value="updated db example content" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated db example content" />
+    <MESSAGE value="started work on sub tasks, implemented save functionality for task view" />
+    <MESSAGE value="deleted binary files from repo" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted binary files from repo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
