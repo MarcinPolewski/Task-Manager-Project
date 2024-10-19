@@ -61,12 +61,12 @@ public class TaskManagerApp {
         // add to task manager
         currentUser.getTaskManager().newTask(task);
         // save new task to db
-        taskDAO.update(task);
+        taskDAO.add(task);
 
     }
 
     public void newDirectory(TaskDirectory directory) {
-        taskDirectoryDAO.update(directory);
+        taskDirectoryDAO.add(directory);
     }
 
     public void updateTask(Task task)

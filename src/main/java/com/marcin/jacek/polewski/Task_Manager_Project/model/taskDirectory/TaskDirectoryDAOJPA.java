@@ -1,5 +1,6 @@
 package com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory;
 
+import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
@@ -35,7 +36,14 @@ public class TaskDirectoryDAOJPA implements TaskDirectoryDAO{
     @Transactional
     public void update(TaskDirectory taskDirectory)
     {
-       entityManager.merge(taskDirectory);
+        entityManager.merge(taskDirectory);
+    }
+
+    @Override
+    @Transactional
+    public void add(TaskDirectory taskDirectory)
+    {
+        taskDirectory.setId(entityManager.merge(taskDirectory).getId());//        TaskDirectory syncedTaskDirectory = entityManager.merge(taskDirectory);
     }
 
 }

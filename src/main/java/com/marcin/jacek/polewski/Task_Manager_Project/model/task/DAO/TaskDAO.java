@@ -8,4 +8,5 @@ import java.util.List;
 public interface TaskDAO {
     //List<Task> find(TaskManager taskManager);
     void update(Task task);
+    void add(Task task);
 }

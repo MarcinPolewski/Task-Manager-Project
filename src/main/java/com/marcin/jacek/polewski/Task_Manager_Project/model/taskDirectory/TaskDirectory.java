@@ -20,6 +20,7 @@ public class TaskDirectory implements TaskDirectoryItem{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
+    @Setter
     private int id;
 
     @Column(name="name")
@@ -101,5 +102,4 @@ public class TaskDirectory implements TaskDirectoryItem{
     {
         return name;
     }
-
 }

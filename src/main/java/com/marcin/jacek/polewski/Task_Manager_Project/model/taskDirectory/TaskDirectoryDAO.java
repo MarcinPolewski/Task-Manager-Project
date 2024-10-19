@@ -13,4 +13,5 @@ import java.util.List;
 public interface TaskDirectoryDAO {
     public List<TaskDirectory> find(TaskManager taskManager);
     void update(TaskDirectory taskDirectory);
+    void add(TaskDirectory taskDirectory);
 }
