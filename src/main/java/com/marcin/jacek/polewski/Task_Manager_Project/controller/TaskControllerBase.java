@@ -240,6 +240,9 @@ public abstract class TaskControllerBase extends SideAndTopBarControllerBase imp
         TaskDirectory parentFolder = getSelectedTaskDirectory();
         task.setEnclosingFolder(parentFolder);
 
+        if(task.getCreationData()==null)
+            task.setCreationData(LocalDateTime.now());
+
         for(SubTask st: subTasks)
         {
             st.setMainTask(task);
