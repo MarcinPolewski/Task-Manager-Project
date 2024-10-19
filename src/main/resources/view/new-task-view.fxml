@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marcin.jacek.polewski.Task_Manager_Project.controller.NewTaskController">
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marcin.jacek.polewski.Task_Manager_Project.controller.NewTaskController">
    <center>
-      <VBox fx:id="mainVBox" maxHeight="400.0" maxWidth="400.0" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="mainVBox" maxHeight="600.0" maxWidth="400.0" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="sceneTitle" text="New Task" />
             <VBox>
@@ -24,17 +24,17 @@
             </VBox>
             <HBox>
                <children>
-                  <VBox maxWidth="1.7976931348623157E308">
+                  <VBox maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                      <children>
                         <Label fx:id="scheduledExecutionLabel" prefHeight="14.0" prefWidth="146.0" text="Scheduled execution" />
-                        <DatePicker fx:id="scheduledDatePicker" />
+                        <DatePicker fx:id="scheduledDatePicker" maxWidth="1.7976931348623157E308" />
                         <ComboBox fx:id="scheduledTimePicker" maxWidth="1.7976931348623157E308" promptText="18:00" />
                      </children>
                   </VBox>
-                  <VBox maxWidth="1.7976931348623157E308">
+                  <VBox maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                      <children>
                         <Label fx:id="dueDateLabel" text="Label" />
-                        <DatePicker fx:id="dueDatePicker" />
+                        <DatePicker fx:id="dueDatePicker" maxWidth="1.7976931348623157E308" />
                         <ComboBox fx:id="dueTimePicker" maxWidth="1.7976931348623157E308" prefWidth="150.0" />
                      </children>
                   </VBox>
@@ -49,13 +49,18 @@
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label fx:id="folderLabel" text="Folder" />
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <ScrollPane fx:id="directoryScrollPane" prefHeight="200.0" prefWidth="200.0" />
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Button fx:id="addSubTaskButton" mnemonicParsing="false" onAction="#addSubTaskButtonPressed" text="+" />
-                              <ScrollPane fx:id="subTasksScrollPane" prefHeight="74.0" prefWidth="240.0" />
+                              <Button fx:id="newFolderButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#newFolderButtonPressed" text="+" VBox.vgrow="ALWAYS" />
+                              <ScrollPane fx:id="directoryScrollPane" fitToWidth="true" prefHeight="148.0" prefWidth="240.0" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Button fx:id="addSubTaskButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addSubTaskButtonPressed" prefHeight="18.0" prefWidth="144.0" text="+" />
+                              <ScrollPane fx:id="subTasksScrollPane" fitToWidth="true" maxWidth="1.7976931348623157E308" prefHeight="74.0" prefWidth="53.0" VBox.vgrow="ALWAYS" />
                            </children>
                         </VBox>
                      </children>

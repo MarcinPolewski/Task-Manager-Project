@@ -7,6 +7,7 @@ import com.marcin.jacek.polewski.Task_Manager_Project.model.TaskManagerApp;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.subTask.SubTask;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.taskManager.TaskManager;
 import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.AllTasksTreeView;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.taskViewBase.SubTasksView;
@@ -110,6 +111,36 @@ public abstract class TaskControllerBase extends SideAndTopBarControllerBase imp
     {
         exitThisScene();
     }
+
+    private void runNewFolderDialog()
+    {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle(messageSource.getMessage("logInScreenAddUserTitle",
+                null, "notFound", Locale.getDefault()));
+        dialog.setHeaderText(messageSource.getMessage("logInScreenAddUserHeader",
+                null, "notFound", Locale.getDefault()));
+        dialog.setContentText(messageSource.getMessage("logInScreenAddUserContext",
+                null, "notFound", Locale.getDefault()));
+
+
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()) {
+            TaskManager tm = taskManagerApp.getCurrentUser().getTaskManager();
+            TaskDirectory td = new TaskDirectory(result.get(), tm);
+            tm.getTaskDirectories().add(td);
+
+            this.treeView.addDirectoryToTree(td);
+            taskManagerApp.newDirectory(td);
+        }
+
+
+    }
+
+    public void newFolderButtonPressed(ActionEvent event)
+    {
+        runNewFolderDialog();
+    }
+
 
     void checkIfUserInputCorrect() throws InvalidUserInputException
     {

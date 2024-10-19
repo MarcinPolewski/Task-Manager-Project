@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="fixed error where subTasksView would not be initialzied">
+    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="fixed error where tasks after creation would not be displayed at the main screen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/task/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/task/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskControllerBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskControllerBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/AllTasksTreeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/AllTasksTreeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/new-task-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/new-task-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,15 +136,7 @@
       <workItem from="1728368495019" duration="70492000" />
       <workItem from="1728820357027" duration="645000" />
       <workItem from="1728913707748" duration="35541000" />
-      <workItem from="1729240549246" duration="19513000" />
-    </task>
-    <task id="LOCAL-00027" summary="fixed issues with line not stretching to the end of container">
-      <option name="closed" value="true" />
-      <created>1727516917347</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1727516917347</updated>
+      <workItem from="1729240549246" duration="21953000" />
     </task>
     <task id="LOCAL-00028" summary="started implementing folder view">
       <option name="closed" value="true" />
@@ -528,7 +522,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729339343697</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="fixed error where tasks after creation would not be displayed at the main screen">
+      <option name="closed" value="true" />
+      <created>1729344806394</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1729344806395</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +548,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implemented new add button" />
     <MESSAGE value="implemented reusing loaded windows" />
     <MESSAGE value="modified DB schema" />
     <MESSAGE value="implemented new db structure into java backend code" />
@@ -571,7 +572,8 @@
     <MESSAGE value="deleted binary files from repo" />
     <MESSAGE value="moves sub task list to base class" />
     <MESSAGE value="fixed error where subTasksView would not be initialzied" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed error where subTasksView would not be initialzied" />
+    <MESSAGE value="fixed error where tasks after creation would not be displayed at the main screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed error where tasks after creation would not be displayed at the main screen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -603,13 +605,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskControllerBase.java</url>
-          <line>238</line>
+          <line>270</line>
           <option name="timeStamp" value="96" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/taskViewBase/SubTasksView.java</url>
           <line>27</line>
           <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskControllerBase.java</url>
+          <line>131</line>
+          <option name="timeStamp" value="98" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

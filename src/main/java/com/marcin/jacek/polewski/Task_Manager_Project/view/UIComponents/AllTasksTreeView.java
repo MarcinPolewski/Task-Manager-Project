@@ -34,7 +34,7 @@ public class AllTasksTreeView extends TreeView<TaskDirectoryItem> {
     }
 
 
-    private void addDirectoryToTree(TaskDirectory directory)
+    public void addDirectoryToTree(TaskDirectory directory)
     {
         TreeItem<TaskDirectoryItem> treeItem = new TreeItem<>(directory);
         if(!onlyDirectories && directory.getTasks() != null)
