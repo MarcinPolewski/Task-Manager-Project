@@ -104,4 +104,11 @@ public class Task implements TaskDirectoryItem {
     {
         return title;
     }
+
+    public void setEnclosingFolder(TaskDirectory folder)
+    {
+        this.enclosingFolder = folder;
+        folder.addTask(this);
+    }
+
 }
