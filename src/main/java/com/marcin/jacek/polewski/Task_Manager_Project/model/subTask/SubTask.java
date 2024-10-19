@@ -33,4 +33,9 @@ public class SubTask {
     @Column(name="state")
     private TaskState state;
 
+    public SubTask( String title) {
+        this.title = title;
+        this.state = TaskState.CREATED;
+        this.id = 0;
+    }
 }

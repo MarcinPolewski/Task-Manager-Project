@@ -54,7 +54,7 @@
                         <ScrollPane fx:id="directoryScrollPane" prefHeight="200.0" prefWidth="200.0" />
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Button fx:id="newSubTaskButton" mnemonicParsing="false" text="+" />
+                              <Button fx:id="addSubTaskButton" mnemonicParsing="false" onAction="#addSubTaskButtonPressed" text="+" />
                               <ScrollPane fx:id="subTasksScrollPane" prefHeight="74.0" prefWidth="240.0" />
                            </children>
                         </VBox>

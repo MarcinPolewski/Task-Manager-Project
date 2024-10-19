@@ -5,6 +5,7 @@ import com.marcin.jacek.polewski.Task_Manager_Project.exceptions.CannotGoBackErr
 import com.marcin.jacek.polewski.Task_Manager_Project.exceptions.InvalidUserInputException;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.TaskManagerApp;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.subTask.SubTask;
+import com.marcin.jacek.polewski.Task_Manager_Project.model.task.Task;
 import com.marcin.jacek.polewski.Task_Manager_Project.model.taskDirectory.TaskDirectory;
 import com.marcin.jacek.polewski.Task_Manager_Project.util.MemoryHandler;
 import com.marcin.jacek.polewski.Task_Manager_Project.view.UIComponents.AllTasksTreeView;
@@ -25,6 +26,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 @Getter
@@ -33,6 +35,7 @@ public abstract class TaskControllerBase extends SideAndTopBarControllerBase imp
     private AllTasksTreeView treeView;
     private TaskDirectory selectedTaskDirectory;
     List<SubTask> subTasks;
+    SubTasksView subTasksView = new SubTasksView();
 
     private MessageSource messageSource;
 
@@ -74,6 +77,8 @@ public abstract class TaskControllerBase extends SideAndTopBarControllerBase imp
     private Label folderLabel;
     @FXML
     private VBox mainVBox;
+    @FXML
+    private Button addSubTaskButton;
 //    @FXML
 //    private BorderPane mainBorderPane;
 
@@ -183,6 +188,66 @@ public abstract class TaskControllerBase extends SideAndTopBarControllerBase imp
         setDateInDatePickers(LocalDate.now());
     }
 
+    void setParametersOfTask(Task task)
+    {
+        String title = getTitleTextField().getText();
+        task.setTitle(title);
+
+        LocalDate scheduledDate = getScheduledDatePicker().getValue();
+        LocalTime scheduledTime = getScheduledTimePicker().getValue();
+        LocalDateTime scheduledDateTime = LocalDateTime.of(scheduledDate, scheduledTime);
+        task.setScheduledExecution(scheduledDateTime);
+
+        LocalDate dueDate = getDueDatePicker().getValue();
+        LocalTime dueTime = getDueTimePicker().getValue();
+        LocalDateTime dueDateTime = LocalDateTime.of(dueDate, dueTime);
+        task.setDueDate(dueDateTime);
+
+        String notes = getNotesTextArea().getText();
+        task.setNote(notes);
+
+        TaskDirectory parentFolder = getSelectedTaskDirectory();
+        task.setEnclosingFolder(parentFolder);
+
+        for(SubTask st: subTasks)
+        {
+            st.setMainTask(task);
+        }
+
+        task.setSubTasks(subTasks);
+    }
+
+    public void addSubTaskButtonPressed(ActionEvent event)
+    {
+        // open pop up
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle(messageSource.getMessage("logInScreenAddUserTitle",
+                null, "notFound", Locale.getDefault()));
+        dialog.setHeaderText(messageSource.getMessage("logInScreenAddUserHeader",
+                null, "notFound", Locale.getDefault()));
+        dialog.setContentText(messageSource.getMessage("logInScreenAddUserContext",
+                null, "notFound", Locale.getDefault()));
+
+
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()) {
+            // add to sub tasks
+            SubTask createdTask = new SubTask(result.get());
+            subTasks.add(createdTask);
+
+            // create a button
+            subTasksView.newSubTask(createdTask);
+        }
+
+
+
+    }
+
+    public void initalizeSubTaskView() {
+        subTasksView = new SubTasksView();
+        subTasksScrollPane.setContent(subTasksView);
+    }
+
 
     private void initializeTexts()
     {
@@ -208,6 +273,7 @@ public abstract class TaskControllerBase extends SideAndTopBarControllerBase imp
         initializeTexts();
         initializeTopBar();
         initializeSideBar();
+        initalizeSubTaskView();
 
         this.treeView =  new AllTasksTreeView(taskManagerApp.getCurrentUser().getTaskManager().getTaskDirectories(), true);
         treeView.setOnAction(this::directoryPressed);

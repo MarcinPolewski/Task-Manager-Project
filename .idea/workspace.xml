@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="deleted binary files from repo">
+    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="moves sub task list to base class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/NewTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/NewTaskController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskControllerBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskControllerBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/subTask/SubTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/subTask/SubTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/taskViewBase/SubTasksView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/taskViewBase/SubTasksView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/new-task-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/new-task-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/task-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/task-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +62,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.Main.executor": "Run",
+    "Spring Boot.Main.executor": "Debug",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/marcinpolewski/Documents/Task-Manager-Project/src/main/resources/view",
@@ -136,15 +140,7 @@
       <workItem from="1728368495019" duration="70492000" />
       <workItem from="1728820357027" duration="645000" />
       <workItem from="1728913707748" duration="35541000" />
-      <workItem from="1729240549246" duration="12439000" />
-    </task>
-    <task id="LOCAL-00025" summary="small fix">
-      <option name="closed" value="true" />
-      <created>1727464663193</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1727464663193</updated>
+      <workItem from="1729240549246" duration="17201000" />
     </task>
     <task id="LOCAL-00026" summary="refactored code">
       <option name="closed" value="true" />
@@ -530,7 +526,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729265978143</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="moves sub task list to base class">
+      <option name="closed" value="true" />
+      <created>1729267459033</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1729267459033</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,7 +552,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implemented loading images and started work on side bar" />
     <MESSAGE value="implemented clock functionality to top bar" />
     <MESSAGE value="implemented new add button" />
     <MESSAGE value="implemented reusing loaded windows" />
@@ -573,7 +576,8 @@
     <MESSAGE value="updated db example content" />
     <MESSAGE value="started work on sub tasks, implemented save functionality for task view" />
     <MESSAGE value="deleted binary files from repo" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted binary files from repo" />
+    <MESSAGE value="moves sub task list to base class" />
+    <option name="LAST_COMMIT_MESSAGE" value="moves sub task list to base class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -604,9 +608,14 @@
           <option name="timeStamp" value="91" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskControllerBase.java</url>
+          <line>238</line>
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/view/UIComponents/taskViewBase/SubTasksView.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="95" />
+          <line>27</line>
+          <option name="timeStamp" value="97" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

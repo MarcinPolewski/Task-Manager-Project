@@ -48,26 +48,7 @@ public class TaskViewController extends TaskControllerBase implements Controller
 
     private void updateTask()
     {
-        String title = getTitleTextField().getText();
-        task.setTitle(title);
-
-        LocalDate scheduledDate = getScheduledDatePicker().getValue();
-        LocalTime scheduledTime = getScheduledTimePicker().getValue();
-        LocalDateTime scheduledDateTime = LocalDateTime.of(scheduledDate, scheduledTime);
-        task.setScheduledExecution(scheduledDateTime);
-
-        LocalDate dueDate = getDueDatePicker().getValue();
-        LocalTime dueTime = getDueTimePicker().getValue();
-        LocalDateTime dueDateTime = LocalDateTime.of(dueDate, dueTime);
-        task.setDueDate(dueDateTime);
-
-        String notes = getNotesTextArea().getText();
-        task.setNote(notes);
-
-        TaskDirectory parentFolder = getSelectedTaskDirectory();
-        task.setEnclosingFolder(parentFolder);
-
-        task.setSubTasks(subTasks);
+        setParametersOfTask(task);
 
         getTaskManagerApp().updateTask(task);
         exitThisScene();
@@ -104,10 +85,12 @@ public class TaskViewController extends TaskControllerBase implements Controller
         getDueDatePicker().setValue(task.getDueDate().toLocalDate());
         getDueTimePicker().setValue(task.getDueDate().toLocalTime());
         getNotesTextArea().setText(task.getNote());
-        subTasksScrollPane.setContent(new SubTasksView(subTasks));
+        subTasksView.setSubTasks(subTasks);
+//        subTasksScrollPane.setContent(new SubTasksView(subTasks));
 
         TreeItem<TaskDirectoryItem> treeItem = getTreeView().getMap().get(task.getEnclosingFolder());
         getTreeView().getSelectionModel().select(treeItem);
+//        subTasks.clear();
     }
 
     public void setTask(Task task)

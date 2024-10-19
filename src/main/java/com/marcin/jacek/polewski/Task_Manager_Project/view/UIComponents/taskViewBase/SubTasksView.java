@@ -14,22 +14,34 @@ public class SubTasksView extends VBox {
     private List<SubTask> subTasks;
     private List<SubTaskPanel> panels = new ArrayList<>();
 
+    public SubTasksView(){
+        super();
+    }
     public SubTasksView(List<SubTask> subTasks)
     {
         super();
-        this.subTasks = subTasks;
-
-        initializeSubTasks();
+        setSubTasks(subTasks);
     }
 
-    private void initializeSubTasks()
+    public void newSubTask(SubTask st)
     {
+        SubTaskPanel panel = new SubTaskPanel(st);
+        panel.setOnTaskDelete(this::subTaskDeletePressed);
+        panels.add(panel);
+        this.getChildren().add(panel);
+    }
+
+    public void clear()
+    {
+        this.getChildren().clear();
+    }
+    public void setSubTasks(List<SubTask> subTasks)
+    {
+        this.subTasks = subTasks;
+        clear();
         for(SubTask st : subTasks)
         {
-            SubTaskPanel panel = new SubTaskPanel(st);
-            panel.setOnTaskDelete(this::subTaskDeletePressed);
-            panels.add(panel);
-            this.getChildren().add(panel);
+            newSubTask(st);
         }
     }
 
@@ -40,7 +52,4 @@ public class SubTasksView extends VBox {
         // taskmanager app.delete ( remove from task and db )
 
     }
-
-
-
 }

@@ -39,23 +39,8 @@ public class NewTaskController extends TaskControllerBase implements Initializab
 
     private void createNewTask()
     {
-        String title = getTitleTextField().getText();
-
-        LocalDate scheduledDate = getScheduledDatePicker().getValue();
-        LocalTime scheduledTime = getScheduledTimePicker().getValue();
-        LocalDateTime scheduledDateTime = LocalDateTime.of(scheduledDate, scheduledTime);
-
-        LocalDate dueDate = getDueDatePicker().getValue();
-        LocalTime dueTime = getDueTimePicker().getValue();
-        LocalDateTime dueDateTime = LocalDateTime.of(dueDate, dueTime);
-
-        String notes = getNotesTextArea().getText();
-
-        TaskDirectory parentFolder = getSelectedTaskDirectory();
-
-        Task newTask = new Task(0, title, scheduledDateTime, dueDateTime, parentFolder);
-        newTask.setNote(notes);
-        newTask.setSubTasks(subTasks);
+        Task newTask = new Task();
+        setParametersOfTask(newTask);
 
         getTaskManagerApp().newTask(newTask);
 
@@ -74,10 +59,6 @@ public class NewTaskController extends TaskControllerBase implements Initializab
         }
     }
 
-    public void initalizeSubTaskView() {
-
-        subTasksScrollPane.setContent(new SubTasksView(subTasks));
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -93,5 +74,6 @@ public class NewTaskController extends TaskControllerBase implements Initializab
         getNotesTextArea().setText(null);
         getTreeView().getSelectionModel().select(null);
         subTasks.clear();
+        subTasksView.clear();
     }
 }
