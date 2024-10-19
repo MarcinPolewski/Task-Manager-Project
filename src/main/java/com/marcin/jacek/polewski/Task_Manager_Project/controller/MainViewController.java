@@ -14,15 +14,19 @@ import com.marcin.jacek.polewski.Task_Manager_Project.view.ViewHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Locale;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 @Component
@@ -31,17 +35,23 @@ public class MainViewController extends SideAndTopBarControllerBase implements I
     private HBox centerHBox;
 
     private TaskManagerApp taskManagerApp;
+    private MessageSource messageSource;
+
+    private AllTasksPreview taskPreview;
+    private TasksOfTheDayPreview dayPreview;
 
 
     @Autowired
     MainViewController(TaskManagerApp taskManagerApp,
                        ViewHandler viewHandler,
-                       MemoryHandler memoryHandler)
+                       MemoryHandler memoryHandler,
+                       MessageSource messageSource)
     {
         super(viewHandler, memoryHandler);
         this.taskManagerApp = taskManagerApp;
         this.viewHandler = viewHandler;
         this.memoryHandler = memoryHandler;
+        this.messageSource = messageSource;
     }
 
 
@@ -55,16 +65,40 @@ public class MainViewController extends SideAndTopBarControllerBase implements I
         viewHandler.openDirectoryView(directoryPressedEvent.getTaskDirectory());
     }
 
+    public void newFolderPressed(ActionEvent event)
+    {
+        // handler dialog here
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle(messageSource.getMessage("logInScreenAddUserTitle",
+                null, "notFound", Locale.getDefault()));
+        dialog.setHeaderText(messageSource.getMessage("logInScreenAddUserHeader",
+                null, "notFound", Locale.getDefault()));
+        dialog.setContentText(messageSource.getMessage("logInScreenAddUserContext",
+                null, "notFound", Locale.getDefault()));
+
+
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()) {
+            TaskManager tm = taskManagerApp.getCurrentUser().getTaskManager();
+            TaskDirectory td = new TaskDirectory(result.get(), tm);
+            tm.getTaskDirectories().add(td);
+
+            this.taskPreview.addFolder(td);
+            taskManagerApp.newDirectory(td);
+        }
+    }
+
+
     private void initializeCenterScreen()
     {
         List<TaskDirectory> directories = taskManagerApp.getCurrentUser().getTaskManager().getTaskDirectories();
-        AllTasksPreview taskPreview = new AllTasksPreview(directories);
+        taskPreview = new AllTasksPreview(directories);
 
-        taskPreview.setOnAction(this::taskPressed, this::directoryPressed);
+        taskPreview.setOnAction(this::taskPressed, this::directoryPressed, this::newFolderPressed);
 
         TaskManager tm = taskManagerApp.getCurrentUser().getTaskManager();
 
-        TasksOfTheDayPreview dayPreview = new TasksOfTheDayPreview(this, LocalDateTime.now(), tm);
+        dayPreview = new TasksOfTheDayPreview(this, LocalDateTime.now(), tm);
         dayPreview.setOnAction(this::taskPressed);
         centerHBox.getChildren().setAll(dayPreview, taskPreview);
     }
