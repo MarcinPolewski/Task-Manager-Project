@@ -1,48 +1,27 @@
-### Ideas for change
-- add support for choosing a font size
-- make use of static directory(for static files like images, css; automatically read my spring)
+### Project goals
+- develop basic understanding of spring framework(dependency injection, hibernate date persistence etc) and learn what to take to consideration when designing future projects <- achieved
+- practice java language in more complex applications <- achieved
+- practise JavaFX framework <- achieved
 
-### Design choices
-- IDs of scenes are declared in application.properties
-  - enum might have been better, but I wanted to keep everything organized in one place. 
-  - another possibility would be to create an enum that reads this properties and in one place stores link and autoasigns id. I think it would be too much
+### Additional lessons learned: 
+- database schame must be well designed from start, changing it later down the line is really hard and troublesome
+- Hibernate data persistance is useful, but sometimes it is tricky
+  - in case of my project i did wanted to lazy load user's task manager to get only users to show on the login screen. Later when i loaded tasks for particular user, new instance of task manager would be loaded and i was problematic
 
-### What to improve in the future projects
-- separation of concerns - UI components should not less dependent on backend. Implement more interfaces 
+### Current state of project 
+ - I considered this project finished. I may not be production ready, but i have achieved all my goals and i got most important thing from it - experience. Developing this project further would be mostly about visual aspects of it, so it would not be, as beneficial for me, as transitioning to more up to date applications, like designing webapps
 
-### Conclusions: 
- - when desigining database, when you can store some thing in separate table, do it.
-   - It makes it more flexible, easier to process(in fact Hibernate handles it automatically)
- - changing database schema later can be painful  
+### Usage
+ - create a mysql database on port 3306
+ - use database_starter to initialize database schema
+ - update application.properties file to mach your database login data
+ - build maven project and run the main method in Main class 
 
-### Additional things that I have learned
-- i18n stands for internationalization
-
-### Encountered bugs
- - spring printed a warning that resource has not been found(pertaining css file) and provided by it path was correct, resource was successfully moved to right folder in target directory, even clicking the path resulted in opening the right file
-   - buggy version: 
-       ```java  
-                // load css file
-                String defaultCss = SceneWrapper.getDefaultCSSResource().getFile().toPath().toString();
-                String scenesCss = wrapper.getSceneCSSResource().getFile().toPath().toString();
-    
-                scene.getStylesheets().add(defaultCss);
-                scene.getStylesheets().add(scenesCss); 
-       ```
-
-   - fixed version:
-     ```java             
-             // load css file
-             String defaultCss = SceneWrapper.getDefaultCSSResource().getURL().toExternalForm();
-             String scenesCss = wrapper.getSceneCSSResource().getURL().toExternalForm();
-
-             scene.getStylesheets().add(defaultCss);
-             scene.getStylesheets().add(scenesCss); 
-     ```
- -  aplication icon would not change. Using standard scene.getIcon.add(icon) did not work
-    - still not fixed 
- - Could not automatically run animation on start screen. Animations would finish before screen was shown
-    - use of  Platform.runLater() and a SceneLoadedListener(class that listens if a scene is assigned to object from that scene, then listens for adding this scene to a window, then listens for isShowing property of a window ) fixed the problem
+### Result 
+![image](realisation_results/loading_scene_animation.png)
+![image](realisation_results/main_view.png)
+![image](realisation_results/new_task_view.png)
+[video](realisation_results/demo_video.mov)
 ### Attributions
 - "list.png" <- <a href="https://www.flaticon.com/free-icons/to-do-list" title="to do list icons">To do list icons created by Freepik - Flaticon</a>
 - "chart-histogram.png" Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
@@ -52,5 +31,4 @@
 - "user.png" Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
 - "users.png" Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
 - "add.png" Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
-- 
 - colour combination <- <a href="https://colorhunt.co/palette/1e201e3c3d37697565ecdfcc" title="colour">colorhunt.co</a>

@@ -4,8 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="fixed errors with sync with db">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskControllerBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/controller/TaskControllerBase.java" afterDir="false" />
+    <list default="true" id="56f6fe09-2850-44ec-8274-a4e3093d8387" name="Changes" comment="added missing setting creation date">
+      <change afterPath="$PROJECT_DIR$/realisation_results/demo_video.mov" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/realisation_results/loading_scene_animation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/realisation_results/main_view.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/realisation_results/new_task_view.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/NotificationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/NotificationHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/TaskManagerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/TaskManagerApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/subTask/DAO/SubTaskDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/subTask/DAO/SubTaskDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/subTask/DAO/SubTaskDAOJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/subTask/DAO/SubTaskDAOJPA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/subTask/SubTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/subTask/SubTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/task/DAO/TaskDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/task/DAO/TaskDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/task/DAO/TaskDAOJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/task/DAO/TaskDAOJPA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/task/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/task/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/task/TaskPriority.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/task/TaskPriority.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/task/TaskState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/task/TaskState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskDirectory/TaskDirectory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/taskDirectory/TaskDirectory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskDirectory/TaskDirectoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/taskDirectory/TaskDirectoryDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskDirectory/TaskDirectoryDAOJPA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/taskDirectory/TaskDirectoryDAOJPA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskDirectory/TaskDirectoryItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/taskDirectory/TaskDirectoryItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskManager/TaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/taskManager/TaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/user/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/user/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/user/UserDAOJPAImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/user/UserDAOJPAImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/user/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/user/UserServiceJPAImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/user/UserServiceJPAImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +63,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -47,31 +73,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.Main.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/marcinpolewski/Documents/Task-Manager-Project/src/main/resources/view",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propCompiler",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Main.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/marcinpolewski/Documents/Task-Manager-Project/src/main/resources/view&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/view" />
@@ -80,11 +106,11 @@
       <recent name="$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/photos" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/database_querries" />
       <recent name="$PROJECT_DIR$/src/main/resources/icons" />
       <recent name="$PROJECT_DIR$/src/main/resources/languages" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.marcin.jacek.polewski.Task_Manager_Project.exceptions" />
@@ -135,6 +161,13 @@
       <workItem from="1728913707748" duration="35541000" />
       <workItem from="1729240549246" duration="22145000" />
       <workItem from="1729358960624" duration="5755000" />
+      <workItem from="1729622730049" duration="31000" />
+      <workItem from="1729623033834" duration="16000" />
+      <workItem from="1729667497317" duration="20000" />
+      <workItem from="1729667526378" duration="30000" />
+      <workItem from="1730571651438" duration="97000" />
+      <workItem from="1730571750168" duration="182000" />
+      <workItem from="1730571941376" duration="2014000" />
     </task>
     <task id="LOCAL-00031" summary="added blueprint for add new task screen">
       <option name="closed" value="true" />
@@ -577,17 +610,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskManager/service/TaskManagerDAOJPA.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/taskManager/service/TaskManagerDAOJPA.java</url>
           <line>25</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskManager/service/TaskManagerServiceJPA.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/taskManager/service/TaskManagerServiceJPA.java</url>
           <line>76</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/model/taskManager/TaskManager.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/marcin/jacek/polewski/Task_Manager_Project/logic/taskManager/TaskManager.java</url>
           <line>77</line>
           <option name="timeStamp" value="82" />
         </line-breakpoint>
